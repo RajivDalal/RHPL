@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Navbar from './navbar.jsx';
+import Home from '/pages/home.jsx';
 import Venue from '/pages/venue.jsx';
 import Contact from '/pages/contact.jsx';
 import Previous_Editions from '/pages/prev_editions.jsx';
@@ -14,6 +15,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/venue" element={<Venue />}/>
         <Route path="/organizers" element={<Organizers />}/>
         <Route path="/posters" element={<Posters />}/>

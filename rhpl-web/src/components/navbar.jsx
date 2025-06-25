@@ -1,5 +1,5 @@
 
-import {NavLink, Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Navbar = () => {
   return(
@@ -14,7 +14,7 @@ const Navbar = () => {
           <NavLink to="/important_dates">Important Dates</NavLink>
           <NavLink to="/registration">Registration</NavLink>
           <NavLink to="/programme">Programme</NavLink>
-          <NavLink to="/papers_and_posters">Papers and Posters</NavLink>
+          <NavLink to="/approved_proposals">Approved Proposals</NavLink>
           <NavLink to="/organizers">Organizers</NavLink>
           <NavLink to="/contact">Contact</NavLink>
           <NavLink to="/previous_editions">Previous Editions</NavLink>

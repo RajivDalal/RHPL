@@ -27,7 +27,7 @@ const Organizers = () => {
             <a href="https://abhikrc.com/"><span className="underline"> Abhik Roychoudhury</span> (National University of Singapore) <RiExternalLinkLine className="inline"/></a>
           </li>
           <li>
-            <a href="https://abhisekhs.github.io/"><span className="underline"> Abhisekh Sankaran</span> (Tata Consultancy Services Research) <RiExternalLinkLine className="inline"/></a>
+            <a href="https://abhisekhs.github.io/"><span className="underline"> Abhisekh Sankaran</span> (TCS Research) <RiExternalLinkLine className="inline"/></a>
           </li>
           <li>
             <a href="https://divyeshunadkat.github.io/"><span className="underline"> Divyesh Unadkat</span> (Synopsys) <RiExternalLinkLine className="inline"/></a>

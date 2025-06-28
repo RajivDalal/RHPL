@@ -1,11 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-    './src/**/*.{html,jsx}', // for files inside src
+    './src/**/*.{html,js,jsx}', // for files inside src
     './public/index.html',// for plain HTML files
   ],
   theme: {
-    extend: {},
+    extend: {
+       fontFamily: {
+        'share': ['Share Tech', 'sans-serif'],
+        'share-mono': ["Share Tech Mono", 'monospace']
+      },
+    },
   },
   plugins: [],
 }

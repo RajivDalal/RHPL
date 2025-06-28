@@ -9,12 +9,12 @@ const Important_dates = () => {
           <li>
             Submission deadline: Early September
           </li>
-          <li>
+          {/* <li>
             Submission deadline extension (provisioning for it): 7 - 10 days
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             Review period: 1 week
-          </li>
+          </li> */}
           <li>
             Notification: September end of 3rd week
           </li>

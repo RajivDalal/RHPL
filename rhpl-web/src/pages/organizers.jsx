@@ -9,7 +9,7 @@ const Organizers = () => {
       <p className="pt-10 org">
         <ul className="list-[square] space-y-1">
           <li>
-            <a href="https://www.csa.iisc.ac.in/~deepakd/"> <span className="underline">Deepak D'Souza</span> (IISc) <RiExternalLinkLine className="inline"/> </a>
+            <a href="https://www.csa.iisc.ac.in/~deepakd/"> <span className="underline">Deepak D'Souza</span> (IISc Bangalore) <RiExternalLinkLine className="inline"/> </a>
           </li>
           <li>
             <a href="https://www.cse.iitb.ac.in/~uday/"><span className="underline">Uday Khedker</span> (IIT Bombay) <RiExternalLinkLine className="inline"/></a>

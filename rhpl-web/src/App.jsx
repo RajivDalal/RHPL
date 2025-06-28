@@ -3,6 +3,7 @@ import Banner from './components/banner.jsx';
 import Navbar from './components/navbar.jsx';
 import Home from './pages/home.jsx';
 import Venue from './pages/venue.jsx';
+import Submit_proposal from './pages/submit_proposal.jsx';
 import Contact from './pages/contact.jsx';
 import Previous_Editions from './pages/prev_editions.jsx';
 import Approved_proposals from './pages/approved_proposals.jsx';
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/venue" element={<Venue />}/>
         <Route path="/organizers" element={<Organizers />}/>
+        <Route path="/submit_proposal" element={<Submit_proposal />}/>
         <Route path="/approved_proposals" element={<Approved_proposals />}/>
         <Route path="/contact" element={<Contact />}/>
         <Route path="/previous_editions" element={<Previous_Editions />}/>

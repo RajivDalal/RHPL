@@ -12,6 +12,7 @@ const Navbar = () => {
         <div className="navmenu hidden lg:flex justify-center items-center md:space-x-0 lg:space-x-5 xl:space-x-7 lg:text-[1.25rem] text-center font-share">
           <NavLink to="/venue">Venue</NavLink>
           <NavLink to="/important_dates">Important Dates</NavLink>
+          <NavLink to="/submit_proposal">Submit a proposal</NavLink>
           {/* <NavLink to="/registration">Registration</NavLink>
           <NavLink to="/programme">Programme</NavLink>
           <NavLink to="/approved_proposals">Approved Proposals</NavLink> */}

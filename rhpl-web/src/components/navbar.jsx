@@ -17,7 +17,7 @@ const Navbar = () => {
           <NavLink to="/programme">Programme</NavLink>
           <NavLink to="/approved_proposals">Approved Proposals</NavLink> */}
           <NavLink to="/organizers">Organizers</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          {/* <NavLink to="/contact">Contact</NavLink> */}
           <NavLink to="/previous_editions">Previous Editions</NavLink>
         </div>
         <div className='block lg:hidden'>Burger</div>

@@ -12,14 +12,19 @@
     background: transparent;
 }
 p {
-    padding-inline: 10%;
+    padding-inline: 5%;
+    width: 100vw; 
     
 }
 
-.org a:hover{
+.listLink a:hover{
   color:#14248a;
   font-size:17px;
   font-weight:bold;
+}
+
+.paraLink a:hover{
+  color:#14248a;
 }
 .navmenu a{
   position: relative;
@@ -55,15 +60,20 @@ p {
   display:flex;
   text-wrap: wrap;
   background-color: #e6f5fc;
-  margin:9%;
-  margin-top: 0;
-  margin-bottom:0;
+  margin:4% 12%; 
   padding:2%;
-  height:50rem;
+  min-height: 50vh;
+  height:100%;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
   font-variation-settings:"wdth" 100;
 
+}
+
+.contact
+{
+  width: 62px;
+  height: 62px;
 }

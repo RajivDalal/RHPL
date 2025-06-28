@@ -11,6 +11,8 @@ import Registration from './pages/registration.jsx';
 import Programme from './pages/programme.jsx';
 import Organizers from './pages/organizers.jsx';
 import Important_dates from './pages/imp_dates.jsx';
+import ContactButton from './components/contactButton.jsx';
+import Footer from './components/footer.jsx';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path="/registration" element={<Registration />}/>
         <Route path="/important_dates" element={<Important_dates />}/>
       </Routes>
+      {/* <ContactButton/> */}
+      <Footer/>
     </Router>
   );
 }

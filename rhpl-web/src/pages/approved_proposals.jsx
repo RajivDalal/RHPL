@@ -1,7 +1,7 @@
 const Approved_proposals = () => {
   return (
     <div className="content">
-      <p className="pt-10">
+      <p className="py-10">
         TBA
       </p>
     </div>);

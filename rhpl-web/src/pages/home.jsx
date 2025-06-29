@@ -11,7 +11,7 @@ const Home = () => {
 
         <div className="paraLink">The <a className="underline" href="https://www.iarcs.org.in/">Indian Association for Research in Computing Science (IARCS)</a> is pleased to announce the fourth edition of the Workshop on Research Highlights in Programming Languages (RHPL). The workshop will be co-located with <a href="https://www.fsttcs.org.in/2025/"><span className="underline">FSTTCS 2025</span>.</a></div>
  
-        <div>The focus of the workshop will be on all areas of Programming Languages, including but not limited to:
+        <div>The focus of the workshop will be on all areas of Programming Languages (PL), including but not limited to:
         </div>
 
         <ul className="list-[square] space-y-1 list-disc ml-7">
@@ -39,12 +39,12 @@ const Home = () => {
           <li>
             Programming language design and semantics
           </li>
-          <li>
+          {/* <li>
             Probabilistic reasoning<br/>
-          </li>
+          </li> */}
         </ul>
 
-        <div>Further, in view of the increasing role of AI in theory and practice, the workshop also includes in its scope the use and formal analysis of LLMs and GenAI tools.</div>
+        <div>Further, in view of the increasing role of AI in PL theory and practice, the workshop also includes in its scope the influence of AI tools and concepts on the above mentioned PL themes, as well as the impact of PL on the advancement of AI/ML, for instance via Probabilistic Programming Languages.</div>
 
         <div className="paraLink">We invite talk and poster proposals to the workshop. Please see <a href="/submit_proposal" className="underline">here</a> for more details on submitting proposals.</div>
 

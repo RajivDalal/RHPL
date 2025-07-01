@@ -36,7 +36,7 @@ const Navbar = () => {
               <li><NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/approved_proposals">Approved Proposals</NavLink></li>
             </ul>
-            <ul className={`block lg:hidden w-[100vw] navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0"}`}>
+            <ul className={`block lg:hidden w-[100vw] navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0 pointer-events-none"}`}>
               <li><NavLink onClick={handleLinkClick} to="/venue">Venue</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/important_dates">Important Dates</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/submit_proposal">Submit a proposal</NavLink></li>

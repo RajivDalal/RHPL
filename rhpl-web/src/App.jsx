@@ -58,7 +58,7 @@ function App() {
         <Route path="/registration" element={<Registration />}/>
         <Route path="/important_dates" element={<Important_dates />}/>
       </Routes>
-      <Link to="footer" className={`transition ease-in-out duration-[50] ${isButtonVisible?'opacity-100':' opacity-0'}`} smooth={true} duration={500}>
+      <Link to="footer" className={`transition ease-in-out duration-[50] ${isButtonVisible?'opacity-100':' opacity-0 pointer-events-none'}`} smooth={true} duration={500}>
         <ContactButton />
       </Link>
       <Element name="footer">

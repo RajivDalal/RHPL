@@ -17,18 +17,30 @@ const Navbar = () => {
         <NavLink to="/" className="text-3xl font-share-mono [word-spacing:-10px]">RHPL 2025</NavLink>
         
         {/* Links */}
-        <div className="navmenu hidden lg:flex justify-center items-center md:space-x-0 lg:space-x-5 xl:space-x-7 lg:text-[1.25rem] text-center font-share">
-          <NavLink to="/venue">Venue</NavLink>
-          <NavLink to="/important_dates">Important Dates</NavLink>
-          <NavLink to="/submit_proposal">Submit a proposal</NavLink>
-          <NavLink to="/organizers">Organizers</NavLink>
-          <NavLink to="/previous_editions">Previous Editions</NavLink>
+        <div className="navmenu flex justify-center items-center space-x-5 lg:text-[1.25rem] text-center font-share">
+          <div className='hidden lg:flex space-x-5'>
+            <NavLink to="/venue">Venue</NavLink>
+            <NavLink to="/important_dates">Important Dates</NavLink>
+            <NavLink to="/submit_proposal">Submit a proposal</NavLink>
+            <NavLink to="/organizers">Organizers</NavLink>
+            <NavLink to="/previous_editions">Previous Editions</NavLink>
+          </div>
           <div className='relative inline-block'>
-            <button onClick={handleBGClick} className={`border-none flex justify-center ${isBGClicked?"":""}`}><GiHamburgerMenu/></button>
-            <ul className={`navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0"}`}>
-              <li><NavLink className='' to="/registration">Registration</NavLink></li>
-              <li><NavLink className='' to="/programme">Programme</NavLink></li>
-              <li><NavLink className='' to="/approved_proposals">Approved Proposals</NavLink></li>
+            <button onClick={handleBGClick} className={`border-none flex justify-center pb-[0.15rem]`}><GiHamburgerMenu/></button>
+            <ul className={`hidden md:block navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0"}`}>
+              <li><NavLink to="/registration">Registration</NavLink></li>
+              <li><NavLink to="/programme">Programme</NavLink></li>
+              <li><NavLink to="/approved_proposals">Approved Proposals</NavLink></li>
+            </ul>
+            <ul className={`block lg:hidden navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0"}`}>
+              <li><NavLink to="/venue">Venue</NavLink></li>
+              <li><NavLink to="/important_dates">Important Dates</NavLink></li>
+              <li><NavLink to="/submit_proposal">Submit a proposal</NavLink></li>
+              <li><NavLink to="/organizers">Organizers</NavLink></li>
+              <li><NavLink to="/previous_editions">Previous Editions</NavLink></li>
+              <li><NavLink to="/registration">Registration</NavLink></li>
+              <li><NavLink to="/programme">Programme</NavLink></li>
+              <li><NavLink to="/approved_proposals">Approved Proposals</NavLink></li>
             </ul>
           </div>
         </div>

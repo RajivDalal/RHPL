@@ -1,13 +1,13 @@
 const Footer =() =>{
     return (
-        <div className="flex justify-between grid-flow-col bg-[#0b2545] text-[#e5e5e5] py-5 text-sm">
-            <div className="flex items-center px-5 w-max">&copy; IARCS, 2025</div>
+        <div className="sm:flex justify-between bg-[#0b2545] text-[#e5e5e5] py-5 text-sm">
+            <div className="flex items-center px-4 w-max">&copy; IARCS, 2025</div>
             {/* Abhishek sir, Rajiv, Nidhi */}
-        
-            <div className="px-5 grid grid-flow-col grid-rows-2">
-            <div className="row-span-2 flex justify-end pr-5 items-center">Contact:</div>
-            <div className="w-max">abhisekh.sankaran@tcs.com </div> 
-            <div className="w-max"> divyesh.unadkat@synopsys.com</div>
+            <br />
+            <div className="px-4 grid grid-flow-col grid-rows-2 auto-cols-[fit-content(10px)]">
+                <div className="row-span-2 flex justify-end pr-5 items-center">Contact:</div>
+                <div className="w-max">abhisekh.sankaran@tcs.com </div> 
+                <div className="w-max"> divyesh.unadkat@synopsys.com</div>
             </div>
 
             

@@ -11,9 +11,14 @@
     width: 0;
     background: transparent;
 }
+
+html,body{
+    overflow-x: hidden;
+}
+
 p {
     padding-inline: 5%;
-    width: 100vw; 
+    width: 100vw;
     
 }
 

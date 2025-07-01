@@ -20,7 +20,7 @@ import { Link, Element } from 'react-scroll';
 
 function App() {
 
-  const [isButtonVisible, setIsButtonVisible] = useState(false);
+  const [isButtonVisible, setIsButtonVisible] = useState(true);
   const footerRef = useRef(null);
 
   const handleScroll = () => {

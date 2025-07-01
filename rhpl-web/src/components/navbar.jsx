@@ -24,8 +24,8 @@ const Navbar = () => {
           <NavLink to="/organizers">Organizers</NavLink>
           <NavLink to="/previous_editions">Previous Editions</NavLink>
           <div className='relative inline-block'>
-            <button onClick={handleBGClick} className='border-none flex justify-center'><GiHamburgerMenu /></button>
-            <ul className={`absolute right-0 bg-black min-w-48 z-1 mt-[1.6rem] py-5 space-y-1 ${isBGClicked?"block":"hidden"}`}>
+            <button onClick={handleBGClick} className={`border-none flex justify-center ${isBGClicked?"":""}`}><GiHamburgerMenu/></button>
+            <ul className={`navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0"}`}>
               <li><NavLink className='' to="/registration">Registration</NavLink></li>
               <li><NavLink className='' to="/programme">Programme</NavLink></li>
               <li><NavLink className='' to="/approved_proposals">Approved Proposals</NavLink></li>

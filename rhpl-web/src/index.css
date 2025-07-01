@@ -56,6 +56,24 @@ p {
   background: #fff;
   transform: scale3d(1,1,1);
 }
+
+.navmenu .navlist {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #fbfbfb;
+  margin-top: 1.6rem;
+  padding: 1rem;
+  min-width: 12rem;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  color: #0e6ba8;
+}
+
+.navmenu .navlist a::before{
+  background: #0e6ba8;
+}
+
 .content{
   display:flex;
   text-wrap: wrap;

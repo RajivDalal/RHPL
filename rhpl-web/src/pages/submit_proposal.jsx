@@ -3,7 +3,7 @@ import {NavLink, Link} from 'react-router-dom';
 const Submit_proposal = () => {
   return (
     <div className="content">
-      <p className="py-10 space-y-2">
+      <p className="py-10">
         <h1 className="text-[27px] font-bold">Submit a proposal</h1>
       <hr className="border-black pb-4"/>
         <div>We invite proposals for:</div>

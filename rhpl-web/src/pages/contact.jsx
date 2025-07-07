@@ -1,10 +1,21 @@
 const Contact = () => {
   return (
     <div className="content">
-      <p className="pt-10">
-        Please write to Divyesh Unadkat or Abhisekh Sankaran for any queries.
+      <p className="py-10 space-y-2">
+        <div>Please write to any of the following organizers for any queries.</div>
+        <ul className="list-disc space-y-1 ml-7">
+          <li>
+            Abhisekh Sankaran (abhisekh.sankaran@tcs.com) 
+          </li>
+          <li>
+            Divyesh Unadkat (divyesh.unadkat@synopsis.com) 
+          </li>
+        </ul>
       </p>
     </div>
+
+
+
   );
 };
 

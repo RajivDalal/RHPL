@@ -1,24 +1,54 @@
+
 const Home = () => {
   return (
     <div className="content">
-      <p className="pt-10">
+      
+      <p className="py-10 space-y-2">
 
-        The Indian Association for Research in Computing Science (IARCS) is pleased to announce the fourth edition of the Workshop on Research Highlights in Programming Languages (RHPL). The workshop will be co-located with FSTTCS 2025. The focus of this workshop (RHPL@FSTTCS) will be on all areas of Programming Languages, including but not limited to: program analysis and verification, applied formal methods, and compilers.
+      <h1 className="text-[27px] font-bold">About the Workshop</h1>
+      
+      <hr className="border-black pb-4"/>
 
-        The objective of the workshop is to foster interactions between the attendees of the workshop, and more broadly, between researchers working on programming languages and the traditional FSTTCS community of researchers working on theoretical computer science and formal methods. To facilitate this, we invite proposals for:
+        <div className="paraLink">The <a className="underline" href="https://www.iarcs.org.in/">Indian Association for Research in Computing Science (IARCS)</a> is pleased to announce the fourth edition of the Workshop on Research Highlights in Programming Languages (RHPL). The workshop will be co-located with <a href="https://www.fsttcs.org.in/2025/"><span className="underline">FSTTCS 2025</span>.</a></div>
+ 
+        <div>The focus of the workshop will be on all areas of Programming Languages (PL), including but not limited to:
+        </div>
 
-        <ul className="list-disc ml-7">
+        <ul className="space-y-1 list-disc ml-7">
           <li>
-            Talks: based on recent work that has been published in reputed venues, or is mature in terms of approach and evaluation;
+            Program analysis and verification
           </li>
-          <li>Poster presentations: based on early ideas that are promising but have not been developed fully
+          <li>
+            Applied formal methods
           </li>
-
+          <li>
+            Compilers
+          </li>
+          <li>
+            Automated and interactive theorem provers
+          </li>
+          <li>
+            Concurrency and memory models
+          </li>
+          <li>
+            Domain and type theories
+          </li>          
+          <li>
+            Program sketching, synthesis and repair
+          </li>
+          <li>
+            Programming language design and semantics
+          </li>
+          {/* <li>
+            Probabilistic reasoning<br/>
+          </li> */}
         </ul>
 
-        In the long term we hope that RHPL will evolve into a regular conference or a track integrated with the FSTTCS conference.
+        <div>Further, in view of the increasing role of AI in PL theory and practice, the workshop also includes in its scope the influence of AI tools and concepts on the above mentioned PL themes, as well as the impact of PL on the advancement of AI/ML, for instance via Probabilistic Programming Languages.</div>
 
+        <div className="paraLink">We invite talk and poster proposals to the workshop. Please see <a href="/submit_proposal" className="underline">here</a> for more details on submitting proposals.</div>
 
+        <div>The objective of RHPL is to foster interactions between the attendees of the workshop, and more broadly between researchers working on Programming Languages and the traditional FSTTCS community of researchers working on Theoretical Computer Science and Formal Methods. In the long term, we hope that RHPL will evolve into a regular conference or a track integrated with the FSTTCS conference.</div>
       </p>
     </div>
   )

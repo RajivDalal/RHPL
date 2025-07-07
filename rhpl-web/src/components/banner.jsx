@@ -5,7 +5,7 @@ const Banner =() =>{
             <p className="text-5xl leading-none text-center pb-6 font-share">
                 <span className="text-4xl">Workshop on</span> <br/> Research Highlights in Programming Languages
             </p>
-            <p className="text-3xl leading-none text-center pb-2 font-share">December 17-21, BITS Goa</p>
+            <p className="text-3xl leading-none text-center pb-2 font-share">December 2025, BITS Goa</p>
             <p className="text-3xl leading-none text-center font-share">(co-located with FSTTCS)</p>
 
         </div>

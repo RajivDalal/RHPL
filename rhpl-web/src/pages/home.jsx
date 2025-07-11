@@ -40,7 +40,7 @@ const Home = () => {
             Programming language design (including energy efficiency and sustainability)
           </li>
             <li>
-            Prorgramming language semantics
+            Programming language semantics
           </li>
           <li>
             Programming language education

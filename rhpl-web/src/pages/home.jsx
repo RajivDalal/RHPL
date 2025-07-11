@@ -16,23 +16,23 @@ const Home = () => {
 
         <ul className="space-y-1 list-disc ml-7">
           <li>
-            Program analysis and verification
-          </li>
-          <li>
             Applied formal methods
           </li>
           <li>
-            Compilers
+            Automated and interactive theorem provers
           </li>
           <li>
-            Automated and interactive theorem provers
+            Compilers
           </li>
           <li>
             Concurrency and memory models
           </li>
           <li>
             Domain and type theories
-          </li>          
+          </li>
+          <li>
+            Program analysis and verification
+          </li>
           <li>
             Program sketching, synthesis and repair
           </li>

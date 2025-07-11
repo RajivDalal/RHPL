@@ -8,6 +8,12 @@ const Organizers = () => {
       <hr className="border-black pb-6"/>
         <ul className="list-[square] space-y-2 ml-8">
           <li>
+            <a href="https://abhisekhs.github.io/"><span className="underline"> Abhisekh Sankaran</span> (TCS Research) (co-Chair) </a>
+          </li>
+          <li>
+            <a href="https://divyeshunadkat.github.io/"><span className="underline"> Divyesh Unadkat</span> (Synopsys) (co-Chair) </a>
+          </li>
+          <li>
             <a href="https://www.csa.iisc.ac.in/~deepakd/"> <span className="underline">Deepak D'Souza</span> (IISc Bangalore) </a>
           </li>
           <li>
@@ -27,12 +33,6 @@ const Organizers = () => {
           </li>
           <li>
             <a href="https://abhikrc.com/"><span className="underline"> Abhik Roychoudhury</span> (National University of Singapore) </a>
-          </li>
-          <li>
-            <a href="https://abhisekhs.github.io/"><span className="underline"> Abhisekh Sankaran</span> (TCS Research) </a>
-          </li>
-          <li>
-            <a href="https://divyeshunadkat.github.io/"><span className="underline"> Divyesh Unadkat</span> (Synopsys) </a>
           </li>
         </ul>
       </p>

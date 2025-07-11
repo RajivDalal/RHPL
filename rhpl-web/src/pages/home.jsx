@@ -52,7 +52,7 @@ const Home = () => {
         </ul>
 
         <div>Further, in view of the increasing role of AI in PL theory and practice, the workshop also includes in its scope:</div>
-          <ul>
+          <ul className="space-y-1 list-disc ml-7">
             <li>
               Influences of AI tools and concepts on the above mentioned PL themes
             </li>

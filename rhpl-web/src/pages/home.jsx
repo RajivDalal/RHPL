@@ -37,27 +37,26 @@ const Home = () => {
             Program sketching, synthesis and repair
           </li>
           <li>
-            Programming language design (including energy efficiency and sustainability)
+            Programming language design and semantics
           </li>
-            <li>
+          {/*  <li>
             Programming language semantics
           </li>
           <li>
             Programming language education
-          </li>
-          
-          {/* <li>
+          </li>          
+           <li>
             Probabilistic reasoning<br/>
           </li> */}
         </ul>
 
-        <div>Further, in view of the increasing role of AI in PL theory and practice, the workshop also includes in its scope:</div>
+        <div>Further, in view of the increasing role of AI and ML in PL theory and practice, the workshop also includes in its scope:</div>
           <ul className="space-y-1 list-disc ml-7">
             <li>
-              Influences of AI tools and concepts on the mentioned PL themes
+              Influences of AI/ML tools and concepts on the mentioned PL themes
             </li>
             <li>
-              Impact of PL on the advancement of AI/ML, for instance via probabilistic programming languages
+              Impact of PL on AI/ML, for instance via probabilistic programming languages
             </li>
           </ul>
 

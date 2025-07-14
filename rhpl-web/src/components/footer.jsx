@@ -7,7 +7,7 @@ const Footer =() =>{
             <div className="px-4 grid grid-flow-col grid-rows-2 auto-cols-[fit-content(10px)]">
                 <div className="row-span-2 flex justify-end pr-5 items-center">Contact:</div>
                 <div className="w-max">abhisekh.sankaran@tcs.com </div> 
-                <div className="w-max"> divyesh.unadkat@synopsys.com</div>
+                <div className="w-max"> divyeshunadkat001@gmail.com</div>
             </div>
 
             

@@ -2,7 +2,7 @@
 const Important_dates = () => {
   return (
     <div className="content">
-      <p className="py-10">
+    <p className="py-10 space-y-2">
         <h1 className="text-[27px] font-bold">Important Dates</h1>
         <hr className="border-black pb-6" />
         <ul className="list-disc space-y-1 ml-8">

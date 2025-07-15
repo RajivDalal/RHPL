@@ -50,10 +50,10 @@ const Home = () => {
           </li> */}
         </ul>
 
-        <div>Further, in view of the increasing role of AI and ML in PL theory and practice, the workshop also includes in its scope:</div>
+        <div>Further, in view of the increasing role of Artificial Intelligence (AI) and Machine Learning (ML) in PL theory and practice, the workshop also includes in its scope:</div>
           <ul className="space-y-1 list-disc ml-7">
             <li>
-              Influences of AI/ML tools and concepts on the mentioned PL themes
+              Influences of AI/ML concepts and tools on the mentioned PL themes
             </li>
             <li>
               Impact of PL on AI/ML, for instance via probabilistic programming languages

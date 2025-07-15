@@ -20,7 +20,7 @@ const Submit_proposal = () => {
           </li>
         </ul>
 
-        <div>Multiple proposals may be submitted by a presenter to the workshop. Each proposal can be based on one or more works, published or unpublished.</div>
+        <div>Each proposal can be based on one or more works, published or unpublished.</div>
 
         <div>Proposals to the workshop may be submitted using the Google form below:</div>
 

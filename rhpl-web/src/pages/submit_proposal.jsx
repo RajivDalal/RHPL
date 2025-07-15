@@ -8,7 +8,7 @@ const Submit_proposal = () => {
       <hr className="border-black pb-4"/>
         <div>We invite proposals for:</div>
 
-        <ul className="list-disc space-y-1 ml-7">
+        <ul className="list-disc space-y-1 ml-10">
           <li>
             Talks: based on recent work that has been published in reputed venues, or is mature in terms of approach and evaluation;
           </li>
@@ -17,7 +17,7 @@ const Submit_proposal = () => {
           </li>
         </ul>
 
-        <div>Multiple proposals may be submitted by a presenter to the workshop. Each proposal can be based on one or more works be they published or unpublished.</div>
+        <div>Multiple proposals may be submitted by a presenter to the workshop. Each proposal can be based on one or more works, published or unpublished.</div>
 
         <div>Proposals to the workshop may be submitted using the Google form below:</div>
 

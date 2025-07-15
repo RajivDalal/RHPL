@@ -8,7 +8,7 @@ const Submit_proposal = () => {
       <hr className="border-black pb-4"/>
         <div>We invite proposals for:</div>
 
-        <ul className="list-disc space-y-1 ml-7">
+        <ul className="space-y-1 list-disc ml-7">
           <li>
             Talks: based on recent work that has been published in reputed venues, or is mature in terms of approach and evaluation;
           </li>

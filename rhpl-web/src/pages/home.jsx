@@ -9,7 +9,7 @@ const Home = () => {
       
       <hr className="border-black pb-4"/>
 
-        <div className="paraLink">The <a className="underline" href="https://www.iarcs.org.in/">Indian Association for Research in Computing Science (IARCS)</a> is pleased to announce the fourth edition of the Workshop on Research Highlights in Programming Languages (RHPL). The workshop is organized by IARCS in association with <a className="underline" href="https://india.acm.org/">ACM India</a>, and will be co-located with <a href="https://www.fsttcs.org.in/2025/"><span className="underline">FSTTCS 2025</span>.</a></div>
+        <div className="paraLink">The <a className="underline" href="https://www.iarcs.org.in/">Indian Association for Research in Computing Science (IARCS)</a> is pleased to announce the fourth edition of the Workshop on Research Highlights in Programming Languages (RHPL). The workshop will be co-located with <a href="https://www.fsttcs.org.in/2025/"><span className="underline">FSTTCS 2025</span>.</a></div>
  
         <div>The focus of the workshop will be on all areas of Programming Languages (PL), including but not limited to:
         </div>

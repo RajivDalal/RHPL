@@ -5,21 +5,16 @@ const Important_dates = () => {
     <p className="py-10 space-y-2">
         <h1 className="text-[27px] font-bold">Important Dates</h1>
         <hr className="border-black pb-6" />
+        All dates below are Indian Standard Time (IST). 
         <ul className="list-disc space-y-1 ml-8">
           <li>
-            Submission portal opens: Some time in July 2025, say by July 25
+            Submission portal opens: July 28, 2025
           </li>
           <li>
-            Submission deadline: Soon after Sep 15 (FSTTCS notification deadline) 
-          </li>
-         <li>
-            [Internal: Submission deadline extension (provisioning for it): at most 7 days]
+            Submission deadline: September 18, 2025 
           </li>
           <li>
-            [Internal: Review period: 1 week]
-          </li>
-          <li>
-            Notification: September last week
+            Notification: September 25, 2025
           </li>
           <li>
             Early registration deadline: TBA

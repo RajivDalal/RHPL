@@ -26,7 +26,7 @@ const Submit_proposal = () => {
 
         <div className="paraLink"><a className="underline" href="https://forms.gle/RufuAs54zxsadp1n7">Proposal submission to RHPL 2025</a></div>
 
-        <div>Please see <Link to="/home" className="underline hover:#14248a">here</Link> for the submission topics, and <Link to="/important_dates" className="underline hover:#14248a">here</Link> for the submission deadline and other important dates.</div>
+        <div>Please see <Link to="/" className="underline hover:#14248a">here</Link> for the submission topics, and <Link to="/important_dates" className="underline hover:#14248a">here</Link> for the submission deadline and other important dates.</div>
       </p>
     </div>
   );

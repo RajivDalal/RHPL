@@ -5,7 +5,7 @@ const Important_dates = () => {
     <p className="py-10 space-y-2">
         <h1 className="text-[27px] font-bold">Important Dates</h1>
         <hr className="border-black pb-6" />
-        <div className="paraLink">All dates below are in <a classname="underline" href="https://en.wikipedia.org/wiki/Indian_Standard_Time">Indian Standard Time (IST)</a>.</div> 
+        All dates below are in <div className="paraLink"><a classname="underline" href="https://en.wikipedia.org/wiki/Indian_Standard_Time">Indian Standard Time (IST)</a></div>. 
         <ul className="list-disc space-y-1 ml-8">
           <li>
             Submission portal opens: July 28, 2025

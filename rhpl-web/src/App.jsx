@@ -43,7 +43,8 @@ function App() {
   }, []);
 
   return (
-    <Router basename='/rhpl2025'>
+    // <Router basename='/rhpl2025'>
+    <Router>
       <Banner />
       <Navbar/>
       <Routes>

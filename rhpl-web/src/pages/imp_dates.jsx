@@ -11,10 +11,10 @@ const Important_dates = () => {
             Submission portal opens: July 28, 2025
           </li>
           <li>
-            Submission deadline: September 18, 2025 
+            Submission deadline: <strike className="text-gray-500">September 18, 2025</strike> October 3, 2025
           </li>
           <li>
-            Notification: September 25, 2025
+            Notification: <strike className="text-gray-500">September 25, 2025</strike> October 10, 2025
           </li>
           <li>
             Early registration deadline: TBA

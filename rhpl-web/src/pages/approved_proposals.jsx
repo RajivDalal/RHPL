@@ -15,7 +15,7 @@ const Approved_proposals = () => {
           <div className="font-semibold text-gray-900 text-lg">
             {item["Title of your proposal"]}
           </div>
-          <div className="text-sm text-gray-700 mt-1">
+          <div className="text-sm text-gray-700 mt-1 capitalize">
             {item["Name of the presenter"]} — {item["Affiliation"]}
           </div>
         </li>
@@ -25,11 +25,14 @@ const Approved_proposals = () => {
   return (
     <div className="content">
       <p className="py-10">
-         <h2 className="text-2xl font-bold text-gray-900 mb-6">Accepted Talks</h2>
-      <ProposalList data={talks} />
+        
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Accepted Talks</h2>
+        <hr className="border-black pb-6" />
+        <ProposalList data={talks} />
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Accepted Posters</h2>
-      <ProposalList data={posters} />
+        <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-2">Accepted Posters</h2>
+        <hr className="border-black pb-6" />
+        <ProposalList data={posters} />
       </p>
     </div>);
 };

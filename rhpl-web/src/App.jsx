@@ -43,9 +43,10 @@ function App() {
   }, []);
 
   return (
-    <Router basename='/rhpl2025'>
-    {/* <Router> */}
-      <Banner />
+    
+    <Router>
+    {/* <Router basename='/rhpl2025'>
+      <Banner /> */}
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />

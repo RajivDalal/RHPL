@@ -1,25 +1,34 @@
 import proposals from '../data/proposal_data.js';
 
 const Approved_proposals = () => {
-  // Define custom rank order
-  const rankOrder = ["A*", "A", "B", "N", "U"];
+  // Define the rank order priority
+  const rankOrder = { "A*": 1, "A": 2, "B": 3, "N": 4, "U": 5 };
 
-  // Sort by rank first, then alphabetically
-  const sortByRankThenTitle = (a, b) => {
-    const rankA = rankOrder.indexOf(a["Rank"]) === -1 ? rankOrder.length : rankOrder.indexOf(a["Rank"]);
-    const rankB = rankOrder.indexOf(b["Rank"]) === -1 ? rankOrder.length : rankOrder.indexOf(b["Rank"]);
+  // Helper function to extract last name
+  const getLastName = (name) => {
+    if (!name) return "";
+    const parts = name.trim().split(" ");
+    return parts[parts.length - 1].toLowerCase();
+  };
 
-    if (rankA !== rankB) return rankA - rankB;
-    return a["Title of your proposal"].localeCompare(b["Title of your proposal"]);
+  // Sorting function based on rank and then last name
+  const sortByRankAndName = (a, b) => {
+    const rankA = rankOrder[a["Rank"]] || 6;
+    const rankB = rankOrder[b["Rank"]] || 6;
+
+    if (rankA !== rankB) return rankA - rankB; // sort by rank
+    return getLastName(a["Name of the presenter"]).localeCompare(
+      getLastName(b["Name of the presenter"])
+    ); // sort by last name
   };
 
   const talks = proposals
     .filter((p) => p["Select an appropriate category for your proposal"] === "Talk")
-    .sort(sortByRankThenTitle);
+    .sort(sortByRankAndName);
 
   const posters = proposals
     .filter((p) => p["Select an appropriate category for your proposal"] === "Poster")
-    .sort(sortByRankThenTitle);
+    .sort(sortByRankAndName);
 
   const ProposalList = ({ data }) => (
     <ul className="space-y-4">
@@ -28,7 +37,7 @@ const Approved_proposals = () => {
           <div className="font-semibold text-gray-900 text-lg">
             {item["Title of your proposal"]}
           </div>
-          <div className="text-base text-gray-700 mt-1 capitalize">
+          <div className="text-[1.07rem] text-gray-700 mt-1 capitalize font-medium">
             {item["Name of the presenter"]}
           </div>
           {item["Rank"] && (

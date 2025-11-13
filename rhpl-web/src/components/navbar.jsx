@@ -33,9 +33,9 @@ const Navbar = () => {
             <button onClick={handleBGClick} className={`border-none flex justify-center pb-[0.15rem]`}><GiHamburgerMenu/></button>
             <ul className={`hidden lg:block navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0 pointer-events-none"}`}>
               <li><NavLink onClick={handleLinkClick} to="/previous_editions">Previous Editions</NavLink></li>
-              <li><NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/submit_proposal">Submit a proposal</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/important_dates">Important Dates</NavLink></li>
+             {/*  <li><NavLink onClick={handleLinkClick} to='/panel_discussion'>Panel Discussion</NavLink></li> */}
             </ul>
             <ul className={`block lg:hidden w-[100vw] navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0 pointer-events-none"}`}>
               <li><NavLink onClick={handleLinkClick} to="/venue">Venue</NavLink></li>

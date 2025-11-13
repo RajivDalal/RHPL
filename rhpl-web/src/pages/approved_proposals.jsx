@@ -46,11 +46,6 @@ const Approved_proposals = () => {
           <div className="text-[1.1rem] text-gray-700 mt-1 capitalize font-medium">
             {item["Name of the presenter"]}
           </div>
-          {item["Rank"] && (
-            <div className="text-xs text-gray-500 mt-1">
-              Rank: {item["Rank"]}
-            </div>
-          )}
         </li>
       ))}
     </ul>
@@ -58,7 +53,10 @@ const Approved_proposals = () => {
 
   return (
     <div className="content">
+      
       <p className="py-10">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2 pb-6">Accepted Talks and Posters</h1>
+        
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Accepted Talks</h2>
         <hr className="border-black pb-6" />
         <ProposalList data={talks} />

@@ -15,7 +15,7 @@ import Organizers from './pages/organizers.jsx';
 import Important_dates from './pages/imp_dates.jsx';
 import ContactButton from './components/contactButton.jsx';
 import Footer from './components/footer.jsx';
-
+import Panel from './pages/panel_discussion';
 import { Link, Element } from 'react-scroll';
 
 function App() {
@@ -59,6 +59,7 @@ function App() {
         <Route path="/programme" element={<Programme />}/>
         <Route path="/registration" element={<Registration />}/>
         <Route path="/important_dates" element={<Important_dates />}/>
+        {/* <Route path="/panel_discussion" element={<Panel/>}/> */}
       </Routes>
       <Link to="footer" className={`transition ease-in-out duration-[50] ${isButtonVisible?'opacity-100':' opacity-0 pointer-events-none'}`} smooth={true} duration={500}>
         <ContactButton />

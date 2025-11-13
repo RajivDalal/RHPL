@@ -24,10 +24,9 @@ const Navbar = () => {
         <div className="flex justify-center items-center space-x-5 lg:text-[1.25rem] text-center font-share">
           <div className='hidden lg:flex space-x-5'>
             <NavLink onClick={handleLinkClick} to="/venue">Venue</NavLink>
-            
             <NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink>
             <NavLink onClick={handleLinkClick} to="/organizers">Organizers</NavLink>
-            
+            <NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink>
             <NavLink onClick={handleLinkClick} to="/approved_proposals">Approved Proposals</NavLink>
           </div>
           <div className='relative inline-block'>

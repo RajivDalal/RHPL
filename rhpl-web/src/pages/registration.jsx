@@ -7,8 +7,8 @@ const Registration = () => {
         <hr className="border-black pb-4"/>
           
         To register for RHPL 2025, you need to register for FSTTCS 2025. The link to the FSTTCS 2025 registration page is below.<br/><br/>
-        
-        <a href="https://guptasid.bitbucket.io/fsttcs2025/registration.html">FSTTCS 2025 registration page</a>
+
+        <a className="underline" href="https://guptasid.bitbucket.io/fsttcs2025/registration.html" >FSTTCS 2025 registration page</a>
 
       </p>
    </div>
@@ -17,6 +17,7 @@ const Registration = () => {
 
 
 export default Registration;
+
 
 
 

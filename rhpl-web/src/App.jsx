@@ -53,7 +53,7 @@ function App() {
         <Route path="/venue" element={<Venue />}/>
         <Route path="/organizers" element={<Organizers />}/>
         <Route path="/submit_proposal" element={<Submit_proposal />}/>
-        <Route path="/approved_proposals" element={<Approved_proposals />}/>
+        <Route path="/accepted_proposals" element={<Approved_proposals />}/>
         <Route path="/contact" element={<Contact />}/>
         <Route path="/previous_editions" element={<Previous_Editions />}/>
         <Route path="/programme" element={<Programme />}/>
@@ -74,3 +74,4 @@ function App() {
 }
 
 export default App
+

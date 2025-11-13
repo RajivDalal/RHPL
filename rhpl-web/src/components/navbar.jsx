@@ -23,7 +23,7 @@ const Navbar = () => {
         {/* Links */}
         <div className="flex justify-center items-center space-x-5 lg:text-[1.25rem] text-center font-share">
           <div className='hidden lg:flex space-x-5'>
-            <NavLink onClick={handleLinkClick} to="/venue">Venue</NavLink>
+            <NavLink onClick={handleLinkClick} to="/local_information">Local Information</NavLink>
             <NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink>
             <NavLink onClick={handleLinkClick} to="/organizers">Organizers</NavLink>
             <NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink>
@@ -35,10 +35,12 @@ const Navbar = () => {
               <li><NavLink onClick={handleLinkClick} to="/previous_editions">Previous Editions</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/submit_proposal">Submit a proposal</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/important_dates">Important Dates</NavLink></li>
+              <li><NavLink onClick={handleLinkClick} to="/venue">Venue</NavLink></li>
              {/*  <li><NavLink onClick={handleLinkClick} to='/panel_discussion'>Panel Discussion</NavLink></li> */}
             </ul>
             <ul className={`block lg:hidden w-[100vw] navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0 pointer-events-none"}`}>
               <li><NavLink onClick={handleLinkClick} to="/venue">Venue</NavLink></li>
+              <li><NavLink onClick={handleLinkClick} to="/local_information">Local Information</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/important_dates">Important Dates</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/submit_proposal">Submit a proposal</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/organizers">Organizers</NavLink></li>
@@ -56,4 +58,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 

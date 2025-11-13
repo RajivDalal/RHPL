@@ -1,31 +1,21 @@
 import proposals from '../data/proposal_data.js';
 
 const Approved_proposals = () => {
-  // Define custom order for ranks
-  const rankOrder = ["A*", "A", "B", "N", "U"];
+  const rankOrder = { "A*": 1, "A": 2, "B": 3, "N": 4, "U": 5, "": 6 };
 
-  // Sorting function based on custom rank order
-  const sortByRank = (a, b) => {
-    const rankA = a["Rank"] ? a["Rank"].toUpperCase().trim() : "U";
-    const rankB = b["Rank"] ? b["Rank"].toUpperCase().trim() : "U";
-
-    const indexA = rankOrder.indexOf(rankA) === -1 ? rankOrder.length : rankOrder.indexOf(rankA);
-    const indexB = rankOrder.indexOf(rankB) === -1 ? rankOrder.length : rankOrder.indexOf(rankB);
-
-    if (indexA !== indexB) return indexA - indexB;
-    return a["Title of your proposal"].localeCompare(b["Title of your proposal"]);
-  };
-
-  // Separate and sort talks and posters
   const talks = proposals
     .filter((p) => p["Select an appropriate category for your proposal"] === "Talk")
-    .sort(sortByRank);
+    .sort((a, b) => {
+      const rankA = rankOrder[a["Rank"]] || 6;
+      const rankB = rankOrder[b["Rank"]] || 6;
+      if (rankA !== rankB) return rankA - rankB;
+      return a["Title of your proposal"].localeCompare(b["Title of your proposal"]);
+    });
 
   const posters = proposals
     .filter((p) => p["Select an appropriate category for your proposal"] === "Poster")
     .sort((a, b) => a["Title of your proposal"].localeCompare(b["Title of your proposal"]));
 
-  // Component for listing proposals
   const ProposalList = ({ data }) => (
     <ul className="space-y-4">
       {data.map((item, i) => (
@@ -37,7 +27,7 @@ const Approved_proposals = () => {
             {item["Name of the presenter"]}
           </div>
           {item["Rank"] && (
-            <div className="text-sm text-gray-500 mt-1 italic">
+            <div className="text-xs text-gray-500 mt-1">
               Rank: {item["Rank"]}
             </div>
           )}
@@ -46,10 +36,9 @@ const Approved_proposals = () => {
     </ul>
   );
 
-  // Main JSX output
   return (
     <div className="content">
-      <p className="py-10">
+      <div className="py-10">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Accepted Talks</h2>
         <hr className="border-black pb-6" />
         <ProposalList data={talks} />
@@ -57,7 +46,7 @@ const Approved_proposals = () => {
         <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-2">Accepted Posters</h2>
         <hr className="border-black pb-6" />
         <ProposalList data={posters} />
-      </p>
+      </div>
     </div>
   );
 };

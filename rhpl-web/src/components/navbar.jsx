@@ -27,7 +27,7 @@ const Navbar = () => {
             <NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink>
             <NavLink onClick={handleLinkClick} to="/organizers">Organizers</NavLink>
             <NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink>
-            <NavLink onClick={handleLinkClick} to="/approved_proposals">Approved Proposals</NavLink>
+            <NavLink onClick={handleLinkClick} to="/accepted_proposals">Accepted Proposals</NavLink>
           </div>
           <div className='relative inline-block'>
             <button onClick={handleBGClick} className={`border-none flex justify-center pb-[0.15rem]`}><GiHamburgerMenu/></button>
@@ -45,7 +45,7 @@ const Navbar = () => {
               <li><NavLink onClick={handleLinkClick} to="/previous_editions">Previous Editions</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink></li>
-              <li><NavLink onClick={handleLinkClick} to="/approved_proposals">Approved Proposals</NavLink></li>
+              <li><NavLink onClick={handleLinkClick} to="/accepted_proposals">Accepted Proposals</NavLink></li>
             </ul>
           </div>
         </div>
@@ -56,3 +56,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

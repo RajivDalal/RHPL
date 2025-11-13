@@ -392,20 +392,6 @@ const proposals = [
     "Rank": "U"
   },
   {
-    "Timestamp": "7-28-2025 7:42:29",
-    "Email Address": "test@abc.com",
-    "Select an appropriate category for your proposal": "Poster",
-    "Title of your proposal": "XYZ",
-    "Name of the presenter": "test",
-    "Affiliation": "UVW university, GHI",
-    "Current role/position": "Independent researcher",
-    "Your collaborators on the proposal. Mention their names and affiliation, one name + affiliation per line": "",
-    "Abstract of your proposal": "PQR",
-    "Publications/pre-prints/technical reports your proposal is based on.\n\n- For the published aspects of your proposal, please provide the publication details including the publication title, authors, conference/journal name and publication year. If there are": "- test. IJK. Proc. of EFG, 2025\n- www.mno.com/xyz",
-    "Mobile Number": 12345,
-    "Rank": ""
-  },
-  {
     "Timestamp": "9-17-2025 17:42:39",
     "Email Address": "praneethjain005@gmail.com",
     "Select an appropriate category for your proposal": "Poster",
@@ -420,20 +406,6 @@ const proposals = [
     "Rank": ""
   },
   {
-    "Timestamp": "9-18-2025 22:09:05",
-    "Email Address": "mutilin@ispras.ru",
-    "Select an appropriate category for your proposal": "Poster",
-    "Title of your proposal": "RaceHunter-Fuzzer: Coverage-Guided Fuzzing of Inputs and Schedules for Concurrency Bug Detection",
-    "Name of the presenter": "Vadim Mutilin",
-    "Affiliation": "Ivannikov Institute for System Programming of the RAS (ISPRAS)",
-    "Current role/position": "Faculty",
-    "Your collaborators on the proposal. Mention their names and affiliation, one name + affiliation per line": "Vitaly Mordan, ISPRAS\nVeronika Rudenchik, ISPRAS\nPavel Andrianov, ISPRAS\nEvgeny Gerlits, ISPRAS",
-    "Abstract of your proposal": "Concurrency bugs remain among the most challenging issues in software development because they often manifest rarely and unpredictably. Their appearance depends not only on program inputs but also on the specific interleavings of concurrent schedules.\nAs a result, detecting such bugs requires exploring two vast spaces: inputs and schedules.\n\nWe propose a preliminary approach to address both dimensions. Our method builds on the RaceHunter tool, which systematically explores concurrent schedules. We extend it with a new component, RaceHunter-Fuzzer, which integrates a fuzzing loop that mutates both schedules and inputs, guided by coverage feedback. Unlike approaches that generate synthetic schedules, our schedule mutation strategy is stateful: it reuses information from previously observed executions.\n\nTo further direct fuzzing toward promising inputs, we introduce concurrency conflicting-pair coverage, which helps selecting inputs that may trigger concurrency issues.\n\nThere are several related efforts in concurrency fuzzing, such as MUZZ and CONZZER. Compared to MUZZ, our approach systematically explores schedules rather than relying on randomness. While CONZZER mutates adjacency-directed call pairs to produce new thread interleavings, RaceHunter-Fuzzer instead mutates individual access pairs.\n\nWe evaluated our approach on QEMU concurrency unit tests. The experiments included two settings:\n1. Iterations over a relatively small set of concrete input values (to compare directly with the baseline RaceHunter).\n2. Tests with unbounded input spaces.\nPreliminary results show that RaceHunter-Fuzzer outperforms the original RaceHunter when more than 30 concrete values are considered. Moreover, even with unbounded inputs, RaceHunter-Fuzzer successfully detects the same concurrency bugs as the baseline.",
-    "Publications/pre-prints/technical reports your proposal is based on.\n\n- For the published aspects of your proposal, please provide the publication details including the publication title, authors, conference/journal name and publication year. If there are": "Not Available",
-    "Mobile Number": "+79035104623",
-    "Rank": ""
-  },
-  {
     "Timestamp": "9-25-2025 11:19:24",
     "Email Address": "atanu94kundu@gmail.com",
     "Select an appropriate category for your proposal": "Poster",
@@ -445,34 +417,6 @@ const proposals = [
     "Abstract of your proposal": "Reachability analysis of compositional hybrid systems, where individual components are modeled as hybrid automata, poses unique challenges. In addition to preserving the compositional semantics while computing system behaviors, algorithms have to cater to the explosion in the number of locations in the parallel product automaton. In this paper, we propose a bounded reachability analysis algorithm for compositional hybrid systems with piecewise affine dynamics, based on the principle of counterexample guided abstraction refinement (CEGAR). In particular, the algorithm searches for a counterexample in the discrete abstraction of the composition model, without explicitly computing a product automaton. When a counterexample is discovered in the abstraction, its validity is verified by a refinement of the state-space guided by the abstract counterexample. The state-space refinement is through a symbolic reachability analysis, particularly using a state-of-the-art algorithm with support functions as the continuous state representation. In addition, the algorithm mixes different semantics of composition with the objective of improved efficiency. Step compositional semantics is followed while exploring the abstract (discrete) state-space, while shallow compositional semantics is followed during state-space refinement with symbolic reachability analysis. Optimizations such as caching the results of the symbolic reachability analysis, which can be later reused, have been proposed. We implement this algorithm in the tool SAT-Reach and demonstrate the scalability benefits.",
     "Publications/pre-prints/technical reports your proposal is based on.\n\n- For the published aspects of your proposal, please provide the publication details including the publication title, authors, conference/journal name and publication year. If there are": "https://arxiv.org/abs/2509.03560",
     "Mobile Number": 8617035504,
-    "Rank": ""
-  },
-  {
-    "Timestamp": "9-30-2025 18:18:17",
-    "Email Address": "rajkumarinnani@gmail.com",
-    "Select an appropriate category for your proposal": "Poster",
-    "Title of your proposal": "Deterministic Polynomial-time Solver for Generalized n� x n� Sudoku puzzle, a NP-COMPLETE problem",
-    "Name of the presenter": "K Rajkumar Innani",
-    "Affiliation": "H K E S",
-    "Current role/position": "Faculty",
-    "Your collaborators on the proposal. Mention their names and affiliation, one name + affiliation per line": "",
-    "Abstract of your proposal": "The classic 9?9 Sudoku puzzle is a well-known logic-based, combinatorial number-placement problem that is a representative of the larger class of NP-complete problems. Sudoku puzzle resembles the requirements of the unsolved Latin Square problem, with additional constraints applicable to the n x n regions. This paper presents the execution of a, robust and scalable computer program for solving the generalized Sudoku puzzles on an n� x n� grid, an extension that significantly increases the complexity and computational challenge. The solver addresses the task of filling a partially completed n� x n� grids, sub-grids of size n x n, such that every row, column, and sub-grids contains numbers from 1 to n� exactly once. Sudoku puzzle is a complicated 2-dimensional logical puzzle with applications in the computer science and medical domains. Many computational algorithms exist to solve the classic Sudoku puzzle in different ways, but there is no algorithm that can solve the puzzle in steps by reasoning, without guessing, and in polynomial time. If the puzzle given to the program is invalid, say has multiple entries in the any row or column or n x n grid, the program will immediately throw an error message and will terminate immediately. Also if the puzzle can?t be solved by reasoning at some further point of execution, then too the system will report an error message and will terminate. I had discovered the algorithm for the classic Sudoku puzzle during 2006-2007 and had successfully coded the program during 2008 both, for solving and generating the puzzles; I even have the evidence in my mailbox. I have obtained the copyrights of the 9 x 9 solver and generator programs and the generalized n� x n� solver program during 2014 and 2025 respectively. The time complexity of the algorithm for generalized Sudoku puzzle solver resulted to be O(N^8), where N, a perfect square, is the size of the puzzle. Since the generalized n� x n� Sudoku puzzle is classified as a NP-COMPLETE problem, the research confirms that P=NP!",
-    "Publications/pre-prints/technical reports your proposal is based on.\n\n- For the published aspects of your proposal, please provide the publication details including the publication title, authors, conference/journal name and publication year. If there are": "Title : TARA-KISHAN Step-by-Step solver for SUDOKU Puzzle\nAuthor: K Rajkumar Innani \nConference: IEEE's IACC Workshop\nYear : 2013",
-    "Mobile Number": 8970828660,
-    "Rank": ""
-  },
-  {
-    "Timestamp": "10-1-2025 12:11:43",
-    "Email Address": "rajkumarinnani@gmail.com",
-    "Select an appropriate category for your proposal": "Poster",
-    "Title of your proposal": "Deterministic, Polynomial-time Solver for Generalized n2 x n2  Sudoku Puzzle, a NP-Complete Problem to Claim P=NP",
-    "Name of the presenter": "K Rajkumar Innani",
-    "Affiliation": "SLNCE",
-    "Current role/position": "Faculty",
-    "Your collaborators on the proposal. Mention their names and affiliation, one name + affiliation per line": "K Rajkumar Innani, SLNCE, VTU",
-    "Abstract of your proposal": "The classic 9 x9 Sudoku puzzle is a well-known logic-based, combinatorial number-placement problem that is a representative of the larger class of NP-complete problems. The paper presents the execution of a robust and scalable computer program, which solves the generalized Sudoku problem on the n2 x n2 grids, an extension that significantly increases the complexity and computational challenge. The solver addresses the task of filling a partially completed n2 x n2 grids, sub-grids of size n x n, such that every row, column, and sub-grid contains each digit from 1 to n2 exactly once. Sudoku puzzle is a complicated 2-dimensional logical puzzle with applications in the computer science and medical domains. Many computational algorithms exist to solve the classic Sudoku puzzle in different ways, but there is no algorithm that can solve the puzzle in steps by reasoning, without guessing, and in polynomial time. If the puzzle given to the program is invalid, say, has duplicate entries in the same row or column or n2 x n2 grids, the program will immediately report an error message and will terminate. Also, if the puzzle cannot be solved by reasoning at some later stage while solving, then also the system will report an error message and terminate. I had discovered the algorithm for the classic Sudoku puzzle during 2006-2007 and had successfully coded the program during 2008 for both, solving and generating the 9 x 9 puzzles; I even have the evidence in my mailbox. I have obtained the copyrights of the 9 x 9 solver and generator programs and the generalized n2 x n2 solver program during 2014 and 2025 respectively. The time-complexity of the algorithm for solving generalized Sudoku puzzle resulted to be O(N8), where N, a perfect square, is the size of the puzzle. Since the generalized n2 x n2 Sudoku puzzle is classified as an NP-COMPLETE problem, the research confirms that P=NP!",
-    "Publications/pre-prints/technical reports your proposal is based on.\n\n- For the published aspects of your proposal, please provide the publication details including the publication title, authors, conference/journal name and publication year. If there are": "Published\nTitle : TARA-KISHAN Step-by-step Solver for Sudoku Puzzle\nAuthor : K Rajkumar Innani\nCoference : IEEE's International Conference on Advances in Computing and Communication\nYear : 2013\nUnpublished\nhttps://drive.google.com/file/d/1qiqdfhytvMzyQQa-FExBY4EhHNfXP-CW/view?usp=drive_link",
-    "Mobile Number": "91 8970828660",
     "Rank": ""
   },
   {
@@ -501,20 +445,6 @@ const proposals = [
     "Abstract of your proposal": "Software systems, as they evolve, accumulate technical debt that often leads to inefficient code structures, higher computational overhead, and excessive energy consumption. These inefficiencies not only degrade maintainability and performance but also contribute to the rising environmental footprint of software execution, particularly in energy-intensive domains such as cloud computing and large-scale data processing. Code smells are defects in code, which can be used to detect needs for refactorings. Design metrics may be used to detect code smells. Code refactoring, the practice of restructuring code without altering external behavior, has traditionally been studied for its benefits in maintainability, defect reduction, and productivity. \nThis proposal explores the intersection of code refactorings, design bad smells and design properties by analyzing a few datasets.",
     "Publications/pre-prints/technical reports your proposal is based on.\n\n- For the published aspects of your proposal, please provide the publication details including the publication title, authors, conference/journal name and publication year. If there are": "Not Available",
     "Mobile Number": 9891008308,
-    "Rank": ""
-  },
-  {
-    "Timestamp": "10-3-2025 23:59:20",
-    "Email Address": "jayab@cse.iitb.ac.in",
-    "Select an appropriate category for your proposal": "Poster",
-    "Title of your proposal": "Testing Multiple LLMs for Design Pattern Detection and Code Generated",
-    "Name of the presenter": "Jaya Bharti",
-    "Affiliation": "IIT Bombay",
-    "Current role/position": "PhD student",
-    "Your collaborators on the proposal. Mention their names and affiliation, one name + affiliation per line": "",
-    "Abstract of your proposal": "This work investigates whether Large Language Models (LLMs) can implicitly recognize and implement software design patterns from natural language problem statements. We focus on two behavioral design patterns?Template Method and Chain of Responsibility?and evaluate multiple LLMs using prompts that do not explicitly mention the patterns. The study analyzes whether the models can infer the appropriate pattern and generate correct, compilable code. While prior work has primarily explored Java and Python, the use of C++ for such evaluations remains underexplored. This study emphasizes C++ code generation, with results compared across LLMs in terms of accuracy, structural correctness, and code efficiency.",
-    "Publications/pre-prints/technical reports your proposal is based on.\n\n- For the published aspects of your proposal, please provide the publication details including the publication title, authors, conference/journal name and publication year. If there are": "Not available",
-    "Mobile Number": 799987127,
     "Rank": ""
   },
   {

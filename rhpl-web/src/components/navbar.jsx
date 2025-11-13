@@ -25,16 +25,17 @@ const Navbar = () => {
           <div className='hidden lg:flex space-x-5'>
             <NavLink onClick={handleLinkClick} to="/venue">Venue</NavLink>
             <NavLink onClick={handleLinkClick} to="/important_dates">Important Dates</NavLink>
-            <NavLink onClick={handleLinkClick} to="/submit_proposal">Submit a proposal</NavLink>
+            <NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink>
             <NavLink onClick={handleLinkClick} to="/organizers">Organizers</NavLink>
-            <NavLink onClick={handleLinkClick} to="/previous_editions">Previous Editions</NavLink>
+            
+            <NavLink onClick={handleLinkClick} to="/approved_proposals">Approved Proposals</NavLink>
           </div>
           <div className='relative inline-block'>
             <button onClick={handleBGClick} className={`border-none flex justify-center pb-[0.15rem]`}><GiHamburgerMenu/></button>
             <ul className={`hidden lg:block navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0 pointer-events-none"}`}>
-              <li><NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink></li>
+              <li><NavLink onClick={handleLinkClick} to="/previous_editions">Previous Editions</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink></li>
-              <li><NavLink onClick={handleLinkClick} to="/approved_proposals">Approved Proposals</NavLink></li>
+              <li><NavLink onClick={handleLinkClick} to="/submit_proposal">Submit a proposal</NavLink></li>
             </ul>
             <ul className={`block lg:hidden w-[100vw] navlist transition ease-in-out duration-200 space-y-2 rounded-md ${isBGClicked?"opacity-100 translate-y-1":"opacity-0 pointer-events-none"}`}>
               <li><NavLink onClick={handleLinkClick} to="/venue">Venue</NavLink></li>

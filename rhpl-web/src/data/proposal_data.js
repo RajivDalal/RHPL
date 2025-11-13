@@ -284,7 +284,7 @@ const proposals = [
     "Email Address": "sumitl@cse.iitk.ac.in",
     "Select an appropriate category for your proposal": "Talk",
     "Title of your proposal": "Almost correct invariants: synthesizing inductive invariants by fuzzing proofs",
-    "Name of the presenter": "SUMIT LAHIRI",
+    "Name of the presenter": "Sumit Lahiri",
     "Affiliation": "Indian Institute Of Technology Kanpur",
     "Current role/position": "PhD student",
     "Your collaborators on the proposal. Mention their names and affiliation, one name + affiliation per line": "Dr. Subhajit Roy, Indian Institute Of Technology Kanpur",

@@ -1,8 +1,14 @@
 import proposals from '../data/proposal_data.js';
 
 const Approved_proposals = () => {
-  // Define the rank order priority
-  const rankOrder = { "A*": 1, "A": 2, "B": 3, "N": 4, "U": 5 };
+  // Define rank group priorities
+  const rankGroup = {
+    "A*": 1,
+    "A": 1,
+    "B": 2,
+    "N": 2,
+    "U": 3
+  };
 
   // Helper function to extract last name
   const getLastName = (name) => {
@@ -11,24 +17,24 @@ const Approved_proposals = () => {
     return parts[parts.length - 1].toLowerCase();
   };
 
-  // Sorting function based on rank and then last name
-  const sortByRankAndName = (a, b) => {
-    const rankA = rankOrder[a["Rank"]] || 6;
-    const rankB = rankOrder[b["Rank"]] || 6;
+  // Sort function by grouped rank, then alphabetically by last name
+  const sortByRankGroupAndName = (a, b) => {
+    const groupA = rankGroup[a["Rank"]] || 4;
+    const groupB = rankGroup[b["Rank"]] || 4;
 
-    if (rankA !== rankB) return rankA - rankB; // sort by rank
+    if (groupA !== groupB) return groupA - groupB;
     return getLastName(a["Name of the presenter"]).localeCompare(
       getLastName(b["Name of the presenter"])
-    ); // sort by last name
+    );
   };
 
   const talks = proposals
     .filter((p) => p["Select an appropriate category for your proposal"] === "Talk")
-    .sort(sortByRankAndName);
+    .sort(sortByRankGroupAndName);
 
   const posters = proposals
     .filter((p) => p["Select an appropriate category for your proposal"] === "Poster")
-    .sort(sortByRankAndName);
+    .sort(sortByRankGroupAndName);
 
   const ProposalList = ({ data }) => (
     <ul className="space-y-4">
@@ -37,7 +43,7 @@ const Approved_proposals = () => {
           <div className="font-semibold text-gray-900 text-lg">
             {item["Title of your proposal"]}
           </div>
-          <div className="text-[1.07rem] text-gray-700 mt-1 capitalize font-medium">
+          <div className="text-[1.1rem] text-gray-700 mt-1 capitalize font-medium">
             {item["Name of the presenter"]}
           </div>
           {item["Rank"] && (

@@ -5,40 +5,25 @@ const Panel = () => {
       
       <p className="py-10 listLink">
         <h1 className="text-[27px] font-bold md-6">Panel Discussion</h1>
-                 <hr className="border-black pb-6"/>
-         <h1 className="text-[20px] font-bold mb-2">Theme</h1>
-
-         Information about the theme of the discussion. <br />
-         And other details.
-        <h1 className="text-[20px] font-bold mt-10 mb-2">Panelists</h1>
-    
+        <hr className="border-black pb-6"/>
+        
+         <h2 className="inline-block text-[20px] font-bold">Theme</h2>  
+         <span className="block text-[17px] ml-[30px] mt-[7px]">The Journey from Theory to Practice in Programming Languages</span> 
+         {/*and the influence of AI in Software Engineering*/}
+        <h2 className="text-[20px] font-bold mt-6 mb-2">Panelists</h2>
+         
         <ul className="list-[square] space-y-2 ml-8">
           <li>
-            <a href="https://abhisekhs.github.io/"><span className="underline"> Abhisekh Sankaran</span> (TCS Research) (co-Chair) </a>
+            <a href="https://www.cse.iitb.ac.in/~uday/"><span className="underline">Uday Khedker</span> (IIT Bombay, India) </a>
           </li>
           <li>
-            <a href="https://divyeshunadkat.github.io/"><span className="underline"> Divyesh Unadkat</span> (Synopsys) (co-Chair) </a>
+            <a href="https://www.cs.ksu.edu/about/people/faculty/prabhakar/"><span className="underline"> Pavithra Prabhakar</span> (Kansas State University, USA) </a>
           </li>
           <li>
-            <a href="https://www.csa.iisc.ac.in/~deepakd/"> <span className="underline">Deepak D'Souza</span> (IISc Bangalore) </a>
+            <a href="https://www.cse.iitk.ac.in/users/subhajit/"><span className="underline"> Subhajit Roy</span> (IIT Kanpur, India) </a>
           </li>
           <li>
-            <a href="https://www.cse.iitb.ac.in/~uday/"><span className="underline">Uday Khedker</span> (IIT Bombay) </a>
-          </li>
-          <li>
-            <a href="https://kumarmadhukar.github.io/"><span className="underline"> Kumar Madhukar</span> (IIT Delhi) </a>
-          </li>
-          <li>
-            <a href="https://kartiknagar.github.io/"><span className="underline"> Kartik Nagar</span> (IIT Madras) </a>
-          </li>
-          <li>
-            <a href="https://sumanthsprabhu.github.io//"> <span className="underline">Sumanth Prabhu</span> (TCS Research)  </a>
-          </li>
-          <li>
-            <a href="https://www.microsoft.com/en-us/research/people/grama/"><span className="underline"> Ganesan Ramalingam</span> (Microsoft) </a>
-          </li>
-          <li>
-            <a href="https://abhikrc.com/"><span className="underline"> Abhik Roychoudhury</span> (National University of Singapore) </a>
+            <a href="https://ieeexplore.ieee.org/author/37667716900"><span className="underline"> R Venkatesh</span> (TCS Research, India) </a>
           </li>
         </ul>
       </p>

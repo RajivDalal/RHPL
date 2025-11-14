@@ -24,6 +24,7 @@ const Navbar = () => {
         <div className="flex justify-center items-center space-x-5 lg:text-[1.25rem] text-center font-share">
           <div className='hidden lg:flex space-x-5'>
             <NavLink onClick={handleLinkClick} to="/accepted_proposals">Accepted Proposals</NavLink>
+            <NavLink onClick={handleLinkClick} to='/panel_discussion'>Panel Discussion</NavLink>
             <NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink>
             <NavLink onClick={handleLinkClick} to="/local_information">Local Information</NavLink>
             <NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink>

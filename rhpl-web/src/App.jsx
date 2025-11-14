@@ -45,8 +45,8 @@ function App() {
 
   return (
     
-    <Router>
-    {/* <Router basename='/rhpl2025'> */}
+    // <Router>
+    <Router basename='/rhpl2025'>
       <Banner />
       <Navbar/>
       <Routes>
@@ -61,7 +61,7 @@ function App() {
         <Route path="/programme" element={<Programme />}/>
         <Route path="/registration" element={<Registration />}/>
         <Route path="/important_dates" element={<Important_dates />}/>
-        {/* <Route path="/panel_discussion" element={<Panel/>}/> */}
+        <Route path="/panel_discussion" element={<Panel/>}/>
       </Routes>
       <Link to="footer" className={`transition ease-in-out duration-[50] ${isButtonVisible?'opacity-100':' opacity-0 pointer-events-none'}`} smooth={true} duration={500}>
         <ContactButton />

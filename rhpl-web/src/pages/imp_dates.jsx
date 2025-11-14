@@ -17,10 +17,10 @@ const Important_dates = () => {
             Notification: <strike className="text-gray-500">September 25, 2025</strike> October 10, 2025
           </li>
           <li>
-            Early registration deadline: TBA
+            Early registration deadline: November 30, 2025
           </li>
           <li>
-            RHPL@FSTTCS: TBA
+            RHPL@FSTTCS: December 17 - 19, 2025
           </li>
         </ul>
 

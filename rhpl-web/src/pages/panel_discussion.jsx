@@ -8,7 +8,7 @@ const Panel = () => {
         <hr className="border-black pb-6"/>
         
          <h2 className="inline-block text-[20px] font-bold">Theme</h2>  
-         <span className="block text-[17px] ml-[30px] mt-[7px]">The Journey from Theory to Practice in Programming Languages</span> 
+         <span className="block text-[17px] ml-[32px] mt-[7px]">Bridging PL Theory and Practice in the Age of AI</span> 
          {/*and the influence of AI in Software Engineering*/}
         <h2 className="text-[20px] font-bold mt-6 mb-2">Panelists</h2>
          

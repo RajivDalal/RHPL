@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors:{
+        dayBlue: '#c2e0f4'
+      },
        fontFamily: {
         'share': ['Share Tech', 'sans-serif'],
         'share-mono': ["Share Tech Mono", 'monospace']

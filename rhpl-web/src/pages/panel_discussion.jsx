@@ -1,4 +1,5 @@
 import { RiExternalLinkLine } from "react-icons/ri";
+
 const Panel = () => {
   return (
     <div className="content">
@@ -13,17 +14,34 @@ const Panel = () => {
         <h2 className="text-[20px] font-bold mt-6 mb-2">Panelists</h2>
          
         <ul className="list-[square] space-y-2 ml-8">
-          <li>
-            <a href="https://www.cse.iitb.ac.in/~uday/"><span className="underline">Uday Khedker</span> (IIT Bombay, India) </a>
+          <li className="flex items-center">
+            <img src={"../../images/Uday.png"} alt="ABC" width={100} height={100} className="rounded-full" />
+            <div className="pl-4">
+              <a href="https://www.cse.iitb.ac.in/~uday/" className="underline">Uday Khedker</a>
+              <span className="block">IIT Bombay, India</span>
+            </div>
+            
           </li>
-          <li>
-            <a href="https://www.cs.ksu.edu/about/people/faculty/prabhakar/"><span className="underline"> Pavithra Prabhakar</span> (Kansas State University, USA) </a>
+          <li className="flex items-center">
+            <img src={"../../images/Uday.png"} alt="ABC" width={100} height={100} className="rounded-full" />
+            <div className="pl-4">
+              <a href="https://www.cse.iitb.ac.in/~uday/" className="underline">Pavithra Prabhakar</a>
+              <span className="block">Kansas State University, USA</span>
+            </div>            
           </li>
-          <li>
-            <a href="https://www.cse.iitk.ac.in/users/subhajit/"><span className="underline"> Subhajit Roy</span> (IIT Kanpur, India) </a>
+          <li className="flex items-center">
+            <img src={"../../images/Uday.png"} alt="ABC" width={100} height={100} className="rounded-full" />
+            <div className="pl-4">
+              <a href="https://www.cse.iitb.ac.in/~uday/" className="underline">Subhajit Roy</a>
+              <span className="block">IIT Kanpur, India</span>
+            </div>
           </li>
-          <li>
-            <a href="https://ieeexplore.ieee.org/author/37667716900"><span className="underline"> R Venkatesh</span> (TCS Research, India) </a>
+          <li className="flex items-center">
+            <img src={"../../images/Uday.png"} alt="ABC" width={100} height={100} className="rounded-full" />
+            <div className="pl-4">
+              <a href="https://www.cse.iitb.ac.in/~uday/" className="underline">R Venkatesh</a>
+              <span className="block">TCS Research, India</span>
+            </div>
           </li>
         </ul>
       </p>

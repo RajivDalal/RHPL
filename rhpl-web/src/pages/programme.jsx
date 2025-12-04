@@ -126,11 +126,17 @@ const Programme = () => {
                 presenter="Presenter"
                 title="Short Talk"
               />
+            </div>
 
-              <ProgrammeRow
-                time="11:35 AM - 11:45 AM"
-                title="Short Break"
-              />
+            <SessionHeader
+              time="10:30 AM - 12:45 PM"
+              number={1}
+              title="Modal Logic"
+              chair="Amaldev Manuel"
+              location="Platinum Jubilee Auditorium"
+            />
+
+            <div className="w-full m-1 pl-10 space-y-2">
 
               <Talk
                 time="11:45 AM - 12:10 PM"

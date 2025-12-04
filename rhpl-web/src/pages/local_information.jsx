@@ -3,7 +3,7 @@ const Local_Information = () => {
   return (
     <div className="content">
       
-      <p className="py-10 paraLink">
+      <p className="contain py-10 paraLink">
         <h1 className="text-[27px] font-bold">Local Information</h1>
         <hr className="border-black pb-4"/>
           

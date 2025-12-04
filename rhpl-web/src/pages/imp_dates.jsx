@@ -2,7 +2,7 @@
 const Important_dates = () => {
   return (
     <div className="content">
-    <p className="py-10 space-y-2">
+    <p className="contain py-10 space-y-2">
         <h1 className="text-[27px] font-bold">Important Dates</h1>
         <hr className="border-black pb-6" />
         <div className="paraLink">All dates below are in <a classname="underline" href="https://en.wikipedia.org/wiki/Indian_Standard_Time">Indian Standard Time (IST)</a>.</div> 

@@ -2,7 +2,7 @@ const Previous_editions = () => {
   return (
     <div className="content">
 
-      <p className="py-10 listLink">
+      <p className="contain py-10 listLink">
         <h1 className="text-[27px] font-bold">Previous Editions</h1>
         <hr className="border-black pb-6" />
         <ul className="list-disc space-y-1 ml-8">

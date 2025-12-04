@@ -4,7 +4,7 @@ const Panel = () => {
   return (
     <div className="content">
       
-      <p className="py-10 listLink">
+      <p className="contain py-10 listLink">
         <h1 className="text-[27px] font-bold md-6">Panel Discussion</h1>
         <hr className="border-black pb-6"/>
         

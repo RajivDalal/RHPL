@@ -1,38 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Share+Tech&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Smooch+Sans:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Share+Tech&family=Share+Tech+Mono&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Share+Tech&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Smooch+Sans:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Share+Tech&family=Share+Tech+Mono&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 /*Hide scrollbar*/
 ::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
+  width: 0;
+  background: transparent;
 }
 
-p {
-    padding-inline: 5%;
-    width: 100vw;
-    
+p.contain {
+  padding-inline: 5%;
 }
 
-.listLink a:hover{
-  color:#14248a;
-  font-size:17px;
-  font-weight:bold;
+.listLink a:hover {
+  color: #14248a;
+  font-size: 17px;
+  font-weight: bold;
 }
 
-.paraLink a:hover{
-  color:#14248a;
+.paraLink a:hover {
+  color: #14248a;
 }
-.navmenu a{
+.navmenu a {
   position: relative;
   padding: 5px 0;
 }
 
-.navmenu a::before{
+.navmenu a::before {
   content: "";
   width: 100%;
   height: 2px;
@@ -41,21 +38,21 @@ p {
   bottom: 0;
   background: #fff;
   transition: 0.5s transform ease;
-  transform: scale3d(0,1,1);
+  transform: scale3d(0, 1, 1);
   transform-origin: 50% 50%;
 }
 
-.navmenu a:hover::before{
-  transform: scale3d(1,1,1);
+.navmenu a:hover::before {
+  transform: scale3d(1, 1, 1);
 }
 
-.navmenu .active::before{
+.navmenu .active::before {
   content: "";
   width: 100%;
   height: 2px;
   position: absolute;
   background: #fff;
-  transform: scale3d(1,1,1);
+  transform: scale3d(1, 1, 1);
 }
 
 .navmenu .navlist {
@@ -71,32 +68,32 @@ p {
   color: #0e6ba8;
 }
 
-.navmenu .navlist a::before{
+.navmenu .navlist a::before {
   background: #0e6ba8;
 }
 
-.content{
-  display:flex;
+.content {
+  display: flex;
+  flex-direction: column;
   text-wrap: wrap;
   background-color: #e6f5fc;
-  margin:4% 12%; 
-  padding:2%;
+  margin: 4% 12%;
+  padding: 2%;
   min-height: 50vh;
-  height:100%;
+  height: 100%;
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-variation-settings:"wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
 
-.contact
-{
+.contact {
   width: 62px;
   height: 62px;
 }
 
-.menu{
+.menu {
   position: fixed;
   top: 0;
   right: 0;
@@ -104,6 +101,6 @@ p {
   height: 100vh;
   background: #000;
 }
-.day{
+.day {
   background-color: #c2e0f4;
 }

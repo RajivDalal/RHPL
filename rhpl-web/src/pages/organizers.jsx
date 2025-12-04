@@ -3,7 +3,7 @@ const Organizers = () => {
   return (
     <div className="content">
       
-      <p className="py-10 listLink">
+      <p className="contain py-10 listLink">
         <h1 className="text-[27px] font-bold">Organizers</h1>
       <hr className="border-black pb-6"/>
         <ul className="list-[square] space-y-2 ml-8">

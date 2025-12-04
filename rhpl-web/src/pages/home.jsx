@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="content">
       
-      <p className="py-10 space-y-2">
+      <p className="contain py-10 space-y-2">
 
       <h1 className="text-[27px] font-bold">About the Workshop</h1>
       

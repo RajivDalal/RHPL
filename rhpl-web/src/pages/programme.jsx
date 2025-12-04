@@ -104,9 +104,9 @@ const Programme = () => {
             <SessionHeader
               time="10:30 AM - 12:45 PM"
               number={1}
-              title="Modal Logic"
-              chair="Amaldev Manuel"
-              location="Platinum Jubilee Auditorium"
+              title="Concurrency"
+              chair="TBA"
+              location="TBA"
             />
 
             {/* Inside Morning Session */}
@@ -129,11 +129,11 @@ const Programme = () => {
             </div>
 
             <SessionHeader
-              time="10:30 AM - 12:45 PM"
-              number={1}
-              title="Modal Logic"
-              chair="Amaldev Manuel"
-              location="Platinum Jubilee Auditorium"
+              time="11:45 AM - 12:35 PM"
+              number={2}
+              title="Learning and Verification with Incomplete Data"
+              chair="TBA"
+              location="TBA"
             />
 
             <div className="w-full m-1 pl-10 space-y-2">
@@ -171,9 +171,11 @@ const Programme = () => {
 
             {/* Afternoon Session */}
             <SessionHeader
-              time="15:30 PM - 17:00 PM"
-              number={2}
-              title="Afternoon Session"
+              time="15:30 PM - 16:20 PM"
+              number={3}
+              title="MDPs"
+              chair="TBA"
+              location="TBA"
             />
 
             <div className="w-full m-1 pl-10 space-y-2">
@@ -187,13 +189,34 @@ const Programme = () => {
                 presenter="Presenter"
                 title="Regular Talk 6"
               />
+            </div>
+
+            <SessionHeader
+              time="16:30 PM - 17:30 PM"
+              number={4}
+              title="Cyber-Physical Systems "
+              chair="TBA"
+              location="TBA"
+            />
+
+            <div className="w-full m-1 pl-10 space-y-2">
               <Talk
-                time="16:25 PM - 16:50 PM"
+                time="16:30 PM - 16:45 PM"
                 presenter="Presenter"
-                title="Regular Talk 7"
+                title="Short Talk"
               />
               <Talk
-                time="16:50 PM - 17:05 PM"
+                time="16:45 PM - 17:00 PM"
+                presenter="Presenter"
+                title="Short Talk"
+              />
+              <Talk
+                time="17:00 PM - 17:15 PM"
+                presenter="Presenter"
+                title="Short Talk"
+              />
+              <Talk
+                time="17:15 PM - 17:30 PM"
                 presenter="Presenter"
                 title="Short Talk"
               />

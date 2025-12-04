@@ -1,24 +1,16 @@
 import React, { useState } from "react";
+import Tabs from "../components/tabs.jsx";
 import proposals from "../data/proposal_data.js";
 
 const Approved_proposals = () => {
-  // Define rank group priorities
-  const rankGroup = {
-    "A*": 1,
-    "A": 1,
-    "B": 2,
-    "N": 2,
-    "U": 3,
-  };
+  const rankGroup = { "A*": 1, "A": 1, "B": 2, "N": 2, "U": 3 };
 
-  // Helper function to extract last name
   const getLastName = (name) => {
     if (!name) return "";
     const parts = name.trim().split(" ");
     return parts[parts.length - 1].toLowerCase();
   };
 
-  // Sort function by grouped rank, then alphabetically by last name
   const sortByRankGroupAndName = (a, b) => {
     const groupA = rankGroup[a["Rank"]] || 4;
     const groupB = rankGroup[b["Rank"]] || 4;
@@ -52,63 +44,41 @@ const Approved_proposals = () => {
     </ul>
   );
 
-  // tab: "talks" | "posters"
   const [activeTab, setActiveTab] = useState("talks");
 
+  const tabs = [
+    { id: "talks", label: "Accepted Talks" },
+    { id: "posters", label: "Accepted Posters" },
+  ];
+
   return (
-    <div className="content py-10">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">
-        Accepted Talks and Posters
-      </h1>
+    <div className="content">
+      <p className="contain py-10 space-y-2">
+      <h1 className="text-[27px] font-bold">Accepted Talks and Posters</h1>
+      <hr className="border-black pb-4"/>
 
-      {/* Tabs */}
-      <div className="border-b border-gray-300 mb-6">
-        <nav className="-mb-px flex space-x-4">
-          <button
-            type="button"
-            onClick={() => setActiveTab("talks")}
-            className={`px-4 py-2 text-sm font-medium border-b-2 ${
-              activeTab === "talks"
-                ? "border-gray-900 text-gray-900"
-                : "border-transparent text-gray-500 hover:text-gray-800"
-            }`}
-          >
+      {/* The new tab component */}
+      <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      {/* Content */}
+      {activeTab === "talks" && (
+        <div>
+          <span className="block text-2xl font-bold text-gray-900 mb-4">
             Accepted Talks
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("posters")}
-            className={`px-4 py-2 text-sm font-medium border-b-2 ${
-              activeTab === "posters"
-                ? "border-gray-900 text-gray-900"
-                : "border-transparent text-gray-500 hover:text-gray-800"
-            }`}
-          >
+          </span>
+          <ProposalList data={talks} />
+        </div>
+      )}
+
+      {activeTab === "posters" && (
+        <div>
+          <span className="block text-2xl font-bold text-gray-900 mb-4">
             Accepted Posters
-          </button>
-        </nav>
-      </div>
-
-      {/* Tab content */}
-      <div>
-        {activeTab === "talks" && (
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Accepted Talks
-            </h2>
-            <ProposalList data={talks} />
-          </div>
-        )}
-
-        {activeTab === "posters" && (
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Accepted Posters
-            </h2>
-            <ProposalList data={posters} />
-          </div>
-        )}
-      </div>
+          </span>
+          <ProposalList data={posters} />
+        </div>
+      )}
+      </p>
     </div>
   );
 };

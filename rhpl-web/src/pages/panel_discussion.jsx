@@ -13,7 +13,7 @@ const Panel = () => {
          {/*and the influence of AI in Software Engineering*/}
         <h2 className="text-[20px] font-bold mt-6 mb-2">Panelists</h2>
          
-        <ul className="list-[square] space-y-2 ml-8">
+        <ul className="space-y-5 mt-3">
           <li className="flex items-center">
             <img src={"../../images/Uday.png"} alt="ABC" width={100} height={100} className="rounded-full" />
             <div className="pl-4">

@@ -57,10 +57,8 @@ const Approved_proposals = () => {
       <h1 className="text-[27px] font-bold">Accepted Talks and Posters</h1>
       <hr className="border-black pb-4"/>
 
-      {/* The new tab component */}
       <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* Content */}
       {activeTab === "talks" && (
         <div>
           <span className="block text-2xl font-bold text-gray-900 mb-4">

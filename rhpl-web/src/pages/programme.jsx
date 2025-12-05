@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import Tabs from "../components/tabs.jsx";
 
+
 const ProgrammeRow = ({ time, title }) => {
   return (
-    <div className="w-full flex bg-[#c2e0f4] p-3 rounded mb-2">
-      <span className="w-48 flex-shrink-0 text-left font-medium">{time}</span>
-      <span className="flex-1 pl-4 font-semibold">{title}</span>
+    <div className="w-full flex flex-col sm:flex-row bg-[#c2e0f4] p-3 rounded mb-2">
+      <span className="sm:w-48 flex-shrink-0 text-left font-medium mb-1 sm:mb-0">{time}</span>
+      <span className="flex-1 sm:pl-4 font-semibold">{title}</span>
     </div>
   );
 };
 
 const SessionHeader = ({ time, number, title, chair, location }) => {
   return (
-    <div className="w-full flex bg-[#c2e0f4] p-3 rounded mb-2">
-      <span className="w-48 flex-shrink-0 text-left font-medium">{time}</span>
-      <div className="flex-1 pl-4">
+    <div className="w-full flex flex-col sm:flex-row bg-[#c2e0f4] p-3 rounded mb-2">
+      <span className="sm:w-48 flex-shrink-0 text-left font-medium mb-2 sm:mb-0">{time}</span>
+      <div className="flex-1 sm:pl-4">
         <span className="font-bold">
           Session {number}: {title}
         </span>
@@ -42,9 +43,9 @@ const Talk = ({
   affiliation = "",
 }) => {
   return (
-    <div className="flex py-2">
-      <span className="w-48 flex-shrink-0 text-left">{time}</span>
-      <div className="flex-1 pl-4">
+    <div className="flex flex-col sm:flex-row py-2 border-b border-gray-200 last:border-b-0">
+      <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">{time}</span>
+      <div className="flex-1 sm:pl-4">
         {presenter && (
           <div className="italic mb-1">
             <a href={presenterLink} className="underline text-blue-700 hover:text-blue-900">
@@ -78,21 +79,18 @@ const Programme = () => {
         <div className="pt-5">
         {/* MONDAY PROGRAMME */}
         {activeDay === "monday" && (
-          <div className="space-y-2">
-            {/* Invited Talk 1 */}
+          <div>
             <ProgrammeRow
               time="09:00 AM - 10:00 AM"
               title="FSTTCS Invited Talk"
             />
-            <div>Dummy text</div>
+            <div className="mb-2">Dummy text</div>
 
-            {/* Coffee Break */}
             <ProgrammeRow
               time="10:00 AM - 10:30 AM"
               title="Coffee Break"
             />
 
-            {/* Morning Session */}
             <SessionHeader
               time="10:30 AM - 12:35 PM"
               number={1}
@@ -101,8 +99,7 @@ const Programme = () => {
               location="TBA"
             />
 
-            {/* Inside Morning Session */}
-            <div className="w-full m-1 pl-10 space-y-2">
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="10:30 AM - 10:55 AM"
                 presenter="Nobuko Yoshida"
@@ -128,12 +125,11 @@ const Programme = () => {
               location="TBA"
             />
 
-            <div className="w-full m-1 pl-10 space-y-2">
-
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="11:45 AM - 12:10 PM"
                 presenter="Prince Mathew"
-                title="Learning Deterministic One-Counter Automata in Polynomial Time3"
+                title="Learning Deterministic One-Counter Automata in Polynomial Time"
               />
               <Talk
                 time="12:10 PM - 12:35 PM"
@@ -142,26 +138,22 @@ const Programme = () => {
               />
             </div>
 
-            {/* Lunch */}
             <ProgrammeRow
               time="12:40 PM - 14:00 PM"
               title="Lunch"
             />
 
-            {/* Invited Talk 2 */}
             <ProgrammeRow
               time="14:00 PM - 15:00 PM"
               title="FSTTCS Invited Talk"
             />
-            <div>Dummy text</div>
+            <div className="mb-2">Dummy text</div>
 
-            {/* Coffee Break */}
             <ProgrammeRow
               time="15:00 PM - 15:30 PM"
               title="Coffee Break"
             />
 
-            {/* Afternoon Session */}
             <SessionHeader
               time="15:30 PM - 16:20 PM"
               number={3}
@@ -170,7 +162,7 @@ const Programme = () => {
               location="TBA"
             />
 
-            <div className="w-full m-1 pl-10 space-y-2">
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="15:30 PM - 15:55 PM"
                 presenter="Ramneet Singh"
@@ -186,12 +178,12 @@ const Programme = () => {
             <SessionHeader
               time="16:30 PM - 17:30 PM"
               number={4}
-              title="Cyber-Physical Systems "
+              title="Cyber-Physical Systems"
               chair="TBA"
               location="TBA"
             />
 
-            <div className="w-full m-1 pl-10 space-y-2">
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="16:30 PM - 16:45 PM"
                 presenter="Atanu Kundu"
@@ -214,38 +206,33 @@ const Programme = () => {
               />
             </div>
 
-            
-            <div>Dummy text</div>
+            <div className="mb-2">Dummy text</div>
           </div>
         )}
 
-        {/* TUESDAY PROGRAMME (placeholder for now) */}
+        {/* TUESDAY PROGRAMME */}
         {activeDay === "tuesday" && (
-            <div className="space-y-2">
-            {/* Invited Talk 1 */}
+          <div>
             <ProgrammeRow
               time="09:00 AM - 10:00 AM"
               title="FSTTCS Invited Talk"
             />
-            <div>Dummy text</div>
+            <div className="mb-2">Dummy text</div>
 
-            {/* Coffee Break */}
             <ProgrammeRow
               time="10:00 AM - 10:30 AM"
               title="Coffee Break"
             />
 
-            {/* Morning Session */}
             <SessionHeader
-              time="10:30 AM - 11:35 AMM"
+              time="10:30 AM - 11:35 AM"
               number={1}
               title="Program Equivalence and Neural Network Verification"
               chair="TBA"
               location="TBA"
             />
 
-            {/* Inside Morning Session */}
-            <div className="w-full m-1 pl-10 space-y-2">
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="10:30 AM - 10:55 AM"
                 presenter="Umang Mathur"
@@ -271,8 +258,7 @@ const Programme = () => {
               location="TBA"
             />
 
-            <div className="w-full m-1 pl-10 space-y-2">
-
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="11:45 AM - 12:10 PM"
                 presenter="Aditya Anand"
@@ -290,48 +276,38 @@ const Programme = () => {
               />
             </div>
 
-            {/* Lunch */}
             <ProgrammeRow
               time="12:40 PM - 14:00 PM"
               title="Lunch"
             />
 
-            {/* Invited Talk 2 */}
             <ProgrammeRow
               time="14:00 PM - 15:00 PM"
               title="FSTTCS Invited Talk"
             />
-            <div>Dummy text</div>
+            <div className="mb-2">Dummy text</div>
 
-            {/* Coffee Break */}
             <ProgrammeRow
               time="15:00 PM - 15:30 PM"
               title="Coffee Break"
             />
-
-            {/* Afternoon Session */}
-            
-          
           </div>
         )}
 
-        {/* WEDNESDAY PROGRAMME (placeholder for now) */}
+        {/* WEDNESDAY PROGRAMME */}
         {activeDay === "wednesday" && (
-          <div className="space-y-2">
-            {/* Invited Talk 1 */}
+          <div>
             <ProgrammeRow
               time="09:00 AM - 10:00 AM"
               title="FSTTCS Invited Talk"
             />
-            <div>Dummy text</div>
+            <div className="mb-2">Dummy text</div>
 
-            {/* Coffee Break */}
             <ProgrammeRow
               time="10:00 AM - 10:30 AM"
               title="Coffee Break"
             />
 
-            {/* Morning Session */}
             <SessionHeader
               time="10:30 AM - 12:40 PM"
               number={1}
@@ -340,8 +316,7 @@ const Programme = () => {
               location="TBA"
             />
 
-            {/* Inside Morning Session */}
-            <div className="w-full m-1 pl-10 space-y-2">
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="10:30 AM - 10:45 AM"
                 presenter="Siddharth Priya"
@@ -358,32 +333,28 @@ const Programme = () => {
                 title="Incremental and Unbounded Loop Analysis"
               />
             </div>
-             {/* Reminiscence */}
+
             <ProgrammeRow
               time="11:30 AM - 12:40 PM"
               title="Reminiscence Session for Venky"
             />
-            {/* Lunch */}
-          <ProgrammeRow
+
+            <ProgrammeRow
               time="12:40 PM - 14:00 PM"
               title="Lunch"
             />
-            
 
-            {/* Invited Talk 2 */}
             <ProgrammeRow
               time="14:00 PM - 15:00 PM"
               title="FSTTCS Invited Talk"
             />
-            <div>Dummy text</div>
+            <div className="mb-2">Dummy text</div>
 
-            {/* Coffee Break */}
             <ProgrammeRow
               time="15:00 PM - 15:30 PM"
               title="Coffee Break"
             />
 
-            {/* Afternoon Session */}
             <SessionHeader
               time="15:30 PM - 17:00 PM"
               number={3}
@@ -392,7 +363,7 @@ const Programme = () => {
               location="TBA"
             />
 
-            <div className="w-full m-1 pl-10 space-y-2">
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="15:30 PM - 15:45 PM"
                 presenter="Presenter"
@@ -433,7 +404,7 @@ const Programme = () => {
               location="TBA"
             />
 
-            <div className="w-full m-1 pl-10 space-y-2">
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="17:15 PM - 17:30 PM"
                 presenter="Presenter"
@@ -457,9 +428,6 @@ const Programme = () => {
             </div>
           </div>
         )}
-
-      
-
         </div>
       </p>
     </div>

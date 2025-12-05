@@ -8,7 +8,7 @@ const Important_dates = () => {
         <div className="paraLink">All dates below are in <a classname="underline" href="https://en.wikipedia.org/wiki/Indian_Standard_Time">Indian Standard Time (IST)</a>.</div> 
         <ul className="list-disc space-y-1 ml-8">
           <li>
-            Submission portal open2 x n2ns: July 28, 2025
+            Submission portal opens: July 28, 2025
           </li>
           <li>
             Submission deadline: <strike className="text-gray-500">September 18, 2025</strike> October 3, 2025

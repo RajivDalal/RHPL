@@ -342,7 +342,7 @@ const Programme = () => {
               <Talk
                 time="16:30 - 17:30"
                 presenter="RHPL Panel Discussion"
-                presenterLink="/panel-iscussion"
+                presenterLink="/panel-discussion"
               />
             </div>
           </div>

@@ -1,7 +1,11 @@
 const Special_session=()=>{
     return (
         <div className="content">
-            <p className=" contain py-10 space-y-2">TBA</p>
+            <p className=" contain py-10 paraLink">
+                <h1 className="text-[27px] font-bold">Special Session in honour of R. Venkatesh</h1>
+                <hr className="border-black pb-4"/>
+                TBA
+            </p>
         </div>
     )
 }

@@ -130,11 +130,13 @@ const Programme = () => {
                 time="10:55 - 11:20"
                 presenter="Omkar Tuppe"
                 title="GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency"
+                presenterLink="https://homepages.iitb.ac.in/~194050003/"
               />
               <Talk
                 time="11:20 - 11:35"
                 presenter="Tephilla Prince"
                 title="Bridging Nets-within-Nets and Data Nets"
+                presenterLink="https://tephilla.github.io/"
               />
             </div>
 
@@ -151,6 +153,7 @@ const Programme = () => {
                 time="11:45 - 12:10"
                 presenter="Prince Mathew"
                 title="Learning Deterministic One-Counter Automata in Polynomial Time"
+                presenterLink="https://princemathew07.github.io/"
               />
               <Talk
                 time="12:10 - 12:35"
@@ -189,11 +192,13 @@ const Programme = () => {
                 time="15:30 - 15:55"
                 presenter=" Shibashis Guha"
                 title="Continuous Time Reward Machines"
+                presenterLink="https://www.tifr.res.in/~shibashis.guha/"
               />
               <Talk
                 time="15:55 - 16:20"
                 presenter="Ramneet Singh"
                 title="INTERLEAVE: A Faster Symbolic Algorithm for Maximal End Component Decomposition"
+                presenterLink="https://ramneet-singh.netlify.app/"
               />
             </div>
 
@@ -210,22 +215,25 @@ const Programme = () => {
                 time="16:30 - 16:45"
                 presenter="Anand Yeolekar"
                 title="Repairing Control Safety Violations by Patching the Real-time OS Scheduler"
+                presenterLink=""
               />
               <Talk
                 time="16:45 - 17:00"
                 presenter="Santonu Sarkar"
                 title="LLM-Assisted Formal Verification Framework for Process Control Software Evolution"
+                presenterLink="https://www.linkedin.com/in/santonusarkar/?originalSubdomain=in"
               />
               <Talk
                 time="17:00 - 17:15"
                 presenter="Atanu Kundu"
                 title="Data-Driven Falsification of Cyber-Physical Systems"
-                presenterLink=""
+                presenterLink="https://atanucs.github.io/"
               />
               <Talk
                 time="17:15 - 17:30"
                 presenter="Alvin A. George"
                 title="CEGAR for Temporal Properties based on Recurrent Sets"
+                presenterLink=""
               />
               
             </div>
@@ -260,16 +268,19 @@ const Programme = () => {
                 time="10:30 - 10:55"
                 presenter="Umang Mathur"
                 title="Equivalences for Causal Concurrency"
+                presenterLink="https://www.comp.nus.edu.sg/~umathur/"
               />
               <Talk
                 time="10:55 - 11:20"
                 presenter="S. VenkataKeerthy"
                 title="VEXIR2Vec: An Architecture-Neutral Embedding Framework for Binary Similarity"
+                presenterLink="https://svkeerthy.github.io/"
               />
               <Talk
                 time="11:20 - 11:35"
                 presenter="Mohammad Afzal"
                 title="Confidence-aware local robustness verification of neural networks"
+                presenterLink="https://www.linkedin.com/in/mohammad-afzal-b1a832125/"
               />
             </div>
 
@@ -331,7 +342,7 @@ const Programme = () => {
               <Talk
                 time="16:30 - 17:30"
                 presenter="RHPL Panel Discussion"
-                presenterLink="/panel-discussion"
+                presenterLink="/panel-iscussion"
               />
             </div>
           </div>
@@ -416,18 +427,20 @@ const Programme = () => {
                 time="15:30 - 15:55"
                 presenter="Sanjiva Prasad"
                 title="TBA"
+                presenterLink="https://www.cse.iitd.ernet.in/~sanjiva/"
               />
               <Talk
                 time="15:55 - 16:10"
                 presenter="Cristopher Mary Kouam"
                 title="Emdash — A Dependently Typed Logical Framework for Computational Synthetic ω-Category Theory and Functorial Elaboration"
+                presenterLink=""
               />
             </div>
 
             <SessionHeader
               time="16:15 - 17:00"
               number={4}
-              title="Online Talks I"
+              title="Short Talks I"
               chair="TBA"
               location="TBA"
             />
@@ -437,22 +450,25 @@ const Programme = () => {
                 time="16:15 - 16:30"
                 presenter="Pankaj Kumar Kalita"
                 title="Program Synthesis Meets Visual What-Comes-Next Puzzles"
+                presenterLink="https://pkalita595.github.io/"
               />
               <Talk
                 time="16:30 - 16:45"
                 presenter="Lipsy Gupta"
                 title="Safety Verification of Anytime Perception based Cyber-Physical Systems"
+                presenterLink="https://www.linkedin.com/in/lipsy-gupta-9b1929259?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BEZg55kBoT7SEiWxSkILBow%3D%3D"
               />
               <Talk
                 time="16:45 - 17:00"
-                presenter="Soumik Kumar Basu "
+                presenter="Soumik Kumar Basu"
                 title="GSOHC: Global Synchronization Optimization in Heterogeneous Computing"
+                presenterLink="https://soumikiith.github.io/"
               />
             </div>
              <SessionHeader
               time="17:15 - 18:05"
               number={4}
-              title="Online Talks II"
+              title="Short Talks II"
               chair="TBA"
               location="TBA"
             />
@@ -461,21 +477,25 @@ const Programme = () => {
                 time="17:15 - 17:30"
                 presenter="Darshana Das K"
                 title="From Theory to Practice: Blackbox Testing in an Industrial Telecom Environment"
+                presenterLink=""
               />
               <Talk
                 time ="17:30 - 17:40"
                 presenter="Abhishek De"
                 title="A proofs vs programs correspondence for the epsilon calculus"
+                presenterLink="https://sites.google.com/view/abhishekde"
               />
               <Talk
                 time ="17:40 - 17:55"
                 presenter="Sumit Lahiri"
                 title="Almost correct invariants: synthesizing inductive invariants by fuzzing proofs"
+                presenterLink="https://www.cse.iitk.ac.in/users/sumitl/"
               />
               <Talk
                 time="17:55 - 18:05"
                 presenter="Mir Md Sajid Sarwar"
                 title="Exploring Inevitable Waypoints for Unsolvability Explanation in Hybrid Planning Problems"
+                presenterLink="https://www.linkedin.com/in/sajid-sarwar-30873820?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BPCs%2BzHxOSeKUIkItFVb4Mw%3D%3D"
               />
             </div>
           </div>

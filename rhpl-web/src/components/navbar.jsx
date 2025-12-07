@@ -25,10 +25,10 @@ const Navbar = () => {
           <div className='hidden lg:flex space-x-5'>
             <NavLink onClick={handleLinkClick} to="/accepted_proposals">Accepted Proposals</NavLink>
             <NavLink onClick={handleLinkClick} to='/panel_discussion'>Panel Discussion</NavLink>
-            <NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink>
-            <NavLink onClick={handleLinkClick} to="/local_information">Local Information</NavLink>
             <NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink>
             <NavLink onClick={handleLinkClick} to="/special_session">Special Session</NavLink>
+            <NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink>
+            <NavLink onClick={handleLinkClick} to="/local_information">Local Information</NavLink>
             <NavLink onClick={handleLinkClick} to="/organizers">Organizers</NavLink>
           </div>
           <div className='relative inline-block'>
@@ -47,9 +47,11 @@ const Navbar = () => {
               <li><NavLink onClick={handleLinkClick} to="/submit_proposal">Submit a proposal</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/organizers">Organizers</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/previous_editions">Previous Editions</NavLink></li>
+              <li><NavLink onClick={handleLinkClick} to="/special_session">Special Session</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/accepted_proposals">Accepted Proposals</NavLink></li>
+              <li><NavLink onCLick={handleLinkClick} to="/panel-discussion">Panel Discussion</NavLink></li>
             </ul>
           </div>
         </div>

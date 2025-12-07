@@ -54,13 +54,13 @@ const Approved_proposals = () => {
   return (
     <div className="content">
       <p className="contain py-10 space-y-2">
-      <h1 className="text-[27px] font-bold">Accepted Talks and Posters</h1>
+      <h1 className="text-[27px] font-bold">Accepted Proposals</h1>
       <hr className="border-black pb-4"/>
 
       <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {activeTab === "talks" && (
-        <div>
+        <div className="pt-8">
           <span className="block text-2xl font-bold text-gray-900 mb-4">
             Accepted Talks
           </span>

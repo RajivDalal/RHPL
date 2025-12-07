@@ -1,6 +1,6 @@
 import React from 'react';
-
-const Panel = () => {
+import { RiExternalLinkLine } from "react-icons/ri";
+/* const Panel = () => {
   return (
     <div className="content">
       <p className="contain py-10 listLink">
@@ -94,6 +94,45 @@ const Panel = () => {
       </p>
     </div>
   );
+}; */
+
+
+
+const Panel = () => {
+  return (
+    <div className="content">
+      
+      <p className="contain py-10 listLink">
+        <h1 className="text-[27px] font-bold">Panel Discussion</h1>
+      
+      <hr className="border-black pb-6"/>
+        
+        <h2 className="inline-block text-[20px] font-bold">Theme</h2>  
+        <span className="block text-[17px] ml-8 mt-2 mb-6">
+          Bridging PL Theory and Practice in the Age of AI
+        </span>
+        <h2 className="inline-block text-[20px] font-bold mb-2">Panelists</h2>
+        <ul className="list-[square] space-y-2 ml-8">
+          <li>
+            <a href="https://www.cse.iitb.ac.in/~uday/"  target="_blank" rel="noopener noreferrer"><span className="underline"> Uday Khedker</span> (IIT Bombay, India)</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/pavithra-prabhakar-09273615?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bdr9UpdgdR6%2BNBdn%2BtHEDdg%3D%3D"  target="_blank" rel="noopener noreferrer"><span className="underline"> Pavithra Prabhakar</span> (Kansas State University, USA) </a>
+          </li>
+          <li>
+            <a href="https://www.iitk.ac.in/dr-subhajit-roy"  target="_blank" rel="noopener noreferrer"> <span className="underline">Subhajit Roy</span> (IIT Kanpur, India) </a>
+          </li>
+          <li>
+            <a href="https://www.researchgate.net/profile/R-Venkatesh"  target="_blank" rel="noopener noreferrer"><span className="underline">R Venkatesh</span> (TCS Research, India) </a>
+          </li>
+        </ul>
+        <h2 className="inline-block text-[20px] font-bold mt-3 mt-6">Panel Moderator</h2>
+        <ul className="list-[square] space-y-2 ml-8 mt-2">
+         <li><a href="https://www.comp.nus.edu.sg/~umathur/"  target="_blank" rel="noopener noreferrer"><span className="underline"> Umang Mathur</span> (NUS, Singapore) </a></li>
+        </ul>
+      </p>
+    </div>
+  )
 };
 
 export default Panel;

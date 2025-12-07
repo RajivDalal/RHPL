@@ -51,7 +51,7 @@ const Navbar = () => {
               <li><NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink></li>
               <li><NavLink onClick={handleLinkClick} to="/accepted_proposals">Accepted Proposals</NavLink></li>
-              <li><NavLink onCLick={handleLinkClick} to="/panel-discussion">Panel Discussion</NavLink></li>
+              <li><NavLink onCLick={handleLinkClick} to="/panel_discussion">Panel Discussion</NavLink></li>
             </ul>
           </div>
         </div>

@@ -134,9 +134,9 @@ const Programme = () => {
               />
               <Talk
                 time="11:20 - 11:35"
-                presenter="Tephilla Prince"
+                presenter="Soumodev Mal"
                 title="Bridging Nets-within-Nets and Data Nets"
-                presenterLink="https://tephilla.github.io/"
+                presenterLink="https://www.linkedin.com/in/soumodev-mal-10329b185/"
               />
             </div>
 
@@ -215,7 +215,7 @@ const Programme = () => {
                 time="16:30 - 16:45"
                 presenter="Anand Yeolekar"
                 title="Repairing Control Safety Violations by Patching the Real-time OS Scheduler"
-                presenterLink=""
+                presenterLink="https://ieeexplore.ieee.org/author/38232933600"
               />
               <Talk
                 time="16:45 - 17:00"
@@ -233,7 +233,7 @@ const Programme = () => {
                 time="17:15 - 17:30"
                 presenter="Alvin A. George"
                 title="CEGAR for Temporal Properties based on Recurrent Sets"
-                presenterLink=""
+                presenterLink="https://ieeexplore.ieee.org/author/37088487403"
               />
               
             </div>
@@ -433,7 +433,7 @@ const Programme = () => {
                 time="15:55 - 16:10"
                 presenter="Cristopher Mary Kouam"
                 title="Emdash — A Dependently Typed Logical Framework for Computational Synthetic ω-Category Theory and Functorial Elaboration"
-                presenterLink=""
+                presenterLink="#"
               />
             </div>
 
@@ -477,7 +477,7 @@ const Programme = () => {
                 time="17:15 - 17:30"
                 presenter="Darshana Das K"
                 title="From Theory to Practice: Blackbox Testing in an Industrial Telecom Environment"
-                presenterLink=""
+                presenterLink="https://www.linkedin.com/in/darshana-das-k-070134247?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B5WbFT%2FphR%2BCJUNqOnJzA5w%3D%3D"
               />
               <Talk
                 time ="17:30 - 17:40"

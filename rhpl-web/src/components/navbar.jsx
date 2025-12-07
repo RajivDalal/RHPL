@@ -28,6 +28,7 @@ const Navbar = () => {
             <NavLink onClick={handleLinkClick} to="/registration">Registration</NavLink>
             <NavLink onClick={handleLinkClick} to="/local_information">Local Information</NavLink>
             <NavLink onClick={handleLinkClick} to="/programme">Programme</NavLink>
+            <NavLink onClick={handleLinkClick} to="/special_session">Special Session</NavLink>
             <NavLink onClick={handleLinkClick} to="/organizers">Organizers</NavLink>
           </div>
           <div className='relative inline-block'>

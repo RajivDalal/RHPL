@@ -2,18 +2,36 @@ import React, { useState } from "react";
 import Tabs from "../components/tabs.jsx";
 
 
-const ProgrammeRow = ({ time, title }) => {
+const ProgrammeRow = ({ time, title, link }) => {
   return (
     <div className="w-full flex flex-col sm:flex-row bg-[#c2e0f4] p-3 rounded mb-2">
-      <span className="sm:w-48 flex-shrink-0 text-left font-medium mb-1 sm:mb-0">{time}</span>
-      <span className="flex-1 sm:pl-4 font-semibold">{title}</span>
+      <span className="sm:w-48 flex-shrink-0 text-left font-medium mb-1 sm:mb-0">
+        {time}
+      </span>
+
+      <span className="flex-1 sm:pl-4 font-semibold">
+        {link ? (
+          <a
+            href={link}
+            className="underline text-blue-700 hover:text-blue-900"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {title}
+          </a>
+        ) : (
+          title
+        )}
+      </span>
     </div>
   );
 };
 
+
 const SessionHeader = ({ time, number, title, chair, location }) => {
   return (
-    <div className="w-full flex flex-col sm:flex-row bg-[#c2e0f4] p-3 rounded mb-2">
+    <div className="w-full flex flex-col sm:flex-row items-center bg-[#c2e0f4] p-3 rounded mb-2">
+
       <span className="sm:w-48 flex-shrink-0 text-left font-medium mb-2 sm:mb-0">{time}</span>
       <div className="flex-1 sm:pl-4">
         <span className="font-bold">
@@ -60,13 +78,14 @@ const Talk = ({
 };
 
 const Programme = () => {
-  const [activeDay, setActiveDay] = useState("monday");
+  const [activeDay, setActiveDay] = useState("wednesday");
 
   const dayTabs = [
-    { id: "monday", label: "Monday, 17th December" },
-    { id: "tuesday", label: "Tuesday, 18th December" },
-    { id: "wednesday", label: "Wednesday, 19th December" },
+    { id: "wednesday", label: "Wednesday, 17th December" },
+    { id: "thursday", label: "Thursday, 18th December" },
+    { id: "friday", label: "Friday, 19th December" },
   ];
+
 
   return (
     <div className="content">
@@ -77,22 +96,23 @@ const Programme = () => {
         <Tabs tabs={dayTabs} activeTab={activeDay} setActiveTab={setActiveDay} />
 
         <div className="pt-5">
-        {/* MONDAY PROGRAMME */}
-        {activeDay === "monday" && (
+        {/* WEDNESDAY PROGRAMME */}
+        {activeDay === "wednesday" && (
           <div>
             <ProgrammeRow
-              time="09:00 AM - 10:00 AM"
+              time="09:00 - 10:00"
               title="FSTTCS Invited Talk"
+              link = "https://www.fsttcs.org.in/2025/program.php"
             />
-            <div className="mb-2">Dummy text</div>
+           
 
             <ProgrammeRow
-              time="10:00 AM - 10:30 AM"
+              time="10:00 - 10:30"
               title="Coffee Break"
             />
 
             <SessionHeader
-              time="10:30 AM - 12:35 PM"
+              time="10:30 - 12:35"
               number={1}
               title="Concurrency"
               chair="TBA"
@@ -101,82 +121,84 @@ const Programme = () => {
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="10:30 AM - 10:55 AM"
+                time="10:30 - 10:55"
                 presenter="Nobuko Yoshida"
-                title="Specification Guided Distributed Programming"
+                title="Specification-guided Programming for Asynchronous Message-Passing Optimisation"
+                presenterLink="https://mrg.cs.ox.ac.uk/"
               />
               <Talk
-                time="10:55 AM - 11:20 AM"
+                time="10:55 - 11:20"
                 presenter="Omkar Tuppe"
                 title="GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency"
               />
               <Talk
-                time="11:20 AM - 11:35 AM"
+                time="11:20 - 11:35"
                 presenter="Tephilla Prince"
                 title="Bridging Nets-within-Nets and Data Nets"
               />
             </div>
 
             <SessionHeader
-              time="11:45 AM - 12:35 PM"
+              time="11:45 - 12:35"
               number={2}
-              title="Learning and Verification with Incomplete Data"
+              title="Learning and Verification with Partial Information"
               chair="TBA"
               location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="11:45 AM - 12:10 PM"
+                time="11:45 - 12:10"
                 presenter="Prince Mathew"
                 title="Learning Deterministic One-Counter Automata in Polynomial Time"
               />
               <Talk
-                time="12:10 PM - 12:35 PM"
+                time="12:10 - 12:35"
                 presenter="Gourav Takhar"
-                title="Memory-Safety Verification of Open Programs With Angelic Assumptions"
+                title="Verification of Open Programs via LLM-Mined Behavioral Idioms"
+                presenterLink="https://tgourav.github.io/"
               />
             </div>
 
             <ProgrammeRow
-              time="12:40 PM - 14:00 PM"
+              time="12:40 - 14:00"
               title="Lunch"
             />
 
             <ProgrammeRow
-              time="14:00 PM - 15:00 PM"
+              time="14:00 - 15:00"
               title="FSTTCS Invited Talk"
+              link = "https://www.fsttcs.org.in/2025/program.php"
             />
-            <div className="mb-2">Dummy text</div>
 
             <ProgrammeRow
-              time="15:00 PM - 15:30 PM"
+              time="15:00 - 15:30"
               title="Coffee Break"
             />
 
             <SessionHeader
-              time="15:30 PM - 16:20 PM"
+              time="15:30 - 16:20"
               number={3}
-              title="MDPs"
+              title="Markov Decision Processes"
               chair="TBA"
               location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="15:30 PM - 15:55 PM"
-                presenter="Ramneet Singh"
-                title="INTERLEAVE: A Faster Symbolic Algorithm for Maximal End Component Decomposition"
+                time="15:30 - 15:55"
+                presenter=" Shibashis Guha"
+                title="Continuous Time Reward Machines"
               />
               <Talk
-                time="15:55 PM - 16:20 PM"
-                presenter="Shibashis Guha"
-                title="Continuous Time Reward Machines"
+                time="15:55 - 16:20"
+                presenter="Ramneet Singh"
+                title="INTERLEAVE: A Faster Symbolic Algorithm for Maximal End Component Decomposition"
               />
             </div>
 
             <SessionHeader
-              time="16:30 PM - 17:30 PM"
+              time="16:30 - 17:30"
               number={4}
               title="Cyber-Physical Systems"
               chair="TBA"
@@ -185,47 +207,48 @@ const Programme = () => {
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="16:30 PM - 16:45 PM"
-                presenter="Atanu Kundu"
-                title="Data-Driven Falsification of Cyber-Physical Systems"
-              />
-              <Talk
-                time="16:45 PM - 17:00 PM"
+                time="16:30 - 16:45"
                 presenter="Anand Yeolekar"
                 title="Repairing Control Safety Violations by Patching the Real-time OS Scheduler"
               />
               <Talk
-                time="17:00 PM - 17:15 PM"
-                presenter="Alvin A. George"
-                title="CEGAR for Temporal Properties based on Recurrent Sets"
-              />
-              <Talk
-                time="17:15 PM - 17:30 PM"
+                time="16:45 - 17:00"
                 presenter="Santonu Sarkar"
                 title="LLM-Assisted Formal Verification Framework for Process Control Software Evolution"
               />
+              <Talk
+                time="17:00 - 17:15"
+                presenter="Atanu Kundu"
+                title="Data-Driven Falsification of Cyber-Physical Systems"
+                presenterLink=""
+              />
+              <Talk
+                time="17:15 - 17:30"
+                presenter="Alvin A. George"
+                title="CEGAR for Temporal Properties based on Recurrent Sets"
+              />
+              
             </div>
 
-            <div className="mb-2">Dummy text</div>
+            
           </div>
         )}
 
-        {/* TUESDAY PROGRAMME */}
-        {activeDay === "tuesday" && (
+        {/* THURSDAY PROGRAMME */}
+        {activeDay === "thursday" && (
           <div>
             <ProgrammeRow
-              time="09:00 AM - 10:00 AM"
+              time="09:00 - 10:00"
               title="FSTTCS Invited Talk"
+              link = "https://www.fsttcs.org.in/2025/program.php"
             />
-            <div className="mb-2">Dummy text</div>
-
             <ProgrammeRow
-              time="10:00 AM - 10:30 AM"
+              time="10:00 - 10:30"
               title="Coffee Break"
             />
 
             <SessionHeader
-              time="10:30 AM - 11:35 AM"
+              time="10:30 - 11:35"
               number={1}
               title="Program Equivalence and Neural Network Verification"
               chair="TBA"
@@ -234,24 +257,24 @@ const Programme = () => {
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="10:30 AM - 10:55 AM"
+                time="10:30 - 10:55"
                 presenter="Umang Mathur"
                 title="Equivalences for Causal Concurrency"
               />
               <Talk
-                time="10:55 AM - 11:20 AM"
+                time="10:55 - 11:20"
                 presenter="S. VenkataKeerthy"
                 title="VEXIR2Vec: An Architecture-Neutral Embedding Framework for Binary Similarity"
               />
               <Talk
-                time="11:20 AM - 11:35 AM"
+                time="11:20 - 11:35"
                 presenter="Mohammad Afzal"
                 title="Confidence-aware local robustness verification of neural networks"
               />
             </div>
 
             <SessionHeader
-              time="11:45 AM - 12:40 PM"
+              time="11:45 - 12:40"
               number={2}
               title="Compilers"
               chair="TBA"
@@ -260,170 +283,199 @@ const Programme = () => {
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="11:45 AM - 12:10 PM"
+                time="11:45 - 12:10"
                 presenter="Aditya Anand"
                 title="CoSSJIT: Combining Static Analysis and Speculation in JIT Compilers"
+                presenterLink="https://adityaanand7.github.io"
               />
               <Talk
-                time="12:10 PM - 12:25 PM"
+                time="12:10 - 12:25"
                 presenter="Supriya Bhide"
                 title="CoS-SSA: Context-Sensitive SSA for Interprocedural Program Analyses and Optimisations"
+                presenterLink="https://supriya-bhide.github.io/"
               />
               <Talk
-                time="12:25 PM - 12:40 PM"
+                time="12:25 - 12:40"
                 presenter="Aniket Mishra"
-                title="Fall-through Semantics for Mitigating Timing-based Side Channel Leaks"
+                title="Mechanical Specification and Verification for Mitigating Timing-based Side Channel Leaks"
+                presenterLink="https://satiscugcat.github.io/"
               />
             </div>
 
             <ProgrammeRow
-              time="12:40 PM - 14:00 PM"
+              time="12:40 - 14:00"
               title="Lunch"
             />
 
             <ProgrammeRow
-              time="14:00 PM - 15:00 PM"
+              time="14:00 - 15:00"
               title="FSTTCS Invited Talk"
+              link = "https://www.fsttcs.org.in/2025/program.php"
             />
-            <div className="mb-2">Dummy text</div>
-
+  
             <ProgrammeRow
-              time="15:00 PM - 15:30 PM"
+              time="15:00 - 15:30"
               title="Coffee Break"
             />
+            <SessionHeader
+              time="15:30 - 17:30"
+              number={3}
+              title="Blended Session of FSTTCS Track B and RHPL"
+            />
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
+              <Talk
+                time="15:30 - 16:30"
+                presenter="FSTTCS Track B Talks"
+                presenterLink="https://www.fsttcs.org.in/2025/program.php"
+              />
+              <Talk
+                time="16:30 - 17:30"
+                presenter="RHPL Panel Discussion"
+                presenterLink="/panel-discussion"
+              />
+            </div>
           </div>
         )}
 
-        {/* WEDNESDAY PROGRAMME */}
-        {activeDay === "wednesday" && (
+        {/* FRIDAY PROGRAMME */}
+        {activeDay === "friday" && (
           <div>
             <ProgrammeRow
-              time="09:00 AM - 10:00 AM"
+              time="09:00 - 10:00"
               title="FSTTCS Invited Talk"
+              link = "https://www.fsttcs.org.in/2025/program.php"
             />
-            <div className="mb-2">Dummy text</div>
-
+        
             <ProgrammeRow
-              time="10:00 AM - 10:30 AM"
+              time="10:00 - 10:30"
               title="Coffee Break"
             />
 
             <SessionHeader
-              time="10:30 AM - 12:40 PM"
+              time="10:30 - 11:15"
               number={1}
-              title="Session 1"
+              title="Verification"
               chair="TBA"
               location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="10:30 AM - 10:45 AM"
+                time="10:30 - 10:45"
                 presenter="Siddharth Priya"
                 title="Ownership in Low-Level Intermediate Representation"
+                presenterLink="https://priyasiddharth.github.io/"
               />
               <Talk
-                time="10:45 AM - 11:00 AM"
-                presenter="Dr Varsha Jarali"
+                time="10:45 - 11:00"
+                presenter="Dr Varsha Jarali / Dr Shashi Kant Pandey"
                 title="On The Dolev-Yao Model of Symmetric Cascade Protocol"
+                presenterLink="https://www.linkedin.com/in/dr-varsha-jarali-086826238/"
               />
               <Talk
-                time="11:00 AM - 11:15 AM"
+                time="11:00 - 11:15"
                 presenter="Arpita Dutta"
                 title="Incremental and Unbounded Loop Analysis"
+                presenterLink="https://arpitad10j.wixsite.com/arpitad10j"
               />
             </div>
 
             <ProgrammeRow
-              time="11:30 AM - 12:40 PM"
-              title="Reminiscence Session for Venky"
+              time="11:30 - 12:40"
+              title="Special session in honour of R. Venkatesh"
+              link="/special_session"
             />
 
             <ProgrammeRow
-              time="12:40 PM - 14:00 PM"
+              time="12:40 - 14:00"
               title="Lunch"
             />
 
             <ProgrammeRow
-              time="14:00 PM - 15:00 PM"
+              time="14:00 - 15:00"
               title="FSTTCS Invited Talk"
+              link = "https://www.fsttcs.org.in/2025/program.php"
             />
-            <div className="mb-2">Dummy text</div>
+
 
             <ProgrammeRow
-              time="15:00 PM - 15:30 PM"
+              time="15:00 - 15:30"
               title="Coffee Break"
             />
 
             <SessionHeader
-              time="15:30 PM - 17:00 PM"
+              time="15:30 - 16:10"
               number={3}
-              title="Session 3"
+              title="Category Theory"
               chair="TBA"
               location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="15:30 PM - 15:45 PM"
-                presenter="Presenter"
-                title="short talk"
+                time="15:30 - 15:55"
+                presenter="Sanjiva Prasad"
+                title="TBA"
               />
               <Talk
-                time="15:45 PM - 16:00 PM"
-                presenter="Presenter"
-                title="short talk"
-              />
-              <Talk
-                time="16:00 PM - 16:15 PM"
-                presenter="Presenter"
-                title="short talk"
-              />
-              <Talk
-                time="16:15 PM - 16:30 PM"
-                presenter="Presenter"
-                title="regular talk (online)"
-              />
-              <Talk
-                time="16:30 PM - 16:45 PM"
-                presenter="Presenter"
-                title="regular talk (online)"
-              />
-              <Talk
-                time="16:45 PM - 17:00 PM"
-                presenter="Presenter"
-                title="regular talk (online)"
+                time="15:55 - 16:10"
+                presenter="Cristopher Mary Kouam"
+                title="Emdash — A Dependently Typed Logical Framework for Computational Synthetic ω-Category Theory and Functorial Elaboration"
               />
             </div>
 
             <SessionHeader
-              time="17:15 PM - 18:05 PM"
+              time="16:15 - 17:00"
               number={4}
-              title="Session 4"
+              title="Online Talks I"
               chair="TBA"
               location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="17:15 PM - 17:30 PM"
-                presenter="Presenter"
-                title="regular talk (online)"
+                time="16:15 - 16:30"
+                presenter="Pankaj Kumar Kalita"
+                title="Program Synthesis Meets Visual What-Comes-Next Puzzles"
               />
               <Talk
-                time="17:30 PM - 17:45 PM"
-                presenter="Presenter"
-                title="regular talk (online)"
+                time="16:30 - 16:45"
+                presenter="Lipsy Gupta"
+                title="Safety Verification of Anytime Perception based Cyber-Physical Systems"
               />
               <Talk
-                time="17:45 PM - 17:50 PM"
-                presenter="Presenter"
-                title="short talk (online)"
+                time="16:45 - 17:00"
+                presenter="Soumik Kumar Basu "
+                title="GSOHC: Global Synchronization Optimization in Heterogeneous Computing"
+              />
+            </div>
+             <SessionHeader
+              time="17:15 - 18:05"
+              number={4}
+              title="Online Talks II"
+              chair="TBA"
+              location="TBA"
+            />
+            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
+              <Talk
+                time="17:15 - 17:30"
+                presenter="Darshana Das K"
+                title="From Theory to Practice: Blackbox Testing in an Industrial Telecom Environment"
               />
               <Talk
-                time="17:50 PM - 18:05 PM"
-                presenter="Presenter"
-                title="short talk (online)"
+                time ="17:30 - 17:40"
+                presenter="Abhishek De"
+                title="A proofs vs programs correspondence for the epsilon calculus"
+              />
+              <Talk
+                time ="17:40 - 17:55"
+                presenter="Sumit Lahiri"
+                title="Almost correct invariants: synthesizing inductive invariants by fuzzing proofs"
+              />
+              <Talk
+                time="17:55 - 18:05"
+                presenter="Mir Md Sajid Sarwar"
+                title="Exploring Inevitable Waypoints for Unsolvability Explanation in Hybrid Planning Problems"
               />
             </div>
           </div>

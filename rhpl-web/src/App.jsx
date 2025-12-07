@@ -17,6 +17,7 @@ import Important_dates from './pages/imp_dates.jsx';
 import ContactButton from './components/contactButton.jsx';
 import Footer from './components/footer.jsx';
 import Panel from './pages/panel_discussion';
+import Special_session from './pages/special_session.jsx';
 import { Link, Element } from 'react-scroll';
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
         <Route path="/registration" element={<Registration />}/>
         <Route path="/important_dates" element={<Important_dates />}/>
         <Route path="/panel_discussion" element={<Panel/>}/>
+        <Route path="/special_session" element={<Special_session/>}></Route>
       </Routes>
       <Link to="footer" className={`transition ease-in-out duration-[50] ${isButtonVisible?'opacity-100':' opacity-0 pointer-events-none'}`} smooth={true} duration={500}>
         <ContactButton />

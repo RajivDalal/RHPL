@@ -112,23 +112,60 @@ const Panel = () => {
           Bridging PL Theory and Practice in the Age of AI
         </span>
         <h2 className="inline-block text-[20px] font-bold mb-2">Panelists</h2>
-        <ul className="list-[square] space-y-2 ml-8">
+        <ul className="space-y-2 ml-3">
           <li>
-            <a href="https://www.cse.iitb.ac.in/~uday/"  target="_blank" rel="noopener noreferrer"><span className="underline"> Uday Khedker</span> (IIT Bombay, India)</a>
+            <img 
+              src="/images/Uday.png" 
+              alt="Uday Khedkar" 
+              width={100} 
+              height={100} 
+              className="rounded-full w-[100px] h-[100px] object-cover inline-block"   
+            />
+            <a href="https://www.cse.iitb.ac.in/~uday/"  target="_blank" rel="noopener noreferrer"><span className="pl-4 underline">Uday Khedker</span> (IIT Bombay, India)</a>
           </li>
           <li>
-            <a href="https://people.cs.ksu.edu/%7Epprabhakar/"  target="_blank" rel="noopener noreferrer"><span className="underline"> Pavithra Prabhakar</span> (Kansas State University, USA) </a>
+            <img 
+              src="/images/Pavithra1.png" 
+              alt="Pavithra Prabhakar" 
+              width={100} 
+              height={100} 
+              className="rounded-full w-[100px] h-[100px] object-cover inline-block"  
+            />
+            <a href="https://people.cs.ksu.edu/%7Epprabhakar/"  target="_blank" rel="noopener noreferrer"><span className="pl-4 underline">Pavithra Prabhakar</span> (Kansas State University, USA) </a>
           </li>
           <li>
-            <a href="https://www.iitk.ac.in/dr-subhajit-roy"  target="_blank" rel="noopener noreferrer"> <span className="underline">Subhajit Roy</span> (IIT Kanpur, India) </a>
+            <img 
+              src="/images/Subhajit.png" 
+              alt="Subhajit Roy" 
+              width={100} 
+              height={100} 
+              className="rounded-full w-[100px] h-[100px] object-cover inline-block"  
+            />
+            <a href="https://www.iitk.ac.in/dr-subhajit-roy"  target="_blank" rel="noopener noreferrer"> <span className="pl-4 underline">Subhajit Roy</span> (IIT Kanpur, India) </a>
           </li>
           <li>
-            <a href="https://www.researchgate.net/profile/R-Venkatesh"  target="_blank" rel="noopener noreferrer"><span className="underline">R Venkatesh</span> (TCS Research, India) </a>
+            <img 
+              src="/images/Subhajit.png" 
+              alt="Subhajit Roy" 
+              width={100} 
+              height={100} 
+              className="rounded-full w-[100px] h-[100px] object-cover inline-block"  
+            />
+            <a href="https://www.researchgate.net/profile/R-Venkatesh"  target="_blank" rel="noopener noreferrer"><span className="pl-4 underline">R Venkatesh</span> (TCS Research, India) </a>
           </li>
         </ul>
-        <h2 className="inline-block text-[20px] font-bold mt-6">Panel Moderator</h2>
-        <ul className="list-[square] space-y-2 ml-8 mt-2">
-         <li><a href="https://www.comp.nus.edu.sg/~umathur/"  target="_blank" rel="noopener noreferrer"><span className="underline"> Umang Mathur</span> (NUS, Singapore) </a></li>
+        <h2 className="inline-block text-[20px] font-bold mt-3">Panel Moderator</h2>
+        <ul className="space-y-2 ml-3 mt-2">
+         <li>
+          <img 
+              src="/images/Umang.png" 
+              alt="Umang Mathur" 
+              width={100} 
+              height={100} 
+              className="rounded-full w-[100px] h-[100px] object-cover inline-block"  
+            />
+          <a href="https://www.comp.nus.edu.sg/~umathur/"  target="_blank" rel="noopener noreferrer"><span className="pl-4 underline">Umang Mathur</span> (NUS, Singapore) </a>
+          </li>
         </ul>
       </p>
     </div>

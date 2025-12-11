@@ -151,9 +151,9 @@ const Programme = () => {
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="11:45 - 12:10"
-                presenter="Prince Mathew"
+                presenter="Sreejith A V"
                 title="Learning Deterministic One-Counter Automata in Polynomial Time"
-                presenterLink="https://princemathew07.github.io/"
+                presenterLink="https://sreejithavtvm.github.io/"
               />
               <Talk
                 time="12:10 - 12:35"
@@ -221,7 +221,7 @@ const Programme = () => {
                 time="16:45 - 17:00"
                 presenter="Santonu Sarkar"
                 title="LLM-Assisted Formal Verification Framework for Process Control Software Evolution"
-                presenterLink="https://www.linkedin.com/in/santonusarkar/?originalSubdomain=in"
+                presenterLink="https://www.bits-pilani.ac.in/goa/santonu-sarkar/"
               />
               <Talk
                 time="17:00 - 17:15"
@@ -258,7 +258,7 @@ const Programme = () => {
             <SessionHeader
               time="10:30 - 11:35"
               number={1}
-              title="Program Equivalence and Neural Network Verification"
+              title="Program Equivalence and Ownership Semantics"
               chair="TBA"
               location="TBA"
             />
@@ -278,9 +278,9 @@ const Programme = () => {
               />
               <Talk
                 time="11:20 - 11:35"
-                presenter="Mohammad Afzal"
-                title="Confidence-aware local robustness verification of neural networks"
-                presenterLink="https://www.linkedin.com/in/mohammad-afzal-b1a832125/"
+                presenter="Siddharth Priya"
+                title="Ownership in Low-Level Intermediate Representation"
+                presenterLink="https://priyasiddharth.github.io/"
               />
             </div>
 
@@ -342,7 +342,7 @@ const Programme = () => {
               <Talk
                 time="16:30 - 17:30"
                 presenter="RHPL Panel Discussion"
-                presenterLink="/panel_discussion"
+                presenterLink="/rhpl2025/panel_discussion"
               />
             </div>
           </div>
@@ -373,28 +373,28 @@ const Programme = () => {
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="10:30 - 10:45"
-                presenter="Siddharth Priya"
-                title="Ownership in Low-Level Intermediate Representation"
-                presenterLink="https://priyasiddharth.github.io/"
-              />
-              <Talk
-                time="10:45 - 11:00"
-                presenter="Dr Varsha Jarali / Dr Shashi Kant Pandey"
-                title="On The Dolev-Yao Model of Symmetric Cascade Protocol"
-                presenterLink="https://www.linkedin.com/in/dr-varsha-jarali-086826238/"
-              />
-              <Talk
-                time="11:00 - 11:15"
                 presenter="Arpita Dutta"
                 title="Incremental and Unbounded Loop Analysis"
                 presenterLink="https://arpitad10j.wixsite.com/arpitad10j"
+              />
+              <Talk
+                time="10:45 - 11:00"
+                presenter="Mohammad Afzal"
+                title="Confidence-aware local robustness verification of neural networks"
+                presenterLink="https://www.linkedin.com/in/mohammad-afzal-b1a832125/"
+              />
+              <Talk
+                time="11:00 - 11:15"
+                presenter="Dr Varsha Jarali / Dr Shashi Kant Pandey"
+                title="On The Dolev-Yao Model of Symmetric Cascade Protocol"
+                presenterLink="https://www.linkedin.com/in/dr-varsha-jarali-086826238/"
               />
             </div>
 
             <ProgrammeRow
               time="11:30 - 12:40"
               title="Special session in honour of R. Venkatesh"
-              link="/special_session"
+              link="/rhpl2025/special_session"
             />
 
             <ProgrammeRow
@@ -438,35 +438,48 @@ const Programme = () => {
             </div>
 
             <SessionHeader
-              time="16:15 - 17:00"
+              time="16:15 - 17:05"
               number={4}
-              title="Short Talks I"
+              title="Short Talks"
               chair="TBA"
               location="TBA"
             />
-
+            {/* <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
+              <Talk
+                time=""
+                presenter=""
+                title="TBA"
+                presenterLink=""
+              />
+            </div> */}
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="16:15 - 16:30"
+                time="16:15 - 16:35"
                 presenter="Pankaj Kumar Kalita"
                 title="Program Synthesis Meets Visual What-Comes-Next Puzzles"
                 presenterLink="https://pkalita595.github.io/"
               />
               <Talk
-                time="16:30 - 16:45"
+                time="16:35 - 16:55"
                 presenter="Lipsy Gupta"
                 title="Safety Verification of Anytime Perception based Cyber-Physical Systems"
                 presenterLink="https://www.linkedin.com/in/lipsy-gupta-9b1929259?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BEZg55kBoT7SEiWxSkILBow%3D%3D"
               />
               <Talk
-                time="16:45 - 17:00"
+                time ="16:55 - 17:05"
+                presenter="Abhishek De"
+                title="A proofs vs programs correspondence for the epsilon calculus"
+                presenterLink="https://sites.google.com/view/abhishekde"
+              />
+              {/* <Talk
+                time="16:55 - 17:15"
                 presenter="Soumik Kumar Basu"
                 title="GSOHC: Global Synchronization Optimization in Heterogeneous Computing"
                 presenterLink="https://soumikiith.github.io/"
               />
             </div>
              <SessionHeader
-              time="17:15 - 18:05"
+              time="17:30 - 18:20"
               number={4}
               title="Short Talks II"
               chair="TBA"
@@ -474,30 +487,24 @@ const Programme = () => {
             />
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="17:15 - 17:30"
+                time="17:30 - 17:50"
                 presenter="Darshana Das K"
                 title="From Theory to Practice: Blackbox Testing in an Industrial Telecom Environment"
                 presenterLink="https://www.linkedin.com/in/darshana-das-k-070134247?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B5WbFT%2FphR%2BCJUNqOnJzA5w%3D%3D"
               />
               <Talk
-                time ="17:30 - 17:40"
-                presenter="Abhishek De"
-                title="A proofs vs programs correspondence for the epsilon calculus"
-                presenterLink="https://sites.google.com/view/abhishekde"
-              />
-              <Talk
-                time ="17:40 - 17:55"
+                time ="18:00 - 18:20"
                 presenter="Sumit Lahiri"
                 title="Almost correct invariants: synthesizing inductive invariants by fuzzing proofs"
                 presenterLink="https://www.cse.iitk.ac.in/users/sumitl/"
               />
               <Talk
-                time="17:55 - 18:05"
+                time="18:20 - 18:30"
                 presenter="Mir Md Sajid Sarwar"
                 title="Exploring Inevitable Waypoints for Unsolvability Explanation in Hybrid Planning Problems"
                 presenterLink="https://www.linkedin.com/in/sajid-sarwar-30873820?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BPCs%2BzHxOSeKUIkItFVb4Mw%3D%3D"
-              />
-            </div>
+              />*/}
+            </div> 
           </div>
         )}
         </div>

@@ -60,7 +60,7 @@ const Approved_proposals = () => {
       <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {activeTab === "talks" && (
-        <div className="pt-8">
+        <div className="pt-4">
           <span className="block text-2xl font-bold text-gray-900 mb-4">
             Accepted Talks
           </span>
@@ -69,7 +69,7 @@ const Approved_proposals = () => {
       )}
 
       {activeTab === "posters" && (
-        <div>
+        <div className="pt-4">
           <span className="block text-2xl font-bold text-gray-900 mb-4">
             Accepted Posters
           </span>

@@ -117,7 +117,7 @@ const Panel = () => {
             <a href="https://www.cse.iitb.ac.in/~uday/"  target="_blank" rel="noopener noreferrer"><span className="underline"> Uday Khedker</span> (IIT Bombay, India)</a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/pavithra-prabhakar-09273615?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bdr9UpdgdR6%2BNBdn%2BtHEDdg%3D%3D"  target="_blank" rel="noopener noreferrer"><span className="underline"> Pavithra Prabhakar</span> (Kansas State University, USA) </a>
+            <a href="https://people.cs.ksu.edu/%7Epprabhakar/"  target="_blank" rel="noopener noreferrer"><span className="underline"> Pavithra Prabhakar</span> (Kansas State University, USA) </a>
           </li>
           <li>
             <a href="https://www.iitk.ac.in/dr-subhajit-roy"  target="_blank" rel="noopener noreferrer"> <span className="underline">Subhajit Roy</span> (IIT Kanpur, India) </a>

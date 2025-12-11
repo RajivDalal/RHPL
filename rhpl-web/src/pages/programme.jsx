@@ -69,6 +69,7 @@ const Talk = ({
             <a href={presenterLink} className="underline text-blue-700 hover:text-blue-900">
               {presenter}
             </a>
+            <span className="hidden">{abstract, affiliation}</span>
           </div>
         )}
         <div>{title}</div>

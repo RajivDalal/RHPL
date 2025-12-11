@@ -126,7 +126,7 @@ const Panel = () => {
             <a href="https://www.researchgate.net/profile/R-Venkatesh"  target="_blank" rel="noopener noreferrer"><span className="underline">R Venkatesh</span> (TCS Research, India) </a>
           </li>
         </ul>
-        <h2 className="inline-block text-[20px] font-bold mt-3 mt-6">Panel Moderator</h2>
+        <h2 className="inline-block text-[20px] font-bold mt-6">Panel Moderator</h2>
         <ul className="list-[square] space-y-2 ml-8 mt-2">
          <li><a href="https://www.comp.nus.edu.sg/~umathur/"  target="_blank" rel="noopener noreferrer"><span className="underline"> Umang Mathur</span> (NUS, Singapore) </a></li>
         </ul>

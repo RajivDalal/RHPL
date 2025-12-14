@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Tabs from "../components/tabs.jsx";
+import Modal from "../components/modal.jsx";
+
 
 
 const ProgrammeRow = ({ time, title, link }) => {
@@ -57,26 +59,125 @@ const Talk = ({
   presenterLink = "#",
   presenter,
   title,
-  abstract = " ",
-  affiliation = "",
+  abstract = "abstract",
 }) => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <div className="flex flex-col sm:flex-row py-2 border-b border-gray-200 last:border-b-0">
-      <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">{time}</span>
-      <div className="flex-1 sm:pl-4">
-        {presenter && (
-          <div className="italic mb-1">
-            <a href={presenterLink} className="underline text-blue-700 hover:text-blue-900">
-              {presenter}
-            </a>
-            <span className="hidden">{abstract, affiliation}</span>
+    <div className="border-b border-gray-200 last:border-b-0">
+      {/* HEADER ROW */}
+      <div className="flex flex-col sm:flex-row py-2">
+        <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">
+          {time}
+        </span>
+
+        <div className="flex-1 sm:pl-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div>
+            {presenter && (
+              <div className="italic mb-1">
+                <a
+                  href={presenterLink}
+                  className="underline text-blue-700 hover:text-blue-900"
+                >
+                  {presenter}
+                </a>
+              </div>
+            )}
+            <div>{title}</div>
           </div>
-        )}
-        <div>{title}</div>
+
+          {abstract.trim() && (
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="inline-block text-sm px-3 py-1 rounded border border-blue-600
+                         text-blue-700 hover:bg-blue-600 hover:text-white transition"
+            >
+              {expanded ? "Hide Abstract" : "Show Abstract"}
+            </button>
+          )}
+        </div>
       </div>
+
+<div
+  className={`
+    ml-0 sm:ml-48 mb-3 overflow-hidden transition-all duration-150 ease-in-out
+    ${expanded ? "max-h-[1000px] opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-1"}
+  `}
+>
+  <div className="bg-transparent rounded-md p-4">
+
+    <p className="text-gray-800 whitespace-pre-line">
+      {abstract}
+    </p>
+  </div>
+</div>
+
     </div>
   );
 };
+
+
+// Dialog box
+// const Talk = ({
+//   time,
+//   presenterLink = "#",
+//   presenter,
+//   title,
+//   abstract = "abstract",
+//   affiliation = "",
+// }) => {
+//   const [open, setOpen] = useState(false);
+
+//   return (
+//     <>
+//       <div className="flex flex-col sm:flex-row py-2 border-b border-gray-200 last:border-b-0">
+//         <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">
+//           {time}
+//         </span>
+
+//         <div className="flex-1 sm:pl-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+//           <div>
+//             {presenter && (
+//               <div className="italic mb-1">
+//                 <a
+//                   href={presenterLink}
+//                   className="underline text-blue-700 hover:text-blue-900"
+//                 >
+//                   {presenter}
+//                 </a>
+//               </div>
+//             )}
+//             <div>{title}</div>
+//           </div>
+
+//           {abstract.trim() && (
+//             <button
+//               onClick={() => setOpen(true)}
+//               className="inline-block text-sm px-3 py-1 rounded border border-blue-600
+//                          text-blue-700 hover:bg-blue-600 hover:text-white transition"
+//             >
+//               View Abstract
+//             </button>
+//           )}
+//         </div>
+//       </div>
+
+//       {/* MODAL */}
+//       <Modal
+//         isOpen={open}
+//         onClose={() => setOpen(false)}
+//         title={title}
+//       >
+//         <div className="text-sm text-gray-600 italic">
+//           {presenter}
+//           {affiliation && ` — ${affiliation}`}
+//         </div>
+
+//         <p className="whitespace-pre-line">{abstract}</p>
+//       </Modal>
+//     </>
+//   );
+// };
 
 const Programme = () => {
   const [activeDay, setActiveDay] = useState("wednesday");

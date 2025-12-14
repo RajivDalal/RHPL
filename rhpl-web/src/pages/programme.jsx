@@ -30,14 +30,25 @@ const ProgrammeRow = ({ time, title, link }) => {
 };
 
 
-const SessionHeader = ({ time, number, title, chair, location="D LT8", locationLink="https://www.google.com/maps/place/DLT-8/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb900213155e7:0x7490dccaba396945!8m2!3d15.3924302!4d73.8824773!16s%2Fg%2F11lf2kbc2_?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=3758f64b-5d6d-4f9a-9a36-3c4278aac7e7" }) => {
+const SessionHeader = ({ time, number, title, chair, link, location="D LT8", locationLink="https://www.google.com/maps/place/DLT-8/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb900213155e7:0x7490dccaba396945!8m2!3d15.3924302!4d73.8824773!16s%2Fg%2F11lf2kbc2_?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=3758f64b-5d6d-4f9a-9a36-3c4278aac7e7" }) => {
   return (
     <div className="w-full flex flex-col sm:flex-row items-center bg-[#c2e0f4] p-3 rounded mb-2">
 
       <span className="sm:w-48 flex-shrink-0 text-left font-bold mb-2 sm:mb-0">{time}</span>
       <div className="flex-1 sm:pl-4">
         <span className="font-bold">
-          Session {number}: {title}
+          Session {number}: {link ? (
+          <a
+            href={link}
+            className="underline text-blue-700 hover:text-blue-900"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {title}
+          </a>
+        ) : (
+          title
+        )}
         </span>
         {chair && (
           <div className="mt-1">
@@ -461,6 +472,7 @@ const Programme = () => {
               number={3}
               title="Blended Session of FSTTCS Track B and RHPL"
               chair="TBA"
+              location=""
             />
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <PanelDiscussion
@@ -522,9 +534,13 @@ const Programme = () => {
               />
             </div>
 
-            <ProgrammeRow
+            <SessionHeader
               time="11:30 - 12:40"
+              number={2}
               title="Special session in honour of R. Venkatesh"
+              chair="TBA"
+              location="TBA"
+              locationLink="#"
               link="/rhpl2025/special_session"
             />
 
@@ -572,6 +588,8 @@ const Programme = () => {
               number={4}
               title="Short Talks"
               chair="TBA"
+              location="TBA"
+              locationLink=""
             />
             {/* <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk

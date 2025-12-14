@@ -7,7 +7,7 @@ import Modal from "../components/modal.jsx";
 const ProgrammeRow = ({ time, title, link }) => {
   return (
     <div className="w-full flex flex-col sm:flex-row bg-[#c2e0f4] p-3 rounded mb-2">
-      <span className="sm:w-48 flex-shrink-0 text-left font-medium mb-1 sm:mb-0">
+      <span className="sm:w-48 flex-shrink-0 text-left font-bold mb-1 sm:mb-0">
         {time}
       </span>
 
@@ -30,11 +30,11 @@ const ProgrammeRow = ({ time, title, link }) => {
 };
 
 
-const SessionHeader = ({ time, number, title, chair, location }) => {
+const SessionHeader = ({ time, number, title, chair, location="D LT8", locationLink="https://www.google.com/maps/place/DLT-8/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb900213155e7:0x7490dccaba396945!8m2!3d15.3924302!4d73.8824773!16s%2Fg%2F11lf2kbc2_?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=3758f64b-5d6d-4f9a-9a36-3c4278aac7e7" }) => {
   return (
     <div className="w-full flex flex-col sm:flex-row items-center bg-[#c2e0f4] p-3 rounded mb-2">
 
-      <span className="sm:w-48 flex-shrink-0 text-left font-medium mb-2 sm:mb-0">{time}</span>
+      <span className="sm:w-48 flex-shrink-0 text-left font-bold mb-2 sm:mb-0">{time}</span>
       <div className="flex-1 sm:pl-4">
         <span className="font-bold">
           Session {number}: {title}
@@ -46,7 +46,7 @@ const SessionHeader = ({ time, number, title, chair, location }) => {
         )}
         {location && (
           <div className="mt-1">
-            <span className="font-semibold">Location:</span> {location}
+            <span className="font-semibold">Location:</span> <a href={locationLink} target="_blank" className="underline text-blue-700 hover:text-blue-900">{location} </a>
           </div>
         )}
       </div>
@@ -54,18 +54,45 @@ const SessionHeader = ({ time, number, title, chair, location }) => {
   );
 };
 
+const PanelDiscussion = ({
+  time,
+  link = "#",
+  name,
+  location,
+  locationLink
+}) => {
+  return (
+    <div className="flex flex-col sm:flex-row py-2 border-b border-gray-200 last:border-b-0">
+      <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">{time}</span>
+      <div className="flex-1 sm:pl-4">
+        {name && (
+          <div className="italic mb-1">
+            <a href={link} className="underline text-blue-700 hover:text-blue-900">
+              {name}
+            </a>
+          </div>
+        )}
+        <div><b>Location:</b> <a href={locationLink} target="_blank" className="underline text-blue-700 hover:text-blue-900">{location}</a></div>
+      </div>
+    </div>
+  );
+};
+
+
+// Expander
 const Talk = ({
   time,
   presenterLink = "#",
   presenter,
   title,
-  abstract = "abstract",
+  abstract = "abstract123",
+  affiliation = "affiliation123",
+  references = "reference123"
 }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
     <div className="border-b border-gray-200 last:border-b-0">
-      {/* HEADER ROW */}
       <div className="flex flex-col sm:flex-row py-2">
         <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">
           {time}
@@ -92,25 +119,27 @@ const Talk = ({
               className="inline-block text-sm px-3 py-1 rounded border border-blue-600
                          text-blue-700 hover:bg-blue-600 hover:text-white transition"
             >
-              {expanded ? "Hide Abstract" : "Show Abstract"}
+              {expanded ? "Hide Details" : "Show Details"}
             </button>
           )}
         </div>
       </div>
 
-<div
-  className={`
-    ml-0 sm:ml-48 mb-3 overflow-hidden transition-all duration-150 ease-in-out
-    ${expanded ? "max-h-[1000px] opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-1"}
-  `}
->
-  <div className="bg-transparent rounded-md p-4">
+      <div
+        className={`
+          ml-0 sm:ml-48 mb-3 overflow-hidden transition-all duration-150 ease-in-out
+          ${expanded ? "max-h-[1000px] opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-1"}
+        `}
+      >
+        <div className="bg-blue-200 rounded-md p-3">
 
-    <p className="text-gray-800 whitespace-pre-line">
-      {abstract}
-    </p>
-  </div>
-</div>
+          <p className="text-gray-800 whitespace-pre-line space-y-3">
+            <p><b>Affiliation</b>: {affiliation}</p>
+            <p><b>Abstract</b>: {abstract}</p>
+            <p className="space-y-2"><b>References</b>:<p>{references}</p></p>
+          </p>
+        </div>
+      </div>
 
     </div>
   );
@@ -218,7 +247,6 @@ const Programme = () => {
               number={1}
               title="Concurrency"
               chair="TBA"
-              location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -233,10 +261,13 @@ const Programme = () => {
                 presenter="Omkar Tuppe"
                 title="GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency"
                 presenterLink="https://homepages.iitb.ac.in/~194050003/"
+                affiliation="Indian Institute of Technology Bombay"
+                abstract="Modern GPUs adopt weak memory concurrency for performance, but their added complexity, including memory orders, memory scopes, and divergence, makes writing correct concurrent code significantly more complicated than on CPUs.\nTo address this, we developed GPUMC, a stateless model checker for verifying GPU programs under the scoped-RC11 memory model. GPUMC systematically explores all possible executions to detect data races, heterogeneous races, barrier divergence, and assertion violations.\nWe evaluated GPUMC on both micro-benchmarks and GPU kernels. It is efficient in time and memory, verifying large programs where existing tools fail or time out."
+                references="[1] Chakraborty, S., Krishna, S., Pavlogiannis, A., Tuppe, O. GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency. In: Piskac, R., Rakamari, Z. (eds) Computer Aided Verification. CAV 2025. Lecture Notes in Computer Science, vol 15933. Springer, Cham. https://doi.org/10.1007/978-3-031-98682-6_17"
               />
               <Talk
                 time="11:20 - 11:35"
-                presenter="Soumodev Mal"
+                presenter="Soumodev Mal"
                 title="Bridging Nets-within-Nets and Data Nets"
                 presenterLink="https://www.linkedin.com/in/soumodev-mal-10329b185/"
               />
@@ -247,7 +278,6 @@ const Programme = () => {
               number={2}
               title="Learning and Verification with Partial Information"
               chair="TBA"
-              location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -286,7 +316,6 @@ const Programme = () => {
               number={3}
               title="Markov Decision Processes"
               chair="TBA"
-              location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -309,7 +338,6 @@ const Programme = () => {
               number={4}
               title="Cyber-Physical Systems"
               chair="TBA"
-              location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -362,7 +390,6 @@ const Programme = () => {
               number={1}
               title="Program Equivalence and Ownership Semantics"
               chair="TBA"
-              location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -391,7 +418,6 @@ const Programme = () => {
               number={2}
               title="Compilers"
               chair="TBA"
-              location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -434,17 +460,21 @@ const Programme = () => {
               time="15:30 - 17:30"
               number={3}
               title="Blended Session of FSTTCS Track B and RHPL"
+              chair="TBA"
             />
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
+              <PanelDiscussion
                 time="15:30 - 16:30"
-                presenter="FSTTCS Track B Talks"
-                presenterLink="https://www.fsttcs.org.in/2025/program.php"
+                name="FSTTCS Track B Talks"
+                location="D LT7"
+                locationLink="https://www.google.com/maps/place/DLT-7/@15.3922732,73.8808447,18.65z/data=!4m6!3m5!1s0x3bbfb9326fabe01f:0xba42b70f4942fbac!8m2!3d15.3924!4d73.882292!16s%2Fg%2F11vl1mhxv0?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=2c57ab92-b992-405a-b9d5-ed2b4124139c"
+                link="https://www.fsttcs.org.in/2025/program.php"
               />
-              <Talk
+              <PanelDiscussion
                 time="16:30 - 17:30"
-                presenter="RHPL Panel Discussion"
-                presenterLink="/rhpl2025/panel_discussion"
+                name="RHPL Panel Discussion"
+                location="TBA"
+                link="/rhpl2025/panel_discussion"
               />
             </div>
           </div>
@@ -469,7 +499,6 @@ const Programme = () => {
               number={1}
               title="Verification"
               chair="TBA"
-              location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -521,7 +550,6 @@ const Programme = () => {
               number={3}
               title="Category Theory"
               chair="TBA"
-              location="TBA"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -544,7 +572,6 @@ const Programme = () => {
               number={4}
               title="Short Talks"
               chair="TBA"
-              location="TBA"
             />
             {/* <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
@@ -585,7 +612,6 @@ const Programme = () => {
               number={4}
               title="Short Talks II"
               chair="TBA"
-              location="TBA"
             />
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk

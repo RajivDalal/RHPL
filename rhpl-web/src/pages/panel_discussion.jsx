@@ -4,6 +4,7 @@ import UdayImage from '../images/Uday.png';
 import PavithraImage from '../images/Pavithra1.png';
 import SubhajitImage from '../images/Subhajit.png';
 import UmangImage from '../images/Umang.png';
+import VenkateshImage from '../images/Venkatesh.jpeg'
 /* const Panel = () => {
   return (
     <div className="content">
@@ -149,7 +150,7 @@ const Panel = () => {
           </li>
           <li>
             <img 
-              src={SubhajitImage}
+              src={VenkateshImage}
               alt="Subhajit Roy" 
               width={100} 
               height={100} 

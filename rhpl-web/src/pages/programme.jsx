@@ -212,8 +212,8 @@ const Talk = ({
           }
         `}
       >
-        <div className="bg-blue-200 rounded-md p-4 space-y-4 text-gray-800">
-
+        <div className="bg-[#cce5f6] rounded-md p-4 space-y-4 text-gray-800">
+          {/*prev color c2e0f4 */}
           {/* AFFILIATION */}
           {affiliation && (
             <div>
@@ -384,7 +384,7 @@ const Programme = () => {
                 title="Bridging Nets-within-Nets and Data Nets"
                 presenterLink="https://www.linkedin.com/in/soumodev-mal-10329b185/"
                 affiliation="Indian Institute of Technology Dharwad, India"
-                abstract="Elementary Object Systems (EOSs) are a model in the nets-within-nets (NWNs) paradigm, where tokens in turn can host standard Petri nets. We study the complexity of the reachability problem of EOSs when subjected to non-deterministic token losses. It is known that this problem is equivalent to the coverability problem with no lossiness of conservative EOSs (cEOSs).We precisely characterize cEOS coverability into the framework of data nets, whose tokens carry data from an infinite domain. Specifically, we show that cEOS coverability is equivalent to the coverability of an interesting fragment of data nets that extends beyond nu-PN (featuring globally fresh name creation), yet remains less expressive than Unordered Data Nets (featuring lossy name creation as well as powerful forms of whole-place operations and broadcasts).This insight bridges two apparently orthogonal approaches to PN extensions, namely data nets and NWNs. At the same time, it enables us to analyze cEOS coverability taking advantage of known results on data nets.As a byproduct, we immediately get that the complexity of cEOS coverability lies between Fω² and Fω^ω,  two classes beyond Primitive Recursive"
+                abstract="Elementary Object Systems (EOSs) are a model in the nets-within-nets (NWNs) paradigm, where tokens in turn can host standard Petri nets. We study the complexity of the reachability problem of EOSs when subjected to non-deterministic token losses. It is known that this problem is equivalent to the coverability problem with no lossiness of conservative EOSs (cEOSs).We precisely characterize cEOS coverability into the framework of data nets, whose tokens carry data from an infinite domain. Specifically, we show that cEOS coverability is equivalent to the coverability of an interesting fragment of data nets that extends beyond nu-PN (featuring globally fresh name creation), yet remains less expressive than Unordered Data Nets (featuring lossy name creation as well as powerful forms of whole-place operations and broadcasts).This insight bridges two apparently orthogonal approaches to PN extensions, namely data nets and NWNs. At the same time, it enables us to analyze cEOS coverability taking advantage of known results on data nets.As a byproduct, we immediately get that the complexity of cEOS coverability lies between F_{ω²} and F_{ω^ω},  two classes beyond Primitive Recursive"
                 references="[1] Di Cosmo, F., Mal, S., Prince, T. (2026). Nets-Within-Nets Through the Lens of Data Nets. In: Ganty, P., Mansutti, A. (eds) Reachability Problems. RP 2025. Lecture Notes in Computer Science, vol 16230. Springer, Cham. https://doi.org/10.1007/978-3-032-09524-4_11"
               />
             </div>
@@ -404,6 +404,7 @@ const Programme = () => {
                 presenterLink="https://sreejithavtvm.github.io/"
                 affiliation="IIT Goa"
                 abstract="We present OL*, a polynomial-time algorithm for active learning of deterministic one-counter automata (DOCA). Unlike previous exponential-time syntactic approaches, OL* is semantic?it learns the language of the target automaton without any knowledge of the DOCA structure. It can also be used to approximate DOCA minimisation, a problem whose exact version is NP-hard even for certain subclasses of DOCA."
+                references={`[1] Mathew, Prince, Vincent Penelle, and A. V. Sreejith. Learning Deterministic One-Counter Automata in Polynomial Time. arXiv preprint arXiv:2503.04525 (2025).`}
 
               />
               <Talk
@@ -448,7 +449,7 @@ const Programme = () => {
                 presenterLink="https://www.tifr.res.in/~shibashis.guha/"
                 affiliation="Tata Institute of Fundamental Research Mumbai"
                 abstract="Reinforcement Learning (RL) is a sampling-based method for sequential decision-making, in which a learning agent iteratively converges toward an optimal policy by leveraging feedback from the environment in the form of scalar reward signals. While timing information is often abstracted in discrete-time domains, time-critical learning applications?such as queuing systems, population processes, and manufacturing systems?are naturally modeled as Continuous-Time Markov Decision Processes (CTMDPs). Since the seminal work of Bradtke and Duff, model-free RL for CTMDPs has become well-understood. However, in many practical applications, practitioners possess high-quality information about system rates derived from traditional queuing theory, which learning agents could potentially exploit to accelerate convergence. Despite this, classical RL algorithms for CTMDPs typically re-learn these parameters through sampling. In this work, we propose continuous-time reward machines (CTRMs), a novel framework that embeds reward functions and real-time state-action dynamics into a unified structure. CTRMs enable RL agents to effectively navigate dense-time environments while leveraging reward shaping and counterfactual experiences for accelerated learning. Our empirical results demonstrate CTRMs' ability to improve learning efficiency in time-critical environments."
-                references=""
+                references="[1] Amin Falah, Shibashis Guha, Ashutosh Trivedi. Continuous-Time Reward Machines. In Proc. of the International Joint Conference on Artificial Intelligence (IJCAI) 2025, pp. 5056-5064, 2025"
               />
               <Talk
                 time="15:55 - 16:20"
@@ -485,6 +486,7 @@ const Programme = () => {
                 presenterLink="https://www.bits-pilani.ac.in/goa/santonu-sarkar/"
                 affiliation="BITS Goa"
                 abstract="This proposal  presents a hybrid approach that combines the adaptability of Large Language Models (LLMs) with the rigor of formal verification for automated software upgrades for Sequential Function Chart (SFC) code. Our framework LLMA combines an LLM component to generate an upgraded version of an existing SFC code, while maintaining strict formal verification to ensure correctness during the upgrade process. Our framework includes: (1) an integrated approach combining formal verification with LLM-guided upgrades; (2) counterexample-driven prompt refinement for learning from verification failures; and (3) automated repair functions that rectify behavioral divergences identified during verification. Evaluations on industrial benchmarks reveal our approach achieves high success rates while substantially reducing manual effort compared to conventional methods"
+                references="[1] Soumyadip Bandyopadhyay, Santonu Sarkar. Antarbhukti: Verifying Correctness of PLC Software During System Evolution. In Proc. of the International Symposium on Automated Technology for Verification and Analysis (ATVA) 2025, pp. 447 - 471, 2025."
               />
               <Talk
                 time="17:00 - 17:15"
@@ -679,9 +681,30 @@ const Programme = () => {
               />
               <Talk
                 time="11:00 - 11:15"
-                presenter="Dr Varsha Jarali / Dr Shashi Kant Pandey"
+                /* presenter="Dr Varsha Jarali / Dr Shashi Kant Pandey" */
                 title="On The Dolev-Yao Model of Symmetric Cascade Protocol"
-                presenterLink="https://www.linkedin.com/in/dr-varsha-jarali-086826238/"
+                /* presenterLink="https://www.linkedin.com/in/dr-varsha-jarali-086826238/" */
+                presenter={
+                <>
+                  <a
+                    href="https://www.linkedin.com/in/dr-varsha-jarali-086826238/"
+                    className="underline text-blue-700 hover:text-blue-900"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                  Dr Varsha Jarali
+                  </a>
+                  {" / "}
+                  <a
+                    href="https://sites.google.com/site/priyeshashikant/"
+                    className="underline text-blue-700 hover:text-blue-900"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                  Dr Shashi Kant Pandey
+                   </a>
+                </>
+                }
                 affiliation="Society For Electronic Transactions and Security Chennai"
                 abstract="Security protocols enable authentication, key distribution, and secure information exchange, making them essential for network security. However, flaws in their design can lead to serious attacks, making formal verification methods vital for analyzing protocol correctness. The Dolev-Yao (DY) model introduced a formal framework for proving the security of name-stamp and cascade protocols based on public-key encryption. Brook and Otto later distinguished between symmetric and non-symmetric cascade protocols, observing that all DY cases were symmetric and that attacker choices were not fully addressed. As a result, full formal security proofs of cascade protocols that consider both attacker capabilities and encryption choices remain incomplete. In this work, we extend the DY formal model and analyze the remaining four cases of symmetric two-party cascade protocols. We present formal security proofs for all four protocols based on a hybrid use of symmetric and asymmetric encryption."
                 references="[1] Dolev, D., and Yao, A. C. On the security of public key protocols. Proceedings of the 22nd Annual Symposium on Foundations of Computer Science (FOCS), pp. 350-357, 1983.

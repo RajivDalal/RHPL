@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return(
     <>
-    <nav className="sticky top-0 bg-[#0b2545] text-white py-3 shadow-[0_10px_15px_rgba(0,0,0,0.25)] ">
+    <nav className="sticky top-0 bg-[#0b2545] text-white py-3 shadow-[0_10px_15px_rgba(0,0,0,0.25)] z-40">
       <div className="navmenu flex justify-between items-center px-[2%] xl:px-[5%] min-[1320]:px-[7%] 2xl:px-[10%]">
         <NavLink to="/" onClick={handleLinkClick}  className="md:text-3xl text-[1.7rem] font-share-mono [word-spacing:-10px]">RHPL 2025</NavLink>
         

@@ -63,7 +63,7 @@ p.contain {
   margin-top: 1.6rem;
   padding: 1rem;
   min-width: 12rem;
-  z-index: 1;
+  z-index: 50;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   color: #0e6ba8;
 }

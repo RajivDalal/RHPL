@@ -244,7 +244,7 @@ const Talk = ({
           {references && (
             <div>
               <div className="font-semibold mb-1">References:</div>
-              <div className="whitespace-pre-line text-sm leading-relaxed">
+              <div className="whitespace-pre-line leading-relaxed">
                 {references}
               </div>
             </div>
@@ -340,10 +340,11 @@ const Programme = () => {
         {/* WEDNESDAY PROGRAMME */}
         {activeDay === "wednesday" && (
           <div>
-            <ProgrammeRow
+            <SessionHeader
               time="09:00 - 10:00"
               title="FSTTCS Invited Talk"
               link = "https://www.fsttcs.org.in/2025/program.php"
+              location="D LT7"
             />
            
 
@@ -423,10 +424,11 @@ const Programme = () => {
               title="Lunch"
             />
 
-            <ProgrammeRow
+            <SessionHeader
               time="14:00 - 15:00"
               title="FSTTCS Invited Talk"
               link = "https://www.fsttcs.org.in/2025/program.php"
+              location= "D LT7"
             />
 
             <ProgrammeRow
@@ -448,7 +450,7 @@ const Programme = () => {
                 title="Continuous Time Reward Machines"
                 presenterLink="https://www.tifr.res.in/~shibashis.guha/"
                 affiliation="Tata Institute of Fundamental Research Mumbai"
-                abstract="Reinforcement Learning (RL) is a sampling-based method for sequential decision-making, in which a learning agent iteratively converges toward an optimal policy by leveraging feedback from the environment in the form of scalar reward signals. While timing information is often abstracted in discrete-time domains, time-critical learning applications?such as queuing systems, population processes, and manufacturing systems?are naturally modeled as Continuous-Time Markov Decision Processes (CTMDPs). Since the seminal work of Bradtke and Duff, model-free RL for CTMDPs has become well-understood. However, in many practical applications, practitioners possess high-quality information about system rates derived from traditional queuing theory, which learning agents could potentially exploit to accelerate convergence. Despite this, classical RL algorithms for CTMDPs typically re-learn these parameters through sampling. In this work, we propose continuous-time reward machines (CTRMs), a novel framework that embeds reward functions and real-time state-action dynamics into a unified structure. CTRMs enable RL agents to effectively navigate dense-time environments while leveraging reward shaping and counterfactual experiences for accelerated learning. Our empirical results demonstrate CTRMs' ability to improve learning efficiency in time-critical environments."
+                abstract="Reinforcement Learning (RL) is a sampling-based method for sequential decision-making, in which a learning agent iteratively converges toward an optimal policy by leveraging feedback from the environment in the form of scalar reward signals. While timing information is often abstracted in discrete-time domains, time-critical learning applications-such as queuing systems, population processes, and manufacturing systems?are naturally modeled as Continuous-Time Markov Decision Processes (CTMDPs). Since the seminal work of Bradtke and Duff, model-free RL for CTMDPs has become well-understood. However, in many practical applications, practitioners possess high-quality information about system rates derived from traditional queuing theory, which learning agents could potentially exploit to accelerate convergence. Despite this, classical RL algorithms for CTMDPs typically re-learn these parameters through sampling. In this work, we propose continuous-time reward machines (CTRMs), a novel framework that embeds reward functions and real-time state-action dynamics into a unified structure. CTRMs enable RL agents to effectively navigate dense-time environments while leveraging reward shaping and counterfactual experiences for accelerated learning. Our empirical results demonstrate CTRMs' ability to improve learning efficiency in time-critical environments."
                 references="[1] Amin Falah, Shibashis Guha, Ashutosh Trivedi. Continuous-Time Reward Machines. In Proc. of the International Joint Conference on Artificial Intelligence (IJCAI) 2025, pp. 5056-5064, 2025"
               />
               <Talk
@@ -504,6 +506,7 @@ const Programme = () => {
                 presenterLink="https://ieeexplore.ieee.org/author/37088487403"
                 affiliation="Indian Institute of Science, Bangalore"
                 abstract="We consider the problem of verifying linear-time temporal properties, specifically, liveness properties, of discrete-time systems with (uncountable) infinite states   often arising in robotic applications, And present a counter-example guided abstraction refinement (CEGAR) based technique tailored to this setting.\nWe provide novel validation and refinement algorithms to handle the lasso shaped abstract counterexamples that witness the violation of the liveness properties and give a characterization of a feasible lasso-shaped abstract counter-examples based on the notion of recurrent sets.\nUsing this, we propose an algorithm for validating counter-examples by iteratively computing pre-sets around the loop, and use these computed pre-sets to refine the   abstraction to eliminate spurious counter-examples.\nPreliminary results show the technique to be effective in terms of both proving that the system satisfies the given property, as well as in finding valid counter-     examples (falsification)."
+                references="[1] Alvin A. George, Deepak D'Souza, Pavithra Prabhakar. CEGAR-based Verification of Temporal Properties of Robotic Systems. Unpublished, 2025"
               />
               
             </div>
@@ -515,10 +518,11 @@ const Programme = () => {
         {/* THURSDAY PROGRAMME */}
         {activeDay === "thursday" && (
           <div>
-            <ProgrammeRow
+            <SessionHeader
               time="09:00 - 10:00"
               title="FSTTCS Invited Talk"
               link = "https://www.fsttcs.org.in/2025/program.php"
+              location="D LT7"
             />
             <ProgrammeRow
               time="10:00 - 10:30"
@@ -560,6 +564,7 @@ const Programme = () => {
                 presenterLink="https://priyasiddharth.github.io/"
                 affiliation="University of Waterloo"
                 abstract="Ownership helps high-level languages—and their verifiers—reason about memory correctness without modelling an explicit address map, but this advantage disappears in LLVM IR where ownership information is lost and verification must fall back on one. This talk introduces OSEA-IR, a low-level intermediate representation that restores ownership semantics using well-defined aliasing primitives and a pointer-resident cache, allowing verification conditions to avoid symbolic address maps whenever memory access is provably exclusive. Prophecy variables model the return of mutable borrows without shared-memory reasoning, keeping cache-based verification simple even across non-local aliasing patterns. OSEA-IR is generated from C-like programs that follow an ownership discipline via lightweight macros, and integrates with SEABMC, a bit-precise bounded model checker for LLVM. Across both handcrafted examples and real-world open-source C code, this approach yields 1.3x-5x improvements in SMT solving time, demonstrating that lifting ownership semantics into low-level IR substantially simplifies verification while supporting both safe and unsafe code paths."
+                references="[1] Siddharth Priya, Arie Gurfinkel. Ownership in low-level intermediate representation. In Proc. of Formal Methods in Computer-Aided Design (FMCAD). IEEE, 2024."
               />
             </div>
 
@@ -587,7 +592,7 @@ const Programme = () => {
                 presenterLink="https://supriya-bhide.github.io/"
                 affiliation="Indian Institute of Technology Bombay"
                 abstract="Static Single Assignment (SSA) is the most commonly used intermediate representation by all modern compilers. The advent of SSA in the late 80's brought about a major change in how programs were represented, analyzed, and optimized by compilers. Since then, SSA has seen many advances and has become the de facto intermediate representation used by modern compilers such as GCC and LLVM. The main advantage of SSA is that it enables referential transparency for variables by ensuring that there is a single static definition of any variable and this definition is connected to its uses through def-use edges. This provides flow-sensitivity for free thereby enabling sparse analyses. Current SSA (aka classical SSA) works only at the intraprocedural level and is restricted to non-address taken variables. Address-taken variables and global variables are handled soundly but very imprecisely using memory-SSA. However, no def-use edges can be formed when the definitions and their uses are in different procedures. This restricts the scope of SSA-based analyses and optimisations to individual procedures. To overcome these limitations, we propose a precise interprocedural SSA form called CoS-SSA (Context-Sensitive SSA) that generalises the classical SSA to support def-use edges between global variables across procedures even in the presence of pointers and recursion. CoS-SSA provides context-sensitivity for free, apart from flow-sensitivity—a client analysis that uses CoS-SSA does not require to maintain context sensitivity or flow sensitivity. This enables efficient sparse analyses at the interprocedural level."
-                
+                references="[1] Supriya Bhide. CoS-SSA: Context-Sensitive SSA for Interprocedural Program Analyses and Optimisations. Unpublished, 2025"
               />
               <Talk
                 time="12:25 - 12:40"
@@ -605,10 +610,11 @@ const Programme = () => {
               title="Lunch"
             />
 
-            <ProgrammeRow
+            <SessionHeader
               time="14:00 - 15:00"
               title="FSTTCS Invited Talk"
               link = "https://www.fsttcs.org.in/2025/program.php"
+              location="D LT7"
             />
   
             <ProgrammeRow
@@ -643,10 +649,11 @@ const Programme = () => {
         {/* FRIDAY PROGRAMME */}
         {activeDay === "friday" && (
           <div>
-            <ProgrammeRow
+            <SessionHeader
               time="09:00 - 10:00"
               title="FSTTCS Invited Talk"
               link = "https://www.fsttcs.org.in/2025/program.php"
+              location="D LT7"
             />
         
             <ProgrammeRow
@@ -727,10 +734,11 @@ const Programme = () => {
               title="Lunch"
             />
 
-            <ProgrammeRow
+            <SessionHeader
               time="14:00 - 15:00"
               title="FSTTCS Invited Talk"
               link = "https://www.fsttcs.org.in/2025/program.php"
+              location="D LT7"
             />
 
 
@@ -762,6 +770,7 @@ const Programme = () => {
                 presenterLink="#"
                 affiliation="BITS Pilani"
                 abstract={`We present Emdash, a novel dependently typed logical framework designed to support computational synthetic category theory, drawing inspiration from Kosta Dosen's functorial programming paradigm. Emdash integrates categorical primitives—such as categories, objects, morphisms, and functors—directly into its λΠ-calculus core, facilitating reasoning and computation in a style closer to mathematical practice.The path towards ω-categories is paved by internalizing the (dependent) comma category construction of a (dependent) category, similarly to the “bridge type” construction used in logical relations and parametricity. The system features a bidirectional type checker with unification-based hole solving for interactive proof, definitional equality via βδι-reduction (including user-supplied rewrite rules and unfolding of injective constants), and Higher-Order Abstract Syntax (HOAS) for binders. A key contribution of Emdash is the concept of functorial elaboration, where kernel-level constructors for structures such as functors not only receive their components (for example, object and arrow mappings) but also definitionally verify their coherence laws during elaboration, throwing a \`CoherenceError\` upon failure. Implemented in TypeScript and formally specified in a Lambdapi dialect, Emdash demonstrates a practical pathway from specification to a working kernel. We report on the successful implementation and validation of the system's core features through a comprehensive test suite.`}
+                references="[1] https://github.com/hotdocx/emdash"
               />
             </div>
 

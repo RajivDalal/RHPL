@@ -104,12 +104,12 @@ const PanelDiscussion = ({
       <div className="flex-1 sm:pl-4">
         {name && (
           <div className="italic mb-1">
-            <a href={link} className="underline text-blue-700 hover:text-blue-900">
+            <a href={link} target ="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">
               {name}
             </a>
           </div>
         )}
-        <div><b>Location:</b> <a href={locationLink} target="_blank" className="underline text-blue-700 hover:text-blue-900">{location}</a></div>
+        <div><b>Location:</b> <a href={locationLink} target="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">{location}</a></div>
       </div>
     </div>
   );
@@ -671,6 +671,7 @@ const Programme = () => {
               <PanelDiscussion
                 time="16:30 - 17:30"
                 name="RHPL Panel Discussion"
+                locationLink="https://maps.google.com/?cid=2394156713201511468&entry=gps"
                 location="TP Classroom"
                 link="/rhpl2025/panel_discussion"
               />
@@ -756,7 +757,7 @@ const Programme = () => {
               title="Special session in honour of R. Venkatesh"
               chair="TBA"
               location="TP Classroom"
-              locationLink="#"
+              locationLink="https://maps.google.com/?cid=2394156713201511468&entry=gps"
               link="/rhpl2025/special_session"
             />
 

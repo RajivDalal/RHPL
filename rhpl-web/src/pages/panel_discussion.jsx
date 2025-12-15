@@ -1,5 +1,9 @@
 import React from 'react';
 import { RiExternalLinkLine } from "react-icons/ri";
+import UdayImage from '../images/Uday.png';
+import PavithraImage from '../images/Pavithra1.png';
+import SubhajitImage from '../images/Subhajit.png';
+import UmangImage from '../images/Umang.png';
 /* const Panel = () => {
   return (
     <div className="content">
@@ -115,7 +119,7 @@ const Panel = () => {
         <ul className="space-y-2 ml-3">
           <li>
             <img 
-              src="/images/Uday.png" 
+              src={UdayImage} 
               alt="Uday Khedkar" 
               width={100} 
               height={100} 
@@ -125,7 +129,7 @@ const Panel = () => {
           </li>
           <li>
             <img 
-              src="/images/Pavithra1.png" 
+              src={PavithraImage} 
               alt="Pavithra Prabhakar" 
               width={100} 
               height={100} 
@@ -135,7 +139,7 @@ const Panel = () => {
           </li>
           <li>
             <img 
-              src="/images/Subhajit.png" 
+              src={SubhajitImage} 
               alt="Subhajit Roy" 
               width={100} 
               height={100} 
@@ -145,7 +149,7 @@ const Panel = () => {
           </li>
           <li>
             <img 
-              src="/images/Subhajit.png" 
+              src={SubhajitImage}
               alt="Subhajit Roy" 
               width={100} 
               height={100} 
@@ -158,7 +162,7 @@ const Panel = () => {
         <ul className="space-y-2 ml-3 mt-2">
          <li>
           <img 
-              src="/images/Umang.png" 
+              src={UmangImage} 
               alt="Umang Mathur" 
               width={100} 
               height={100} 

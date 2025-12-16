@@ -29,7 +29,7 @@ const ProgrammeRow = ({ time, title, link }) => {
 };
 
 
-const SessionHeader = ({ time, number, title, chair,chairLink, link, location="D LT8", locationLink="https://www.google.com/maps/place/DLT-8/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb900213155e7:0x7490dccaba396945!8m2!3d15.3924302!4d73.8824773!16s%2Fg%2F11lf2kbc2_?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=3758f64b-5d6d-4f9a-9a36-3c4278aac7e7" }) => {
+const SessionHeader = ({ time, number, title, chair,chairLink, link, location="D LT9", locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a" }) => {
   return (
     <div className="w-full flex flex-col sm:flex-row items-center bg-[#c2e0f4] p-3 rounded mb-2">
 
@@ -399,7 +399,7 @@ const Programme = () => {
               number={1}
               title="Concurrency"
               chair="Bernd Finkbeiner"
-              chairLink=""
+              chairLink="https://cispa.de/en/people/finkbeiner"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -436,7 +436,8 @@ const Programme = () => {
               time="11:45 - 12:35"
               number={2}
               title="Learning and Verification with Partial Information"
-              chair="TBA"
+              chair="Divyesh Unadkat"
+              chairLink="https://divyeshunadkat.github.io/"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -510,7 +511,8 @@ const Programme = () => {
               time="16:30 - 17:30"
               number={4}
               title="Cyber-Physical Systems"
-              chair="TBA"
+              chair="Kumar Madhukar"
+              chairLink="https://kumarmadhukar.github.io/"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">

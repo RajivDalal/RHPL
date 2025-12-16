@@ -59,16 +59,20 @@ const Special_session=()=>{
                         <p>
                             R. Venkatesh recently retired as a Chief Scientist from TCS Research, where he led the Foundations of Computing research area. He has over 30 years of experience in software development, formal methods, and program verification and validation.
 His work focuses on advanced software engineering tools for automating model-based development, testing, and analysis of code and models.
-<br/>
+</p>
+<p>
 Widely known as Venky, he has been an inspiring leader, colleague, and mentor, and his work has had a lasting impact on both industry and academia.
-<br/>
+</p>
+<p>
 During his tenure, he led several tool-development projects, including TCS ECA, a commercially sold static analysis tool.
-<br />
+</p>
+<p>
 Other notable tools developed under his leadership include, to name a few, MasterCraft, a formal specification notation called EDT, VeriAbs (Gold winner in the safety category of SVCOMP), and VeriFuzz (Gold winner in TestComp).
-<br />
+</p>
+<p>
 A Reminiscences Session at RHPL is being organized to celebrate and honor Venky's contributions over the decades.
 The schedule for the session follows.
-                        </p>
+                    </p>
                     </div>
 
                 </section>

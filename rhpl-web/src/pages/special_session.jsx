@@ -25,13 +25,13 @@ const Talk = ({
             {presenter}
           </a>
           <br />
-          <p>{affiliation}</p>
+          <p className="text-sm text-gray-600 mt-1">{affiliation}</p>
         </div>
       )}
 
       {/* Non-speaker slot */}
       {!presenter && label && (
-        <div>
+        <div className="font-medium text-gray-700 italic">
           {label}
         </div>
       )}
@@ -72,9 +72,9 @@ The schedule for the session follows.
                     </div>
 
                 </section>
-                 <h2 className = "text-xl font-bold mb-2 mt-6 ">Programme</h2>
+                 <h2 className = "text-2xl font-bold mb-2 mt-6 ">Programme</h2>
                  <hr className="border-black pb-6"/>
-                <section className="border rounded-md p-4 bg-[#cce5f6]">
+                <section className="border shadow-sm rounded-md p-6 bg-[#cce5f6]">
                    
                     <div className= "flex justify-center">
                         <div className = "space-y-2 w-full max-w-3xl">

@@ -49,13 +49,13 @@ const Special_session=()=>{
                 <h1 className="text-[27px] font-bold">Special Session in Honour of R. Venkatesh</h1>
                 <hr className="border-black pb-6"/>
                 <section className = "grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                    <div className = "md: col-span-1 flex justify-center">
-                        <img 
-                            src={VenkateshImage} 
-                            alt="R Venkatesh" 
-                            className = "rounded-lg shadow-md max-w-xs w-full"
+                    <div className="w-[14em] max-w-full">
+                        <img
+                            src={VenkateshImage}
+                            alt="R Venkatesh"
+                            className="w-full h-auto rounded-lg shadow-md"
                         />
-                    </div>
+</div>
                     <div className = "md:col-span-2 space-y-4 text-justify leading-relaxed">
                         <p>
                             R. Venkatesh recently retired as a Chief Scientist from TCS Research, where he led the Foundations of Computing research area. He has over 30 years of experience in software development, formal methods, and program verification and validation.

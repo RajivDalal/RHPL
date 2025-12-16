@@ -448,8 +448,7 @@ const Programme = () => {
                 presenterLink="https://sreejithavtvm.github.io/"
                 affiliation="IIT Goa"
                 abstract="We present OL*, a polynomial-time algorithm for active learning of deterministic one-counter automata (DOCA). Unlike previous exponential-time syntactic approaches, OL* is semantic - it learns the language of the target automaton without any knowledge of the DOCA structure. It can also be used to approximate DOCA minimisation, a problem whose exact version is NP-hard even for certain subclasses of DOCA."
-                references={`[1] Mathew, Prince, Vincent Penelle, and A. V. Sreejith. Learning Deterministic One-Counter Automata in Polynomial Time. arXiv preprint arXiv:2503.04525 (2025).`}
-
+                references={`[1] Prince Mathew, Vincent Penelle, A. V. Sreejith. Learning Deterministic One-Counter Automata in Polynomial Time. In Proc. of the 40th Annual ACM/IEEE Symposium on Logic in Computer Science (LICS) 2025, pp. 444-457, 2025`}
               />
               <Talk
                 time="12:10 - 12:35"

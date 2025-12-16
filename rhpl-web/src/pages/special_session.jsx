@@ -7,6 +7,10 @@ const Talk = ({
   affiliation = "",
 }) => {
   
+    {/* <a
+            href={presenterLink}
+            className="italic underline text-blue-700 hover:text-blue-900"
+          >  */}
   return (
    <div className="border-b border-gray-200 last:border-b-0">
   <div className="flex flex-col sm:flex-row py-2">
@@ -18,12 +22,9 @@ const Talk = ({
       {/* Speaker */}
       {presenter && (
         <div className="">
-          <a
-            href={presenterLink}
-            className="italic underline text-blue-700 hover:text-blue-900"
-          >
+         
             {presenter}
-          </a>
+    
           <br />
           <p className="text-sm text-gray-600 mt-1">{affiliation}</p>
         </div>
@@ -118,10 +119,10 @@ The schedule for the session follows.
                                 presenterLink = "#"
                                 affiliation="TCS Research"
                             />
-                            <Talk
+                            {/* <Talk
                                 time = "12:30 - 12:40"
                                 label = "Open to Audience"
-                            />
+                            /> */}
                         </div>
                     </div>
                 </section>

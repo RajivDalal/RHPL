@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Tabs from "../components/tabs.jsx";
 import Modal from "../components/modal.jsx";
+import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/ri";
 
 const ProgrammeRow = ({ time, title, link }) => {
   return (
@@ -28,7 +29,7 @@ const ProgrammeRow = ({ time, title, link }) => {
 };
 
 
-const SessionHeader = ({ time, number, title, chair, link, location="D LT8", locationLink="https://www.google.com/maps/place/DLT-8/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb900213155e7:0x7490dccaba396945!8m2!3d15.3924302!4d73.8824773!16s%2Fg%2F11lf2kbc2_?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=3758f64b-5d6d-4f9a-9a36-3c4278aac7e7" }) => {
+const SessionHeader = ({ time, number, title, chair,chairLink, link, location="D LT8", locationLink="https://www.google.com/maps/place/DLT-8/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb900213155e7:0x7490dccaba396945!8m2!3d15.3924302!4d73.8824773!16s%2Fg%2F11lf2kbc2_?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=3758f64b-5d6d-4f9a-9a36-3c4278aac7e7" }) => {
   return (
     <div className="w-full flex flex-col sm:flex-row items-center bg-[#c2e0f4] p-3 rounded mb-2">
 
@@ -49,10 +50,22 @@ const SessionHeader = ({ time, number, title, chair, link, location="D LT8", loc
         )}
         </span>
         {chair && (
-          <div className="mt-1">
-            <span className="font-semibold">Chair:</span> {chair}
-          </div>
-        )}
+  <div className="mt-1">
+    <span className="font-semibold">Chair:</span>{" "}
+    {chairLink ? (
+      <a
+        href={chairLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline text-blue-700 hover:text-blue-900"
+      >
+        {chair}
+      </a>
+    ) : (
+      chair
+    )}
+  </div>
+)}
         {location && (
           <div className="mt-1">
             <span className="font-semibold">Location:</span> <a href={locationLink} target="_blank" className="underline text-blue-700 hover:text-blue-900">{location} </a>
@@ -220,10 +233,11 @@ const Talk = ({
           {abstract?.trim() && (
             <button
               onClick={() => setExpanded(!expanded)}
-              className="inline-block text-sm px-3 py-1 rounded border border-blue-600
-                         text-blue-700 hover:bg-blue-600 hover:text-white transition"
+              className="inline-block text-sm px-3 py-1
+                         text-blue-700 hover:text-dark-blue transition"
             >
-              {expanded ? "Hide Details" : "Show Details"}
+              {expanded ? <RiArrowUpSLine className = "text-2xl"/> : <RiArrowDownSLine className = "text-2xl"/>}
+
             </button>
           )}
         </div>
@@ -384,7 +398,8 @@ const Programme = () => {
               time="10:30 - 12:35"
               number={1}
               title="Concurrency"
-              chair="TBA"
+              chair="Bernd Finkbeiner"
+              chairLink=""
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -466,7 +481,8 @@ const Programme = () => {
               time="15:30 - 16:20"
               number={3}
               title="Markov Decision Processes"
-              chair="TBA"
+              chair="Djordje Zikelic"
+              chairLink="https://djordjezikelic.github.io/"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -664,15 +680,15 @@ const Programme = () => {
               <PanelDiscussion
                 time="15:30 - 16:30"
                 name="FSTTCS Track B Talks"
-                location="D LT7"
-                locationLink="https://www.google.com/maps/place/DLT-7/@15.3922732,73.8808447,18.65z/data=!4m6!3m5!1s0x3bbfb9326fabe01f:0xba42b70f4942fbac!8m2!3d15.3924!4d73.882292!16s%2Fg%2F11vl1mhxv0?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=2c57ab92-b992-405a-b9d5-ed2b4124139c"
+                location="D LT10"
+                locationLink="https://www.google.com/maps/place/DLT-10/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb9007a38dddd:0x1598fec5ff977c25!8m2!3d15.3921589!4d73.8818369!16s%2Fg%2F11y7c230lg?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=205e508c-06de-404d-adf4-46828af275a3"
                 link="https://www.fsttcs.org.in/2025/program.php"
               />
               <PanelDiscussion
                 time="16:30 - 17:30"
                 name="RHPL Panel Discussion"
-                locationLink="https://maps.google.com/?cid=2394156713201511468&entry=gps"
-                location="TP Classroom"
+                locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
+                location="D LT9"
                 link="/rhpl2025/panel_discussion"
               />
             </div>
@@ -756,8 +772,8 @@ const Programme = () => {
               number={2}
               title="Special session in honour of R. Venkatesh"
               chair="TBA"
-              location="TP Classroom"
-              locationLink="https://maps.google.com/?cid=2394156713201511468&entry=gps"
+              location="D LT9"
+              locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
               link="special_session"
             />
 

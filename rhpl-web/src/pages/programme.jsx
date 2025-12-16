@@ -29,7 +29,7 @@ const ProgrammeRow = ({ time, title, link }) => {
 };
 
 
-const SessionHeader = ({ time, number, title, chair,chairLink, link, location="D LT9", locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a" }) => {
+const SessionHeader = ({ time, number, title, chair,chairLink, link, location="D LT-9", locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a" }) => {
   return (
     <div className="w-full flex flex-col sm:flex-row items-center bg-[#c2e0f4] p-3 rounded mb-2">
 
@@ -682,7 +682,7 @@ const Programme = () => {
               <PanelDiscussion
                 time="15:30 - 16:30"
                 name="FSTTCS Track B Talks"
-                location="D LT10"
+                location="D LT-10"
                 locationLink="https://www.google.com/maps/place/DLT-10/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb9007a38dddd:0x1598fec5ff977c25!8m2!3d15.3921589!4d73.8818369!16s%2Fg%2F11y7c230lg?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=205e508c-06de-404d-adf4-46828af275a3"
                 link="https://www.fsttcs.org.in/2025/program.php"
               />

@@ -689,7 +689,7 @@ const Programme = () => {
                 time="16:30 - 17:30"
                 name="RHPL Panel Discussion"
                 locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
-                location="D LT9"
+                location="DLT-9"
                 link="/rhpl2025/panel_discussion"
               />
             </div>

@@ -502,7 +502,7 @@ const Programme = () => {
                 presenterLink="https://ramneet-singh.netlify.app/"
                 affiliation="Microsoft Research"
                 abstract="The talk presents a novel symbolic algorithm for the Maximal End Component (MEC) decomposition of a Markov Decision Process (MDP). The key idea behind our algorithm INTERLEAVE is to interleave the computation of Strongly Connected Components (SCCs) with eager elimination of redundant state-action pairs, rather than performing these computations sequentially as done by existing state-of-the-art algorithms. Even though our approach has the same complexity as prior works, an empirical evaluation of INTERLEAVE on the standardized Quantitative Verification Benchmark Set demonstrates that it solves 19 more benchmarks (out of 379) than the closest previous algorithm. On the 149 benchmarks that prior approaches can solve, we demonstrate a 3.81x average speedup in runtime."
-                references={`[1] Bansal, Suguman, and Ramneet Singh. "INTERLEAVE: A Faster Symbolic Algorithm for Maximal End Component Decomposition." International Conference on Computer Aided Verification. Cham: Springer Nature Switzerland, 2025.`}
+                references={`[1] Bansal, Suguman, and Ramneet Singh. "INTERLEAVE: A Faster Symbolic Algorithm for Maximal End Component Decomposition." International Conference on Computer Aided Verification (CAV) 2025. Cham: Springer Nature Switzerland, 2025.`}
               />
             </div>
 

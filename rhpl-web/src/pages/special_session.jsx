@@ -86,32 +86,37 @@ The schedule for the session follows.
                                 time= "11:30 - 11:40" 
                                 presenter = "B Srivathsan"
                                 presenterLink="#"
-                                affiliation="ABC University"
+                                affiliation="Chennai Mathematical Institute"
                             />
                             <Talk
                                 time = "11:40 - 11:50"
                                 presenter = "Mandyam Srivas"
                                 presenterLink="#"
+                                affiliation="Chennai Mathematical Institute"
                             />
                             <Talk
                                 time = "11:50 - 12:00"
                                 presenter = "Uday Khedker"
                                 presenterLink = "#"
+                                affiliation="IIT Bombay"
                             />
                             <Talk
                                 time = "12:00 - 12:10"
                                 presenter = "Madhavan Mukund"
                                 presenterLink = "#"
+                                affiliation="Chennai Mathematical Institute"
                             />
                             <Talk
                                 time = "12:10 - 12:20"
                                 presenter = "Supratik Chakraborty"
                                 presenterLink = "#"
+                                affiliation="IIT Bombay"
                             />
                             <Talk
                                 time = "12:20 - 12:30"
                                 presenter = "Ravindra Metta"
                                 presenterLink = "#"
+                                affiliation="TCS Research"
                             />
                             <Talk
                                 time = "12:30 - 12:40"

@@ -758,7 +758,7 @@ const Programme = () => {
               chair="TBA"
               location="TP Classroom"
               locationLink="https://maps.google.com/?cid=2394156713201511468&entry=gps"
-              link="/rhpl2025/special_session"
+              link="special_session"
             />
 
             <ProgrammeRow

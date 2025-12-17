@@ -50,15 +50,15 @@ const Special_session=()=>{
             <p className="contain py-10 paraLink">
                 <h1 className="text-[27px] font-bold">Special Session in Honour of R. Venkatesh</h1>
                 <hr className="border-black pb-6"/>
-                <section className = "grid grid-cols-1 xl:grid-cols-3 gap-4 xl:gap-8 items-start">
-                    <div className="xl:col-span-1 flex justify-center xl:justify-start">
+                <section className = "grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 items-start">
+                    <div className="lg:col-span-1 flex justify-center lg:justify-start">
                         <img 
                             src={VenkateshImage} 
                             alt="R. Venkatesh" 
                             className="rounded-lg shadow-md w-full max-w-[280px] object-cover"
                         />
                     </div>
-                    <div className = "xl:col-span-2 space-y-4 text-justify leading-relaxed">
+                    <div className = "lg:col-span-2 space-y-4 text-justify leading-relaxed">
                         <p>
                             R. Venkatesh recently retired as a Chief Scientist from TCS Research, where he led the Foundations of Computing research area. He has over 30 years of experience in software development, formal methods, and program verification and validation.
 His work focuses on advanced software engineering tools for automating model-based development, testing, and analysis of code and models.
@@ -133,5 +133,3 @@ The schedule for the session follows.
     )
 }
 export default Special_session;
-
-

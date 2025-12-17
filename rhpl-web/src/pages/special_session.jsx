@@ -7,10 +7,7 @@ const Talk = ({
   affiliation = "",
 }) => {
   
-    {/* <a
-            href={presenterLink}
-            className="italic underline text-blue-700 hover:text-blue-900"
-          >  */}
+   
   return (
    <div className="border-b border-gray-200 last:border-b-0">
   <div className="flex flex-col sm:flex-row py-2">
@@ -22,9 +19,14 @@ const Talk = ({
       {/* Speaker */}
       {presenter && (
         <div className="">
-         
+          <a
+            href={presenterLink}
+            className="underline text-blue-700 hover:text-blue-900"
+            target="_blank"
+             rel="noopener noreferrer"
+          > 
             {presenter}
-    
+          </a>
           <br />
           <p className="text-sm text-gray-600 mt-1">{affiliation}</p>
         </div>
@@ -48,15 +50,15 @@ const Special_session=()=>{
             <p className="contain py-10 paraLink">
                 <h1 className="text-[27px] font-bold">Special Session in Honour of R. Venkatesh</h1>
                 <hr className="border-black pb-6"/>
-                <section className = "grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                    <div className="w-[14em] max-w-full">
-                        <img
-                            src={VenkateshImage}
-                            alt="R Venkatesh"
-                            className="w-full h-auto rounded-lg shadow-md"
+                <section className = "grid grid-cols-1 xl:grid-cols-3 gap-4 xl:gap-8 items-start">
+                    <div className="xl:col-span-1 flex justify-center xl:justify-start">
+                        <img 
+                            src={VenkateshImage} 
+                            alt="R. Venkatesh" 
+                            className="rounded-lg shadow-md w-full max-w-[280px] object-cover"
                         />
-</div>
-                    <div className = "md:col-span-2 space-y-4 text-justify leading-relaxed">
+                    </div>
+                    <div className = "xl:col-span-2 space-y-4 text-justify leading-relaxed">
                         <p>
                             R. Venkatesh recently retired as a Chief Scientist from TCS Research, where he led the Foundations of Computing research area. He has over 30 years of experience in software development, formal methods, and program verification and validation.
 His work focuses on advanced software engineering tools for automating model-based development, testing, and analysis of code and models.
@@ -86,37 +88,37 @@ The schedule for the session follows.
                             <Talk
                                 time= "11:30 - 11:40" 
                                 presenter = "B Srivathsan"
-                                presenterLink="#"
+                                presenterLink="https://cmi.ac.in/~sri/"
                                 affiliation="Chennai Mathematical Institute"
                             />
                             <Talk
                                 time = "11:40 - 11:50"
                                 presenter = "Mandyam Srivas"
-                                presenterLink="#"
+                                presenterLink="https://www.cmi.ac.in/~mksrivas/"
                                 affiliation="Chennai Mathematical Institute"
                             />
                             <Talk
                                 time = "11:50 - 12:00"
                                 presenter = "Uday Khedker"
-                                presenterLink = "#"
+                                presenterLink = "https://www.cse.iitb.ac.in/~uday/"
                                 affiliation="IIT Bombay"
                             />
                             <Talk
                                 time = "12:00 - 12:10"
                                 presenter = "Madhavan Mukund"
-                                presenterLink = "#"
+                                presenterLink = "https://www.cmi.ac.in/~madhavan/"
                                 affiliation="Chennai Mathematical Institute"
                             />
                             <Talk
                                 time = "12:10 - 12:20"
                                 presenter = "Supratik Chakraborty"
-                                presenterLink = "#"
+                                presenterLink = "https://www.cse.iitb.ac.in/~supratik/"
                                 affiliation="IIT Bombay"
                             />
                             <Talk
                                 time = "12:20 - 12:30"
                                 presenter = "Ravindra Metta"
-                                presenterLink = "#"
+                                presenterLink = "https://www.linkedin.com/in/ravindra-metta-00b2b75/"
                                 affiliation="TCS Research"
                             />
                             {/* <Talk

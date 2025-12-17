@@ -209,7 +209,6 @@ const Talk = ({
 
   return (
     <div className="border-b border-gray-200 last:border-b-0">
-      {/* HEADER */}
       <div className="flex flex-col sm:flex-row py-2">
         <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">
           {time}
@@ -222,6 +221,8 @@ const Talk = ({
                 <a
                   href={presenterLink}
                   className="underline text-blue-700 hover:text-blue-900"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {presenter}
                 </a>
@@ -233,70 +234,59 @@ const Talk = ({
           {abstract?.trim() && (
             <button
               onClick={() => setExpanded(!expanded)}
-              className="inline-block text-sm px-3 py-1
-                         text-blue-700 hover:text-dark-blue transition"
+              className="inline-block text-sm px-3 py-1 text-blue-700 hover:text-dark-blue transition"
             >
-              {expanded ? <RiArrowUpSLine className = "text-2xl"/> : <RiArrowDownSLine className = "text-2xl"/>}
-
+              {expanded ? (
+                <RiArrowUpSLine className="text-2xl" />
+              ) : (
+                <RiArrowDownSLine className="text-2xl" />
+              )}
             </button>
           )}
         </div>
       </div>
 
-      {/* EXPANDED CONTENT */}
-      <div
-        className={`
-          ml-0 sm:ml-48 mb-3 overflow-hidden transition-all duration-200 ease-in-out
-          ${
-            expanded
-              ? "max-h-[2000px] opacity-100 translate-y-0"
-              : "max-h-0 opacity-0 -translate-y-1"
-          }
-        `}
-      >
-        <div className="bg-[#cce5f6] rounded-md p-4 space-y-4 text-gray-800">
-          {/*prev color c2e0f4 */}
-          {/* AFFILIATION */}
-          {affiliation && (
-            <div>
-              <span className="font-semibold">Affiliation:</span>{" "}
-              {affiliation}
-            </div>
-          )}
-
-          {/* ABSTRACT */}
-          {abstract && (
-            <div>
-              <div className="font-semibold mb-1">Abstract:</div>
-
-              {abstract.split("\n\n").map((para, i) => (
-                <p
-                  key={i}
-                  className={`text-justify leading-relaxed mb-3 ${
-                    i === 0 ? "" : "indent-8"
-                  }`}
-                >
-                  {para}
-                </p>
-              ))}
-            </div>
-          )}
-
-          {/* REFERENCES */}
-          {references && (
-            <div>
-              <div className="font-semibold mb-1">References:</div>
-              <div className="whitespace-pre-line leading-relaxed">
-                {references}
+      {expanded && (
+        <div className="ml-0 sm:ml-48 mb-3 transition-opacity duration-200 ease-in-out">
+          <div className="bg-[#cce5f6] rounded-md p-4 space-y-4 text-gray-800 max-h-[70vh] overflow-y-auto">
+            {affiliation && (
+              <div>
+                <span className="font-semibold">Affiliation:</span>{" "}
+                {affiliation}
               </div>
-            </div>
-          )}
+            )}
 
+            {abstract && (
+              <div>
+                <div className="font-semibold mb-1">Abstract:</div>
+                {abstract.split("\n\n").map((para, i) => (
+                  <p
+                    key={i}
+                    className={`text-justify leading-relaxed mb-3 ${
+                      i === 0 ? "" : "indent-8"
+                    }`}
+                  >
+                    {para}
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {references && (
+              <div>
+                <div className="font-semibold mb-1">References:</div>
+                <div className="whitespace-pre-line leading-relaxed">
+                  {references}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
+
 
 // Dialog box
 // const Talk = ({
@@ -590,7 +580,7 @@ const Programme = () => {
                 presenter="Umang Mathur"
                 title="Equivalences for Causal Concurrency"
                 presenterLink="https://www.comp.nus.edu.sg/~umathur/"
-                affiliaction="National University of Singapore"
+                affiliation="National University of Singapore"
                 abstract="This talk will begin with a gentle introduction to trace theory, a principled mathematical framework for defining equivalence relations among concurrent program executions based on a commutativity relation over the atomic steps of individual program threads. Its simplicity, elegance, and algorithmic efficiency make it a powerful tool in various domains, including program verification and testing. I will then compare trace theory with the modern, widely adopted notion of equivalence for concurrent program executions, known as reads-from equivalence. This more natural and relaxed notion captures a broader range of behaviors but introduces significant computational challenges. Specifically, I will present results demonstrating the computational hardness associated with reads-from equivalence. Finally, I will discuss our recent efforts to generalize trace theory to reconcile it with reads-from equivalence. This generalized framework aims to retain the algorithmic advantages of trace theory while addressing its limitations in representing modern equivalence notions."
                 references={`[1] Farzan, Azadeh, and Umang Mathur. "Coarser equivalences for causal concurrency." Proceedings of the ACM on Programming Languages 8.POPL (2024): 911-941. 
                 [2] Ang, Zhendong, and Umang Mathur. "Predictive monitoring against pattern regular languages." Proceedings of the ACM on Programming Languages 8.POPL (2024): 2191-2225.

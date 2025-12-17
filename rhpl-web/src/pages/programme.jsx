@@ -109,7 +109,9 @@ const PanelDiscussion = ({
   link = "#",
   name,
   location,
-  locationLink
+  locationLink,
+  chair,
+  chairLink,
 }) => {
   return (
     <div className="flex flex-col sm:flex-row py-2 border-b border-gray-200 last:border-b-0">
@@ -123,6 +125,7 @@ const PanelDiscussion = ({
           </div>
         )}
         <div><b>Location:</b> <a href={locationLink} target="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">{location}</a></div>
+        <div><b>Chair:</b><a href={chairLink} target="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">{chair}</a></div>
       </div>
     </div>
   );
@@ -373,19 +376,22 @@ const Programme = () => {
         {activeDay === "wednesday" && (
           <div>
             <InvitedTalk
-              time="09:00 - 10:00"
+              time="09:10 - 10:10"
               title="FSTTCS Invited Talk"
               link = "https://www.fsttcs.org.in/2025/program.php"
             />
            
 
             <ProgrammeRow
-              time="10:00 - 10:30"
+              time="10:10 - 10:30"
               title="Coffee Break"
             />
-
+            <ProgrammeRow
+              time="10:30 - 10:35"
+              title="RHPL Opening Remarks"
+            />
             <SessionHeader
-              time="10:30 - 12:35"
+              time="10:35 - 11:40"
               number={1}
               title="Concurrency"
               chair="Bernd Finkbeiner"
@@ -394,7 +400,7 @@ const Programme = () => {
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="10:30 - 10:55"
+                time="10:35 - 11:00"
                 presenter="Nobuko Yoshida"
                 title="Specification-Guided Programming for Asynchronous Message-Passing Optimisation"
                 presenterLink="https://mrg.cs.ox.ac.uk/"
@@ -403,7 +409,7 @@ const Programme = () => {
                 references="[1] Martin Vassor and Nobuko Yoshida. Refinements for Multiparty Message-Passing Protocols: Specification-Agnostic Theory and Implementation. In 38th European Conference on Object-Oriented Programming (ECOOP 2024). Leibniz International Proceedings in Informatics (LIPIcs), Volume 313, pp. 41:1-41:29, Schloss Dagstuhl - Leibniz-Zentrum für Informatik (2024) https://doi.org/10.4230/LIPIcs.ECOOP.2024.41"
               />
               <Talk
-                time="10:55 - 11:20"
+                time="11:00 - 11:25"
                 presenter="Omkar Tuppe"
                 title="GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency"
                 presenterLink="https://homepages.iitb.ac.in/~194050003/"
@@ -412,7 +418,7 @@ const Programme = () => {
                 references="[1] Chakraborty, S., Krishna, S., Pavlogiannis, A., Tuppe, O. GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency. In: Piskac, R., Rakamari, Z. (eds) Computer Aided Verification. CAV 2025. Lecture Notes in Computer Science, vol 15933. Springer, Cham. https://doi.org/10.1007/978-3-031-98682-6_17"
               />
               <Talk
-                time="11:20 - 11:35"
+                time="11:25 - 11:40"
                 presenter="Soumodev Mal"
                 title="Bridging Nets-within-Nets and Data Nets"
                 presenterLink="https://www.linkedin.com/in/soumodev-mal-10329b185/"
@@ -423,16 +429,16 @@ const Programme = () => {
             </div>
 
             <SessionHeader
-              time="11:45 - 12:35"
+              time="11:50 - 12:40"
               number={2}
               title="Learning and Verification with Partial Information"
-              chair="Divyesh Unadkat"
-              chairLink="https://divyeshunadkat.github.io/"
+              chair="Govind R"
+              chairLink="https://rdnivog.github.io/"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
-                time="11:45 - 12:10"
+                time="11:50 - 12:15"
                 presenter="Sreejith A V"
                 title="Learning Deterministic One-Counter Automata in Polynomial Time"
                 presenterLink="https://sreejithavtvm.github.io/"
@@ -441,7 +447,7 @@ const Programme = () => {
                 references={`[1] Prince Mathew, Vincent Penelle, A. V. Sreejith. Learning Deterministic One-Counter Automata in Polynomial Time. In Proc. of the 40th Annual ACM/IEEE Symposium on Logic in Computer Science (LICS) 2025, pp. 444-457, 2025`}
               />
               <Talk
-                time="12:10 - 12:35"
+                time="12:15 - 12:40"
                 presenter="Gourav Takhar"
                 title="Verification of Open Programs via LLM-Mined Behavioral Idioms"
                 presenterLink="https://tgourav.github.io/"
@@ -571,7 +577,8 @@ const Programme = () => {
               time="10:30 - 11:35"
               number={1}
               title="Program Equivalence and Ownership Semantics"
-              chair="TBA"
+              chair="Madhavan Mukund"
+              chairLink="https://www.cmi.ac.in/~madhavan/"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -610,7 +617,8 @@ const Programme = () => {
               time="11:45 - 12:40"
               number={2}
               title="Compilers"
-              chair="TBA"
+              chair="Uday Khedker"
+              chairLink="https://www.cse.iitb.ac.in/~uday/"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -674,6 +682,8 @@ const Programme = () => {
                 location="DLT-10"
                 locationLink="https://www.google.com/maps/place/DLT-10/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb9007a38dddd:0x1598fec5ff977c25!8m2!3d15.3921589!4d73.8818369!16s%2Fg%2F11y7c230lg?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=205e508c-06de-404d-adf4-46828af275a3"
                 link="https://www.fsttcs.org.in/2025/program.php"
+                chair="Deepak D'Souza"
+                chairLink=""
               />
               <PanelDiscussion
                 time="16:30 - 17:30"
@@ -681,6 +691,8 @@ const Programme = () => {
                 locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
                 location="DLT-9"
                 link="/rhpl2025/panel_discussion"
+                chair="Neeldhara Misra"
+                chairLink="https://www.neeldhara.com/"
               />
             </div>
           </div>

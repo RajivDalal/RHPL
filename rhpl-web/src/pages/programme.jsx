@@ -683,7 +683,7 @@ const Programme = () => {
                 locationLink="https://www.google.com/maps/place/DLT-10/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb9007a38dddd:0x1598fec5ff977c25!8m2!3d15.3921589!4d73.8818369!16s%2Fg%2F11y7c230lg?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=205e508c-06de-404d-adf4-46828af275a3"
                 link="https://www.fsttcs.org.in/2025/program.php"
                 chair="Deepak D'Souza"
-                chairLink=""
+                chairLink="https://www.csa.iisc.ac.in/~deepakd/"
               />
               <PanelDiscussion
                 time="16:30 - 17:30"

@@ -854,10 +854,12 @@ const Programme = () => {
             <SessionHeader
               time="16:15 - 17:05"
               number={4}
-              title="Short Talks"
-              chair="TBA"
-              location="TBA"
-              locationLink=""
+              title="Online Talks"
+              chair="Abhisekh Sankaran"
+              chairLink="https://abhisekhs.github.io/"
+              location="DLT-9"
+              locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
+              link="special_session"
             />
             {/* <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk

@@ -834,7 +834,7 @@ const Programme = () => {
                 time="15:30 - 15:55"
                 presenter="Udit Mavinkurve"
                 title="An Invitation To Discrete Homotopy Theory"
-                presenterLink="https://fmindia.cmi.ac.in/rhpl2025/programme#"
+                presenterLink="https://scholar.google.com/citations?user=2aoSFx8AAAAJ&hl=en"
                 affiliation="University of Western Ontario"
                 abstract="There is growing interest in extending mathematical tools originally developed for studying continuous objects (e.g. topological spaces) to the study of discrete objects like graphs. The naive approach viz. treating graphs as low-dimensional spaces turns out to be uninteresting. To capture the combinatorial richness of graph theory, we must truly discretize our notions of maps, intervals, and products. Doing this gives rise to discrete homotopy theory - an approach introduced around 20 years by Helene Barcelo et al., building on the work of Ronald Atkin from the mid-70's. This theory has found a wide range of applications both within and outside of mathematics, including: matroid theory, subspace arrangements, topological data analysis, time series analysis, and quite concretely in understanding how social interactions between preschoolers impact their academic performance. There are also active ongoing efforts to formalize results in discrete homotopy theory using interactive proof assistants such as Lean. This talk will be an introduction to discrete homotopy theory and will report on joint work with Chris Kapulkin."
                 references={`[1] Krzysztof Kapulkin, Udit Mavinkurve. 2025. The Fundamental Group in Discrete Homotopy Theory. In Advances in Applied Mathematics, 2025.
@@ -844,7 +844,7 @@ const Programme = () => {
                 time="15:55 - 16:10"
                 presenter="Cristopher Mary Kouam"
                 title="Emdash — A Dependently Typed Logical Framework for Computational Synthetic ω-Category Theory and Functorial Elaboration"
-                presenterLink="#"
+                presenterLink="https://github.com/hotdocx/emdash"
                 affiliation="BITS Pilani"
                 abstract={`We present Emdash, a novel dependently typed logical framework designed to support computational synthetic category theory, drawing inspiration from Kosta Dosen's functorial programming paradigm. Emdash integrates categorical primitives—such as categories, objects, morphisms, and functors—directly into its λΠ-calculus core, facilitating reasoning and computation in a style closer to mathematical practice.The path towards ω-categories is paved by internalizing the (dependent) comma category construction of a (dependent) category, similarly to the “bridge type” construction used in logical relations and parametricity. The system features a bidirectional type checker with unification-based hole solving for interactive proof, definitional equality via βδι-reduction (including user-supplied rewrite rules and unfolding of injective constants), and Higher-Order Abstract Syntax (HOAS) for binders. A key contribution of Emdash is the concept of functorial elaboration, where kernel-level constructors for structures such as functors not only receive their components (for example, object and arrow mappings) but also definitionally verify their coherence laws during elaboration, throwing a \`CoherenceError\` upon failure. Implemented in TypeScript and formally specified in a Lambdapi dialect, Emdash demonstrates a practical pathway from specification to a working kernel. We report on the successful implementation and validation of the system's core features through a comprehensive test suite.`}
                 references="[1] Christopher Mary Kouam. Emdash — A Dependently Typed Logical Framework for Computational Synthetic Category Theory and Functorial Elaboration. Unpublished, 2025. Report available at: https://github.com/hotdocx/emdash"
@@ -859,7 +859,7 @@ const Programme = () => {
               chairLink="https://abhisekhs.github.io/"
               location="DLT-9"
               locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
-              link="special_session"
+              
             />
             {/* <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk

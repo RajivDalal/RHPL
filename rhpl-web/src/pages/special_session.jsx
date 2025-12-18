@@ -50,7 +50,34 @@ const Special_session=()=>{
             <p className="contain py-10 paraLink">
                 <h1 className="text-[27px] font-bold">Special Session in Honour of R. Venkatesh</h1>
                 <hr className="border-black pb-6"/>
-                <section className = "grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 items-start">
+         <section className="text-justify leading-relaxed">
+                    <img 
+                        src={VenkateshImage} 
+                        alt="R. Venkatesh" 
+                        className="rounded-lg shadow-md w-full max-w-[280px] object-cover mx-auto mb-4 lg:float-left lg:mr-6 lg:mb-4 lg:w-[20vw] lg:max-w-[280px] lg:min-w-[200px]"
+                    />
+                    <div className="space-y-4">
+                        <p>
+                            R. Venkatesh recently retired as a Chief Scientist from TCS Research, where he led the Foundations of Computing research area. He has over 30 years of experience in software development, formal methods, and program verification and validation.
+His work focuses on advanced software engineering tools for automating model-based development, testing, and analysis of code and models.
+</p>
+<p>
+Widely known as Venky, he has been an inspiring leader, colleague, and mentor, and his work has had a lasting impact on both industry and academia.
+</p>
+<p>
+During his tenure, he led several tool-development projects, including TCS ECA, a commercially sold static analysis tool.
+</p>
+<p>
+Other notable tools developed under his leadership include, to name a few, MasterCraft, a formal specification notation called EDT, VeriAbs (Gold winner in the safety category of SVCOMP), and VeriFuzz (Gold winner in TestComp).
+</p>
+<p>
+A Reminiscences Session at RHPL is being organized to celebrate and honor Venky's contributions over the decades.
+The schedule for the session follows.
+                    </p>
+                    </div>
+
+                </section>
+{/* <section className = "grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 items-start">
                     <div className="lg:col-span-1 flex justify-center lg:justify-start">
                         <img 
                             src={VenkateshImage} 
@@ -78,7 +105,9 @@ The schedule for the session follows.
                     </p>
                     </div>
 
-                </section>
+                </section> */}
+
+                
                  <h2 className = "text-2xl font-bold mb-2 mt-6 ">Programme</h2>
                  <hr className="border-black pb-6"/>
                 <section className="border shadow-sm rounded-md p-6 bg-[#cce5f6]">

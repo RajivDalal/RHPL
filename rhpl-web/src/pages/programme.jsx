@@ -116,7 +116,7 @@ const PanelDiscussion = ({
   return (
     <div className="flex flex-col sm:flex-row py-2 border-b border-gray-200 last:border-b-0">
       <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">{time}</span>
-      <div className="flex-1 sm:pl-4">
+      <div className="flex-1 sm:pl-4 space-y-1">
         {name && (
           <div className="italic mb-1">
             <a href={link} target ="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">
@@ -124,8 +124,8 @@ const PanelDiscussion = ({
             </a>
           </div>
         )}
+        <div><b>Chair:</b> <a href={chairLink} target="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">{chair}</a></div>
         <div><b>Location:</b> <a href={locationLink} target="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">{location}</a></div>
-        <div><b>Chair:</b><a href={chairLink} target="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">{chair}</a></div>
       </div>
     </div>
   );
@@ -221,8 +221,8 @@ const Talk = ({
           <div>
             {presenter && (
               <div className="italic mb-1">
-                <a
-                  href={presenterLink}
+                
+                  <a href={presenterLink}
                   className="underline text-blue-700 hover:text-blue-900"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -249,43 +249,44 @@ const Talk = ({
         </div>
       </div>
 
-      {expanded && (
-        <div className="ml-0 sm:ml-48 mb-3 transition-opacity duration-200 ease-in-out">
-          <div className="bg-[#cce5f6] rounded-md p-4 space-y-4 text-gray-800 max-h-[70vh] overflow-y-auto">
-            {affiliation && (
-              <div>
-                <span className="font-semibold">Affiliation:</span>{" "}
-                {affiliation}
-              </div>
-            )}
+      <div
+        className={`
+          ml-0 sm:ml-48 mb-3 overflow-hidden transition-all duration-300 ease-in-out
+          ${expanded ? "max-h-[70vh] opacity-100" : "max-h-0 opacity-0"}
+        `}
+      >
+        <div className="bg-[#cce5f6] rounded-md p-4 space-y-4 text-gray-800 overflow-y-auto max-h-[70vh]">
+          {affiliation && (
+            <div>
+              <span className="font-semibold">Affiliation:</span>{" "}
+              {affiliation}
+            </div>
+          )}
 
-            {abstract && (
-              <div>
-                <div className="font-semibold mb-1">Abstract:</div>
-                {abstract.split("\n\n").map((para, i) => (
-                  <p
-                    key={i}
-                    className={`text-justify leading-relaxed mb-3 ${
-                      i === 0 ? "" : "indent-8"
-                    }`}
-                  >
-                    {para}
-                  </p>
-                ))}
-              </div>
-            )}
+          {abstract && (
+            <div>
+              <div className="font-semibold mb-1">Abstract:</div>
+              {abstract.split(/\n+/).map((para, i) => (
+                <p
+                  key={i}
+                  className="text-justify leading-relaxed mb-3"
+                >
+                  {para}
+                </p>
+              ))}
+            </div>
+          )}
 
-            {references && (
-              <div>
-                <div className="font-semibold mb-1">References:</div>
-                <div className="whitespace-pre-line leading-relaxed">
-                  {references}
-                </div>
+          {references && (
+            <div>
+              <div className="font-semibold mb-1">References:</div>
+              <div className="whitespace-pre-line leading-relaxed">
+                {references}
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
@@ -405,7 +406,8 @@ const Programme = () => {
                 title="Specification-Guided Programming for Asynchronous Message-Passing Optimisation"
                 presenterLink="https://mrg.cs.ox.ac.uk/"
                 affiliation="University of Oxford"
-                abstract={`Rust is a modern systems language focused on performance and reliability. Complementing Rust's promise to provide "fearless concurrency", developers frequently exploit asynchronous message passing. Unfortunately, sending and receiving messages in an arbitrary order to maximise computation-communication overlap (a popular optimisation in message-passing applications) opens up a Pandora's box of subtle concurrency bugs. To guarantee deadlock-freedom by construction, we present Rumpsteak: a new Rust framework based on multiparty session types. Previous session type implementations in Rust are either built upon synchronous and blocking communication and/or are limited to two-party interactions. Crucially, none support the arbitrary ordering of messages for efficiency. Rumpsteak instead targets asynchronous async/await code. Its unique ability is allowing developers to arbitrarily order send/receive messages while preserving deadlock-freedom. For this, Rumpsteak incorporates two recent advanced session type theories: (1) k-multiparty compatibility (k-MC), which globally verifies the safety of a set of participants, and (2) asynchronous multiparty session subtyping, which locally verifies optimisations in the context of a single participant. Specifically, we propose a novel algorithm for asynchronous subtyping that is both sound and decidable. We first talk about Rumsteak and show the new algorithm. We then talk about evaluations against other Rust implementations and asynchronous verification tools.`}
+                abstract={`Rust is a modern systems language focused on performance and reliability. Complementing Rust's promise to provide "fearless concurrency", developers frequently exploit asynchronous message passing. Unfortunately, sending and receiving messages in an arbitrary order to maximise computation-communication overlap (a popular optimisation in message-passing applications) opens up a Pandora's box of subtle concurrency bugs. To guarantee deadlock-freedom by construction, we present Rumpsteak: a new Rust framework based on multiparty session types. Previous session type implementations in Rust are either built upon synchronous and blocking communication and/or are limited to two-party interactions. 
+                Crucially, none support the arbitrary ordering of messages for efficiency. Rumpsteak instead targets asynchronous async/await code. Its unique ability is allowing developers to arbitrarily order send/receive messages while preserving deadlock-freedom. For this, Rumpsteak incorporates two recent advanced session type theories: (1) k-multiparty compatibility (k-MC), which globally verifies the safety of a set of participants, and (2) asynchronous multiparty session subtyping, which locally verifies optimisations in the context of a single participant. Specifically, we propose a novel algorithm for asynchronous subtyping that is both sound and decidable. We first talk about Rumsteak and show the new algorithm. We then talk about evaluations against other Rust implementations and asynchronous verification tools.`}
                 references="[1] Martin Vassor and Nobuko Yoshida. Refinements for Multiparty Message-Passing Protocols: Specification-Agnostic Theory and Implementation. In 38th European Conference on Object-Oriented Programming (ECOOP 2024). Leibniz International Proceedings in Informatics (LIPIcs), Volume 313, pp. 41:1-41:29, Schloss Dagstuhl - Leibniz-Zentrum für Informatik (2024) https://doi.org/10.4230/LIPIcs.ECOOP.2024.41"
               />
               <Talk
@@ -414,7 +416,9 @@ const Programme = () => {
                 title="GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency"
                 presenterLink="https://homepages.iitb.ac.in/~194050003/"
                 affiliation="Indian Institute of Technology Bombay"
-                abstract="Modern GPUs adopt weak memory concurrency for performance, but their added complexity, including memory orders, memory scopes, and divergence, makes writing correct concurrent code significantly more complicated than on CPUs.To address this, we developed GPUMC, a stateless model checker for verifying GPU programs under the scoped-RC11 memory model. GPUMC systematically explores all possible executions to detect data races, heterogeneous races, barrier divergence, and assertion violations.We evaluated GPUMC on both micro-benchmarks and GPU kernels. It is efficient in time and memory, verifying large programs where existing tools fail or time out."
+                abstract="Modern GPUs adopt weak memory concurrency for performance, but their added complexity, including memory orders, memory scopes, and divergence, makes writing correct concurrent code significantly more complicated than on CPUs.
+                To address this, we developed GPUMC, a stateless model checker for verifying GPU programs under the scoped-RC11 memory model. GPUMC systematically explores all possible executions to detect data races, heterogeneous races, barrier divergence, and assertion violations.
+                We evaluated GPUMC on both micro-benchmarks and GPU kernels. It is efficient in time and memory, verifying large programs where existing tools fail or time out."
                 references="[1] Chakraborty, S., Krishna, S., Pavlogiannis, A., Tuppe, O. GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency. In: Piskac, R., Rakamari, Z. (eds) Computer Aided Verification. CAV 2025. Lecture Notes in Computer Science, vol 15933. Springer, Cham. https://doi.org/10.1007/978-3-031-98682-6_17"
               />
               <Talk
@@ -423,8 +427,12 @@ const Programme = () => {
                 title="Bridging Nets-within-Nets and Data Nets"
                 presenterLink="https://www.linkedin.com/in/soumodev-mal-10329b185/"
                 affiliation="Indian Institute of Technology Dharwad, India"
-                abstract="Elementary Object Systems (EOSs) are a model in the nets-within-nets (NWNs) paradigm, where tokens in turn can host standard Petri nets. We study the complexity of the reachability problem of EOSs when subjected to non-deterministic token losses. It is known that this problem is equivalent to the coverability problem with no lossiness of conservative EOSs (cEOSs).We precisely characterize cEOS coverability into the framework of data nets, whose tokens carry data from an infinite domain. Specifically, we show that cEOS coverability is equivalent to the coverability of an interesting fragment of data nets that extends beyond nu-PN (featuring globally fresh name creation), yet remains less expressive than Unordered Data Nets (featuring lossy name creation as well as powerful forms of whole-place operations and broadcasts).This insight bridges two apparently orthogonal approaches to PN extensions, namely data nets and NWNs. At the same time, it enables us to analyze cEOS coverability taking advantage of known results on data nets.As a byproduct, we immediately get that the complexity of cEOS coverability lies between F_{ω²} and F_{ω^ω},  two classes beyond Primitive Recursive"
-                references="[1] Di Cosmo, F., Mal, S., Prince, T. (2026). Nets-Within-Nets Through the Lens of Data Nets. In: Ganty, P., Mansutti, A. (eds) Reachability Problems. RP 2025. Lecture Notes in Computer Science, vol 16230. Springer, Cham. https://doi.org/10.1007/978-3-032-09524-4_11"
+                abstract={`Elementary Object Systems (EOSs) are a model in the nets-within-nets (NWNs) paradigm, where tokens in turn can host standard Petri nets. We study the complexity of the reachability problem of EOSs when subjected to non-deterministic token losses.
+                   It is known that this problem is equivalent to the coverability problem with no lossiness of conservative EOSs (cEOSs).
+                   We precisely characterize cEOS coverability into the framework of data nets, whose tokens carry data from an infinite domain. Specifically, we show that cEOS coverability is equivalent to the coverability of an interesting fragment of data nets that extends beyond nu-PN (featuring globally fresh name creation), yet remains less expressive than Unordered Data Nets (featuring lossy name creation as well as powerful forms of whole-place operations and broadcasts).
+                   This insight bridges two apparently orthogonal approaches to PN extensions, namely data nets and NWNs. At the same time, it enables us to analyze cEOS coverability taking advantage of known results on data nets.
+                   As a byproduct, we immediately get that the complexity of cEOS coverability lies between F_{ω²} and F_{ω^ω},  two classes beyond Primitive Recursive"
+                references="[1] Di Cosmo, F., Mal, S., Prince, T. (2026). Nets-Within-Nets Through the Lens of Data Nets. In: Ganty, P., Mansutti, A. (eds) Reachability Problems. RP 2025. Lecture Notes in Computer Science, vol 16230. Springer, Cham. https://doi.org/10.1007/978-3-032-09524-4_11`}
               />
             </div>
 
@@ -452,7 +460,9 @@ const Programme = () => {
                 title="Verification of Open Programs via LLM-Mined Behavioral Idioms"
                 presenterLink="https://tgourav.github.io/"
                 affiliation="IIT Kanpur"
-                abstract="Incomplete or open programs—where portions of the source code are unavailable—are common in real-world software verification. Conventional verification tools assume the worst-case behavior for missing components, often producing a large number of spurious warnings. Engineers must therefore manually construct models or mocks for unavailable code, which is both time-consuming and error-prone, and inaccuracies in these mocks can compromise verification soundness. We present a technique that significantly improves the precision of memory-safety verification for incomplete programs by leveraging large language models (LLMs). Our approach mines idiomatic buffer-manipulation patterns from real code bases using an LLM, and then employs a property-directed synthesis strategy to select and adapt these patterns into angelic assumptions—assumptions that reflect the most favourable outcomes consistent with safe program behaviour. These assumptions enable the verifier to differentiate genuine bugs from false positives with high accuracy. We implement this technique in Seeker, a verification framework that declares a program correct only when it can be proven safe under a well-defined set of trusted idioms. Across benchmarks from widely used open-source projects, Seeker identifies 79% of false positives with zero false negatives, greatly reducing manual effort in verifying incomplete programs."
+                abstract="Incomplete or open programs—where portions of the source code are unavailable—are common in real-world software verification. Conventional verification tools assume the worst-case behavior for missing components, often producing a large number of spurious warnings. Engineers must therefore manually construct models or mocks for unavailable code, which is both time-consuming and error-prone, and inaccuracies in these mocks can compromise verification soundness. 
+                We present a technique that significantly improves the precision of memory-safety verification for incomplete programs by leveraging large language models (LLMs). Our approach mines idiomatic buffer-manipulation patterns from real code bases using an LLM, and then employs a property-directed synthesis strategy to select and adapt these patterns into angelic assumptions—assumptions that reflect the most favourable outcomes consistent with safe program behaviour. These assumptions enable the verifier to differentiate genuine bugs from false positives with high accuracy.
+                We implement this technique in Seeker, a verification framework that declares a program correct only when it can be proven safe under a well-defined set of trusted idioms. Across benchmarks from widely used open-source projects, Seeker identifies 79% of false positives with zero false negatives, greatly reducing manual effort in verifying incomplete programs."
                 references="[1] Gourav Takhar, Baldip Bijlani, Prantik Chatterjee, Akash Lal, and Subhajit Roy. 2025. Memory-Safety Verification of Open Programs with Angelic Assumptions. Proc. ACM Program. Lang. 9, OOPSLA2, Article 312 (October 2025), 29 pages. https://doi.org/10.1145/3763090"
               />
             </div>
@@ -550,7 +560,10 @@ const Programme = () => {
                 title="CEGAR for Temporal Properties based on Recurrent Sets"
                 presenterLink="https://ieeexplore.ieee.org/author/37088487403"
                 affiliation="Indian Institute of Science, Bangalore"
-                abstract="We consider the problem of verifying linear-time temporal properties, specifically, liveness properties, of discrete-time systems with (uncountable) infinite states   often arising in robotic applications, And present a counter-example guided abstraction refinement (CEGAR) based technique tailored to this setting. We provide novel validation and refinement algorithms to handle the lasso shaped abstract counterexamples that witness the violation of the liveness properties and give a characterization of a feasible lasso-shaped abstract counter-examples based on the notion of recurrent sets.Using this, we propose an algorithm for validating counter-examples by iteratively computing pre-sets around the loop, and use these computed pre-sets to refine the   abstraction to eliminate spurious counter-examples. Preliminary results show the technique to be effective in terms of both proving that the system satisfies the given property, as well as in finding valid counter-examples (falsification)."
+                abstract="We consider the problem of verifying linear-time temporal properties, specifically, liveness properties, of discrete-time systems with (uncountable) infinite states   often arising in robotic applications, And present a counter-example guided abstraction refinement (CEGAR) based technique tailored to this setting. 
+                We provide novel validation and refinement algorithms to handle the lasso shaped abstract counterexamples that witness the violation of the liveness properties and give a characterization of a feasible lasso-shaped abstract counter-examples based on the notion of recurrent sets.
+                Using this, we propose an algorithm for validating counter-examples by iteratively computing pre-sets around the loop, and use these computed pre-sets to refine the   abstraction to eliminate spurious counter-examples. 
+                Preliminary results show the technique to be effective in terms of both proving that the system satisfies the given property, as well as in finding valid counter-examples (falsification)."
                 references="[1] Alvin A. George, Deepak D'Souza, Pavithra Prabhakar. CEGAR-based Verification of Temporal Properties of Robotic Systems. Unpublished, 2025"
               />
               
@@ -588,7 +601,9 @@ const Programme = () => {
                 title="Equivalences for Causal Concurrency"
                 presenterLink="https://www.comp.nus.edu.sg/~umathur/"
                 affiliation="National University of Singapore"
-                abstract="This talk will begin with a gentle introduction to trace theory, a principled mathematical framework for defining equivalence relations among concurrent program executions based on a commutativity relation over the atomic steps of individual program threads. Its simplicity, elegance, and algorithmic efficiency make it a powerful tool in various domains, including program verification and testing. I will then compare trace theory with the modern, widely adopted notion of equivalence for concurrent program executions, known as reads-from equivalence. This more natural and relaxed notion captures a broader range of behaviors but introduces significant computational challenges. Specifically, I will present results demonstrating the computational hardness associated with reads-from equivalence. Finally, I will discuss our recent efforts to generalize trace theory to reconcile it with reads-from equivalence. This generalized framework aims to retain the algorithmic advantages of trace theory while addressing its limitations in representing modern equivalence notions."
+                abstract="This talk will begin with a gentle introduction to trace theory, a principled mathematical framework for defining equivalence relations among concurrent program executions based on a commutativity relation over the atomic steps of individual program threads. Its simplicity, elegance, and algorithmic efficiency make it a powerful tool in various domains, including program verification and testing. 
+                I will then compare trace theory with the modern, widely adopted notion of equivalence for concurrent program executions, known as reads-from equivalence. This more natural and relaxed notion captures a broader range of behaviors but introduces significant computational challenges. Specifically, I will present results demonstrating the computational hardness associated with reads-from equivalence. 
+                Finally, I will discuss our recent efforts to generalize trace theory to reconcile it with reads-from equivalence. This generalized framework aims to retain the algorithmic advantages of trace theory while addressing its limitations in representing modern equivalence notions."
                 references={`[1] Farzan, Azadeh, and Umang Mathur. "Coarser equivalences for causal concurrency." Proceedings of the ACM on Programming Languages 8.POPL (2024): 911-941. 
                 [2] Ang, Zhendong, and Umang Mathur. "Predictive monitoring against pattern regular languages." Proceedings of the ACM on Programming Languages 8.POPL (2024): 2191-2225.
                 [3] Ang, Zhendong, and Umang Mathur. "Predictive Monitoring with Strong Trace Prefixes." International Conference on Computer Aided Verification. Cham: Springer Nature Switzerland, 2024.`}
@@ -599,7 +614,8 @@ const Programme = () => {
                 title="VEXIR2Vec: An Architecture-Neutral Embedding Framework for Binary Similarity"
                 presenterLink="https://svkeerthy.github.io/"
                 affiliation="IIT Hyderabad"
-                abstract="Binary similarity involves determining whether two binary programs exhibit similar functionality with applications in vulnerability detection, malware analysis, and copyright detection. However, variations in compiler settings, target architectures, and deliberate code obfuscations significantly complicate the similarity measurement by effectively altering the syntax, semantics, and structure of the underlying binary. To address these challenges, we propose VexIR2Vec, a robust, architecture-neutral approach based on VEX-IR to solve binary similarity tasks. VexIR2Vec consists of three key components: a peephole extractor, a normalization engine (VexINE), and an embedding model (VexNet). The process to build program embeddings starts with the extraction of sequences of basic blocks, or peepholes, from control-flow graphs via random walks, capturing structural information. These generated peepholes are then normalized using VexINE, which applies compiler-inspired transformations to reduce architectural and compiler-induced variations. Embeddings of peepholes are generated using representation learning techniques, avoiding Out-Of-Vocabulary (OOV) issues. These embeddings are then fine-tuned with VexNet, a feed-forward Siamese network that maps functions into a high dimensional space for diffing and searching tasks in an application-independent manner. We evaluate VexIR2Vec against five baselines BinDiff, DeepBinDiff, SAFE, BinFinder, and histograms of opcodes on a dataset comprising 2.7M functions and 15.5K binaries from 7 projects compiled across 12 compilers targeting x86 and ARM architectures. The experiments span four adversarial settings cross-optimization, cross-compilation, cross-architecture, and obfuscations that are typically exploited by malware and vulnerabilities. In diffing experiments, VexIR2Vec outperforms the nearest baseline in these four scenarios by 40%, 18%, 21%, and 60%, respectively. In the searching experiment, VexIR2Vec achieves a mean average precision of 0.76, the nearest baseline, by 46%. Our framework is highly scalable and is built as a lightweight, multi-threaded, parallel library using only open-source tools. VexIR2Vec is about 3.1-3.5x faster than the closest baselines and orders-of-magnitude faster than other tools."
+                abstract="Binary similarity involves determining whether two binary programs exhibit similar functionality with applications in vulnerability detection, malware analysis, and copyright detection. However, variations in compiler settings, target architectures, and deliberate code obfuscations significantly complicate the similarity measurement by effectively altering the syntax, semantics, and structure of the underlying binary. To address these challenges, we propose VexIR2Vec, a robust, architecture-neutral approach based on VEX-IR to solve binary similarity tasks. VexIR2Vec consists of three key components: a peephole extractor, a normalization engine (VexINE), and an embedding model (VexNet). The process to build program embeddings starts with the extraction of sequences of basic blocks, or peepholes, from control-flow graphs via random walks, capturing structural information. These generated peepholes are then normalized using VexINE, which applies compiler-inspired transformations to reduce architectural and compiler-induced variations. Embeddings of peepholes are generated using representation learning techniques, avoiding Out-Of-Vocabulary (OOV) issues. These embeddings are then fine-tuned with VexNet, a feed-forward Siamese network that maps functions into a high dimensional space for diffing and searching tasks in an application-independent manner.
+                We evaluate VexIR2Vec against five baselines BinDiff, DeepBinDiff, SAFE, BinFinder, and histograms of opcodes on a dataset comprising 2.7M functions and 15.5K binaries from 7 projects compiled across 12 compilers targeting x86 and ARM architectures. The experiments span four adversarial settings cross-optimization, cross-compilation, cross-architecture, and obfuscations that are typically exploited by malware and vulnerabilities. In diffing experiments, VexIR2Vec outperforms the nearest baseline in these four scenarios by 40%, 18%, 21%, and 60%, respectively. In the searching experiment, VexIR2Vec achieves a mean average precision of 0.76, the nearest baseline, by 46%. Our framework is highly scalable and is built as a lightweight, multi-threaded, parallel library using only open-source tools. VexIR2Vec is about 3.1-3.5x faster than the closest baselines and orders-of-magnitude faster than other tools."
                 references="[1] S. VenkataKeerthy, Soumya Banerjee, Sayan Dey, Yashas Andaluri, Raghul PS, Subrahmanyam Kalyanasundaram, Fernando Magno Quintão Pereira, and Ramakrishna Upadrasta. 2025. VexIR2Vec: An Architecture-Neutral Embedding Framework for Binary Similarity. ACM Trans. Softw. Eng. Methodol. March 2025. https://doi.org/10.1145/3721481"
               />
               <Talk
@@ -628,7 +644,8 @@ const Programme = () => {
                 title="CoSSJIT: Combining Static Analysis and Speculation in JIT Compilers"
                 presenterLink="https://adityaanand7.github.io"
                 affiliation="Indian Institute of Technology Bombay"
-                abstract="Just-in-time (JIT) compilers typically sacrifice the precision of program analysis for efficiency, but are capable of performing sophisticated speculative optimizations based on run-time profiles to generate code that is specialized to a given execution. On the contrary, ahead-of-time static compilers can often afford precise flow-sensitive interprocedural analysis, but produce conservative results in scenarios where higher precision could be derived from run-time specialization. In this work (published at OOPSLA-25), we propose the first-of-its-kind approach to enrich static analysis with the possibility of speculative optimization during JIT compilation, as well as its usage to perform aggressive stack allocation on a production Java Virtual Machine (JVM)."
+                abstract="Just-in-time (JIT) compilers typically sacrifice the precision of program analysis for efficiency, but are capable of performing sophisticated speculative optimizations based on run-time profiles to generate code that is specialized to a given execution. On the contrary, ahead-of-time static compilers can often afford precise flow-sensitive interprocedural analysis, but produce conservative results in scenarios where higher precision could be derived from run-time specialization. 
+                In this work (published at OOPSLA-25), we propose the first-of-its-kind approach to enrich static analysis with the possibility of speculative optimization during JIT compilation, as well as its usage to perform aggressive stack allocation on a production Java Virtual Machine (JVM)."
                 references={`[1] Aditya Anand, Vijay Sundaresan, Daryl Maier, and Manas Thakur. “CoSSJIT: Combining Static Analysis and Speculation in JIT Compilers”. In Proceedings of the ACM on Programming Languages (OOPSLA), Singapore, October 12-18, 2025.
                 
                 [2] Aditya Anand, Solai Adithya, Swapnil Rustagi, Priyam Seth, Vijay Sundaresan, Daryl Maier, V. Krishna Nandivada, and Manas Thakur. “Optimistic Stack Allocation and Dynamic Heapification for Managed Runtimes”. In Proceedings of the ACM on Programming Languages (PLDI), Copenhagen, Denmark, June 24-28, 2024.`}
@@ -639,7 +656,8 @@ const Programme = () => {
                 title="CoS-SSA: Context-Sensitive SSA for Interprocedural Program Analyses and Optimisations"
                 presenterLink="https://supriya-bhide.github.io/"
                 affiliation="Indian Institute of Technology Bombay"
-                abstract="Static Single Assignment (SSA) is the most commonly used intermediate representation by all modern compilers. The advent of SSA in the late 80′s brought about a major change in how programs were represented, analyzed, and optimized by compilers. Since then, SSA has seen many advances and has become the de facto intermediate representation used by modern compilers such as GCC and LLVM. The main advantage of SSA is that it enables referential transparency for variables by ensuring that there is a single static definition of any variable and this definition is connected to its uses through def-use edges. This provides flow-sensitivity for free thereby enabling sparse analyses. Current SSA (aka classical SSA) works only at the intraprocedural level and is restricted to non-address taken variables. Address-taken variables and global variables are handled soundly but very imprecisely using memory-SSA. However, no def-use edges can be formed when the definitions and their uses are in different procedures. This restricts the scope of SSA-based analyses and optimisations to individual procedures. To overcome these limitations, we propose a precise interprocedural SSA form called CoS-SSA (Context-Sensitive SSA) that generalises the classical SSA to support def-use edges between global variables across procedures even in the presence of pointers and recursion. CoS-SSA provides context-sensitivity for free, apart from flow-sensitivity—a client analysis that uses CoS-SSA does not require to maintain context sensitivity or flow sensitivity. This enables efficient sparse analyses at the interprocedural level."
+                abstract="Static Single Assignment (SSA) is the most commonly used intermediate representation by all modern compilers. The advent of SSA in the late 80′s brought about a major change in how programs were represented, analyzed, and optimized by compilers. Since then, SSA has seen many advances and has become the de facto intermediate representation used by modern compilers such as GCC and LLVM. The main advantage of SSA is that it enables referential transparency for variables by ensuring that there is a single static definition of any variable and this definition is connected to its uses through def-use edges. This provides flow-sensitivity for free thereby enabling sparse analyses.
+                Current SSA (aka classical SSA) works only at the intraprocedural level and is restricted to non-address taken variables. Address-taken variables and global variables are handled soundly but very imprecisely using memory-SSA. However, no def-use edges can be formed when the definitions and their uses are in different procedures. This restricts the scope of SSA-based analyses and optimisations to individual procedures. To overcome these limitations, we propose a precise interprocedural SSA form called CoS-SSA (Context-Sensitive SSA) that generalises the classical SSA to support def-use edges between global variables across procedures even in the presence of pointers and recursion. CoS-SSA provides context-sensitivity for free, apart from flow-sensitivity—a client analysis that uses CoS-SSA does not require to maintain context sensitivity or flow sensitivity. This enables efficient sparse analyses at the interprocedural level."
                 references="[1] Supriya Bhide. CoS-SSA: Context-Sensitive SSA for Interprocedural Program Analyses and Optimisations. Unpublished, 2025"
               />
               <Talk
@@ -672,7 +690,7 @@ const Programme = () => {
               time="15:30 - 17:30"
               number={3}
               title="Blended Session of FSTTCS Track B and RHPL"
-              chair="TBA"
+              chair=""
               location=""
             />
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -691,8 +709,8 @@ const Programme = () => {
                 locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
                 location="DLT-9"
                 link="/rhpl2025/panel_discussion"
-                chair="Neeldhara Misra"
-                chairLink="https://www.neeldhara.com/"
+                chair="Umang Mathur"
+                chairLink="https://www.comp.nus.edu.sg/~umathur/"
               />
             </div>
           </div>
@@ -735,7 +753,9 @@ const Programme = () => {
                 title="Confidence-aware local robustness verification of neural networks"
                 presenterLink="https://www.linkedin.com/in/mohammad-afzal-b1a832125/"
                 affiliation="TCS Pune India and IIT Bombay"
-                abstract="Robustness is a important problem in AI alignment and safety, with models such as neural networks being increasingly used in safety-critical systems. In the last decade, a large body of work has emerged on local robustness, i.e., checking if the decision of a neural network remains unchanged when the input is slightly perturbed. However, many of these approaches require specialized encodings and often ignore the confidence of a neural network on its output. In this work, our goal is to build a generalised framework to specify and verify variants of robustness in neural network verification. We propose a specification framework using a simple grammar, which is flexible enough to capture most existing variants. This allows us to introduce new variants of robustness that take into account the confidence of the neural network in its outputs. Next, we develop a novel and powerful unified technique to verify all such variants in a homogenous way, viz., by adding a few additional layers to the neural network. This enables us to use any state-of-the-art neural network verification tool, without having to tinker with the encoding within, while incurring an approximation error that we show is bounded."
+                abstract="Robustness is a important problem in AI alignment and safety, with models such as neural networks being increasingly used in safety-critical systems. In the last decade, a large body of work has emerged on local robustness, i.e., checking if the decision of a neural network remains unchanged when the input is slightly perturbed. However, many of these approaches require specialized encodings and often ignore the confidence of a neural network on its output. 
+                
+                In this work, our goal is to build a generalised framework to specify and verify variants of robustness in neural network verification. We propose a specification framework using a simple grammar, which is flexible enough to capture most existing variants. This allows us to introduce new variants of robustness that take into account the confidence of the neural network in its outputs. Next, we develop a novel and powerful unified technique to verify all such variants in a homogenous way, viz., by adding a few additional layers to the neural network. This enables us to use any state-of-the-art neural network verification tool, without having to tinker with the encoding within, while incurring an approximation error that we show is bounded."
               />
               <Talk
                 time="11:00 - 11:15"
@@ -764,7 +784,9 @@ const Programme = () => {
                 </>
                 }
                 affiliation="Society For Electronic Transactions and Security Chennai"
-                abstract="Security protocols enable authentication, key distribution, and secure information exchange, making them essential for network security, yet flaws in their design can lead to attacks. To prevent this, formal verification methods are vital for analyzing protocol correctness.The Dolev-Yao (DY) model introduced formalization of the security proof of name-stamp and cascade protocols, which relies on public-key encryption. Brook and Otto later distinguished between symmetric and non-symmetric cascade protocols, noting that all DY cases were symmetric and that attacker choices were not fully addressed. Full formal security proofs of these protocols based on the capability of an attacker and the choice of encryption remain to be done. In this work, we extend the DY formal model and analyze all remaining four cases for symmetric two-party cascade protocols. A formal proof of security is presented for all four protocols based on a hybrid choice of symmetric and asymmetric encryption."
+                abstract="Security protocols enable authentication, key distribution, and secure information exchange, making them essential for network security, yet flaws in their design can lead to attacks. To prevent this, formal verification methods are vital for analyzing protocol correctness.The Dolev-Yao (DY) model introduced formalization of the security proof of name-stamp and cascade protocols, which relies on public-key encryption. Brook and Otto later distinguished between symmetric and non-symmetric cascade protocols, noting that all DY cases were symmetric and that attacker choices were not fully addressed. Full formal security proofs of these protocols based on the capability of an attacker and the choice of encryption remain to be done. 
+                
+                In this work, we extend the DY formal model and analyze all remaining four cases for symmetric two-party cascade protocols. A formal proof of security is presented for all four protocols based on a hybrid choice of symmetric and asymmetric encryption."
                 references="[1] Dolev, D., and Yao, A. C. On the security of public key protocols. Proceedings of the 22nd Annual Symposium on Foundations of Computer Science (FOCS), pp. 350-357, 1983.
                 [2] Book, R. V., and Otto, F. The verifiability of two-party protocols. In Advances in Cryptology - EUROCRYPT '85, pp. 233-242. Springer."
               />
@@ -774,10 +796,11 @@ const Programme = () => {
               time="11:30 - 12:40"
               number={2}
               title="Special session in honour of R. Venkatesh"
-              chair="TBA"
+              chair="Neeldhara Misra"
               location="DLT-9"
               locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
               link="special_session"
+              chairLink="https://www.neeldhara.com/"
             />
 
             <ProgrammeRow
@@ -807,11 +830,13 @@ const Programme = () => {
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
               <Talk
                 time="15:30 - 15:55"
-                presenter="Sanjiva Prasad"
-                title="TBA"
-                presenterLink="https://www.cse.iitd.ernet.in/~sanjiva/"
-                affiliation=""
-                abstract=""
+                presenter="Udit Mavinkurve"
+                title="An Invitation To Discrete Homotopy Theory"
+                presenterLink="https://fmindia.cmi.ac.in/rhpl2025/programme#"
+                affiliation="University of Western Ontario"
+                abstract="There is growing interest in extending mathematical tools originally developed for studying continuous objects (e.g. topological spaces) to the study of discrete objects like graphs. The naive approach viz. treating graphs as low-dimensional spaces turns out to be uninteresting. To capture the combinatorial richness of graph theory, we must truly discretize our notions of maps, intervals, and products. Doing this gives rise to discrete homotopy theory - an approach introduced around 20 years by Helene Barcelo et al., building on the work of Ronald Atkin from the mid-70's. This theory has found a wide range of applications both within and outside of mathematics, including: matroid theory, subspace arrangements, topological data analysis, time series analysis, and quite concretely in understanding how social interactions between preschoolers impact their academic performance. There are also active ongoing efforts to formalize results in discrete homotopy theory using interactive proof assistants such as Lean. This talk will be an introduction to discrete homotopy theory and will report on joint work with Chris Kapulkin."
+                references={`[1] Krzysztof Kapulkin, Udit Mavinkurve. 2025. The Fundamental Group in Discrete Homotopy Theory. In Advances in Applied Mathematics, 2025.
+[2] Chris Kapulkin, Udit Mavinkurve. 2025. Homotopy n-Types of Cubical Sets and Graphs. Unpublished. Preprint available at https://arxiv.org/abs/2408.05289`}
               />
               <Talk
                 time="15:55 - 16:10"
@@ -857,7 +882,8 @@ const Programme = () => {
                 title="Safety Verification of Anytime Perception based Cyber-Physical Systems"
                 presenterLink="https://www.linkedin.com/in/lipsy-gupta-9b1929259?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BEZg55kBoT7SEiWxSkILBow%3D%3D"
                 affiliation="Kansas State University"
-                abstract="AI-based components are increasingly integrated into autonomous and cyber-physical systems (CPS) by replacing traditional modules such as control, perception, and decision-making. These integrations have led to significant advancements in safety-critical domains, including aerospace, automotive, and robotics. The paradigm of anytime perception has been recently introduced to offer flexibility in latency and accuracy, unlike traditional sensors that return outputs with fixed performance. This adaptability enables autonomous systems to perform more complex tasks while ensuring efficient use of computational resources, but it also introduces new safety challenges, as variations in sensing performance can lead to mission-critical failures. To address these challenges, formal verification is emerging as a powerful framework for providing guarantees on the correctness and safety of such systems. In this talk, we focus on the safety verification of anytime perception-based CPS, wherein we model the anytime sensor in the closed loop. We provide an efficient algorithm for reachable set computation of a closed-loop system with an anytime sensor and a neural network controller using the star set data structure and designing new algorithms for some star set operations. We discuss some experimental results that highlight the scalability of the approach and its effectiveness with diverse dynamics, controllers, and sensing configurations."
+                abstract="AI-based components are increasingly integrated into autonomous and cyber-physical systems (CPS) by replacing traditional modules such as control, perception, and decision-making. These integrations have led to significant advancements in safety-critical domains, including aerospace, automotive, and robotics. The paradigm of anytime perception has been recently introduced to offer flexibility in latency and accuracy, unlike traditional sensors that return outputs with fixed performance. This adaptability enables autonomous systems to perform more complex tasks while ensuring efficient use of computational resources, but it also introduces new safety challenges, as variations in sensing performance can lead to mission-critical failures. To address these challenges, formal verification is emerging as a powerful framework for providing guarantees on the correctness and safety of such systems.
+                In this talk, we focus on the safety verification of anytime perception-based CPS, wherein we model the anytime sensor in the closed loop. We provide an efficient algorithm for reachable set computation of a closed-loop system with an anytime sensor and a neural network controller using the star set data structure and designing new algorithms for some star set operations. We discuss some experimental results that highlight the scalability of the approach and its effectiveness with diverse dynamics, controllers, and sensing configurations."
                 references={`[1] Gupta, L., and Prabhakar, P. Star-set based efficient reachable set computation of anytime sensing-based neural network-controlled dynamical systems. In Proceedings of the International Conference on Embedded Software (EMSOFT), 2025. Journal version published in ACM Transactions on Embedded Computing Systems.
                 [2] Gupta, L., Choton, J. C., and Prabhakar, P. Safety verification of closed-loop control systems with anytime perception. In Proceedings of the International Conference on Robotics and Automation (ICRA), 2024.`}
 
@@ -868,7 +894,10 @@ const Programme = () => {
                 title="A proofs vs programs correspondence for the epsilon calculus"
                 presenterLink="https://sites.google.com/view/abhishekde"
                 affiliation="Krea University"
-                abstract={`The proofs vs programs (also known as the Curry-Howard correspondence) is a deep connection between logic and programming languages, where formulas correspond to types, proofs to programs, and normalization to evaluation. In the early 20th century, in order to solve the foundational crisis, Hilbert and Bernays invented the "epsilon-calculus", a logic obtained by adding a choice operator to predicate logic. Epsilon-calculus was largely forgotten in favour of first-order logic; however, there has been renewed interest in its proof theory in the last few decades. In this talk, we explore the proofs vs programs correspondence for the epsilon calculus. It turns out that epsilon calculus has some mild classical features, which give rise to computational effects at the level of programs. This is a work in progress with Bruno da Rocha Paiva.`}
+                abstract={`The proofs vs programs (also known as the Curry-Howard correspondence) is a deep connection between logic and programming languages, where formulas correspond to types, proofs to programs, and normalization to evaluation. 
+                In the early 20th century, in order to solve the foundational crisis, Hilbert and Bernays invented the "epsilon-calculus", a logic obtained by adding a choice operator to predicate logic. Epsilon-calculus was largely forgotten in favour of first-order logic; however, there has been renewed interest in its proof theory in the last few decades. 
+                In this talk, we explore the proofs vs programs correspondence for the epsilon calculus. It turns out that epsilon calculus has some mild classical features, which give rise to computational effects at the level of programs. 
+                This is a work in progress with Bruno da Rocha Paiva.`}
               />
               {/* <Talk
                 time="16:55 - 17:15"

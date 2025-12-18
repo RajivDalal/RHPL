@@ -734,7 +734,8 @@ const Programme = () => {
               time="10:30 - 11:15"
               number={1}
               title="Verification"
-              chair="TBA"
+              chair="Dietmar Berwanger"
+              chairLink="https://home.lmf.cnrs.fr/DietmarBerwanger/"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
@@ -824,7 +825,8 @@ const Programme = () => {
               time="15:30 - 16:10"
               number={3}
               title="Category Theory"
-              chair="TBA"
+              chair="Nobuko Yoshida"
+              chairLink="https://mrg.cs.ox.ac.uk/"
             />
 
             <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">

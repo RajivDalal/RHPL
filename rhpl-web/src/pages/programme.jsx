@@ -206,7 +206,8 @@ const Talk = ({
   title,
   abstract = "",
   affiliation = "",
-  references = ""
+  references = "",
+  slidesLink="",
 }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -231,7 +232,18 @@ const Talk = ({
                 </a>
               </div>
             )}
-            <div>{title}</div>
+            <div className="flex flex-wrap items-center gap-2">
+              <span>{title}</span>
+              {slidesLink && (
+                <a 
+                href={slidesLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-700 underline hover:text-blue-900">
+                [Slides]
+              </a>)}
+             
+            </div>
           </div>
 
           {abstract?.trim() && (
@@ -464,6 +476,8 @@ const Programme = () => {
                 We present a technique that significantly improves the precision of memory-safety verification for incomplete programs by leveraging large language models (LLMs). Our approach mines idiomatic buffer-manipulation patterns from real code bases using an LLM, and then employs a property-directed synthesis strategy to select and adapt these patterns into angelic assumptions—assumptions that reflect the most favourable outcomes consistent with safe program behaviour. These assumptions enable the verifier to differentiate genuine bugs from false positives with high accuracy.
                 We implement this technique in Seeker, a verification framework that declares a program correct only when it can be proven safe under a well-defined set of trusted idioms. Across benchmarks from widely used open-source projects, Seeker identifies 79% of false positives with zero false negatives, greatly reducing manual effort in verifying incomplete programs."
                 references="[1] Gourav Takhar, Baldip Bijlani, Prantik Chatterjee, Akash Lal, and Subhajit Roy. 2025. Memory-Safety Verification of Open Programs with Angelic Assumptions. Proc. ACM Program. Lang. 9, OOPSLA2, Article 312 (October 2025), 29 pages. https://doi.org/10.1145/3763090"
+                slidesLink=
+                "https://docs.google.com/presentation/d/1UB_j4SBuNlk0MuI6tG_0zztDUW9erMxQ/edit?usp=sharing&ouid=111151800764297324161&rtpof=true&sd=true"
               />
             </div>
 
@@ -500,6 +514,7 @@ const Programme = () => {
                 affiliation="Tata Institute of Fundamental Research Mumbai"
                 abstract="Reinforcement Learning (RL) is a sampling-based method for sequential decision-making, in which a learning agent iteratively converges toward an optimal policy by leveraging feedback from the environment in the form of scalar reward signals. While timing information is often abstracted in discrete-time domains, time-critical learning applications—such as queuing systems, population processes, and manufacturing systems—are naturally modeled as Continuous-Time Markov Decision Processes (CTMDPs). Since the seminal work of Bradtke and Duff, model-free RL for CTMDPs has become well-understood. However, in many practical applications, practitioners possess high-quality information about system rates derived from traditional queuing theory, which learning agents could potentially exploit to accelerate convergence. Despite this, classical RL algorithms for CTMDPs typically re-learn these parameters through sampling. In this work, we propose continuous-time reward machines (CTRMs), a novel framework that embeds reward functions and real-time state-action dynamics into a unified structure. CTRMs enable RL agents to effectively navigate dense-time environments while leveraging reward shaping and counterfactual experiences for accelerated learning. Our empirical results demonstrate CTRMs' ability to improve learning efficiency in time-critical environments."
                 references="[1] Amin Falah, Shibashis Guha, Ashutosh Trivedi. Continuous-Time Reward Machines. In Proc. of the International Joint Conference on Artificial Intelligence (IJCAI) 2025, pp. 5056-5064, 2025"
+                slidesLink="https://drive.google.com/file/d/1Q3Ss9XoMnJxoret25tKo8xpssM3ujaki/view?usp=sharing"
               />
               <Talk
                 time="15:55 - 16:20"
@@ -509,6 +524,7 @@ const Programme = () => {
                 affiliation="Microsoft Research"
                 abstract="The talk presents a novel symbolic algorithm for the Maximal End Component (MEC) decomposition of a Markov Decision Process (MDP). The key idea behind our algorithm INTERLEAVE is to interleave the computation of Strongly Connected Components (SCCs) with eager elimination of redundant state-action pairs, rather than performing these computations sequentially as done by existing state-of-the-art algorithms. Even though our approach has the same complexity as prior works, an empirical evaluation of INTERLEAVE on the standardized Quantitative Verification Benchmark Set demonstrates that it solves 19 more benchmarks (out of 379) than the closest previous algorithm. On the 149 benchmarks that prior approaches can solve, we demonstrate a 3.81x average speedup in runtime."
                 references={`[1] Bansal, Suguman, and Ramneet Singh. "INTERLEAVE: A Faster Symbolic Algorithm for Maximal End Component Decomposition." International Conference on Computer Aided Verification (CAV) 2025. Cham: Springer Nature Switzerland, 2025.`}
+                slidesLink="https://drive.google.com/file/d/1L7Q4zJfudVkMEdAhoqrr0ax9gHkmjYtI/view?usp=sharing"
               />
             </div>
 
@@ -553,6 +569,7 @@ const Programme = () => {
                 affiliation="Indian Association for the Cultivation of Science"
                 abstract="Cyber-Physical Systems (CPS) are abundant in safety-critical domains, including healthcare, avionics, and autonomous vehicles. Formal verification of their operational safety is, therefore, of utmost importance. In this talk, we discuss the falsification problem, where the focus is on searching for an unsafe execution in the system, rather than proving its absence. The algorithm leverages the inherent interpretability of Decision Trees for faster falsification of CPS. This is achieved by: (1) building a Decision Tree as a surrogate model of the CPS under test, and (2) a novel falsification algorithm guided by the explanations of safety violations of the CPS model extracted from its Decision Tree surrogate. Although the presented methodology is applicable to systems that can be executed/simulated in general, we demonstrate its effectiveness, particularly in CPS.  We demonstrate that our framework, implemented as the tool FlexiFal, can detect hard-to-find counterexamples in CPS that exhibit both linear and non-linear dynamics. Decision tree-guided falsification shows promising results in efficiently finding multiple counterexamples in the ARCH-COMP 2024 falsification benchmarks."
                 references="[1] Atanu Kundu, Sauvik Gon, and Rajarshi Ray. 2024. Data-Driven Falsification of Cyber-Physical Systems. In Proceedings of the 17th Innovations in Software Engineering Conference (ISEC '24). Association for Computing Machinery, New York, NY, USA, Article 10, 1-5. https://doi.org/10.1145/3641399.3641401"
+                slidesLink="https://drive.google.com/file/d/10yvtsWOtD60BSR-lAZSA6H9c-FMbpxUT/view?usp=sharing"
               />
               <Talk
                 time="17:15 - 17:30"
@@ -607,6 +624,7 @@ const Programme = () => {
                 references={`[1] Farzan, Azadeh, and Umang Mathur. "Coarser equivalences for causal concurrency." Proceedings of the ACM on Programming Languages 8.POPL (2024): 911-941. 
                 [2] Ang, Zhendong, and Umang Mathur. "Predictive monitoring against pattern regular languages." Proceedings of the ACM on Programming Languages 8.POPL (2024): 2191-2225.
                 [3] Ang, Zhendong, and Umang Mathur. "Predictive Monitoring with Strong Trace Prefixes." International Conference on Computer Aided Verification. Cham: Springer Nature Switzerland, 2024.`}
+                slidesLink="https://drive.google.com/file/d/1YfK5trIXqPtHWVsqtf-xOAgSVWDL6YYa/view?usp=sharing"
               />
               <Talk
                 time="10:55 - 11:20"
@@ -617,6 +635,7 @@ const Programme = () => {
                 abstract="Binary similarity involves determining whether two binary programs exhibit similar functionality with applications in vulnerability detection, malware analysis, and copyright detection. However, variations in compiler settings, target architectures, and deliberate code obfuscations significantly complicate the similarity measurement by effectively altering the syntax, semantics, and structure of the underlying binary. To address these challenges, we propose VexIR2Vec, a robust, architecture-neutral approach based on VEX-IR to solve binary similarity tasks. VexIR2Vec consists of three key components: a peephole extractor, a normalization engine (VexINE), and an embedding model (VexNet). The process to build program embeddings starts with the extraction of sequences of basic blocks, or peepholes, from control-flow graphs via random walks, capturing structural information. These generated peepholes are then normalized using VexINE, which applies compiler-inspired transformations to reduce architectural and compiler-induced variations. Embeddings of peepholes are generated using representation learning techniques, avoiding Out-Of-Vocabulary (OOV) issues. These embeddings are then fine-tuned with VexNet, a feed-forward Siamese network that maps functions into a high dimensional space for diffing and searching tasks in an application-independent manner.
                 We evaluate VexIR2Vec against five baselines BinDiff, DeepBinDiff, SAFE, BinFinder, and histograms of opcodes on a dataset comprising 2.7M functions and 15.5K binaries from 7 projects compiled across 12 compilers targeting x86 and ARM architectures. The experiments span four adversarial settings cross-optimization, cross-compilation, cross-architecture, and obfuscations that are typically exploited by malware and vulnerabilities. In diffing experiments, VexIR2Vec outperforms the nearest baseline in these four scenarios by 40%, 18%, 21%, and 60%, respectively. In the searching experiment, VexIR2Vec achieves a mean average precision of 0.76, the nearest baseline, by 46%. Our framework is highly scalable and is built as a lightweight, multi-threaded, parallel library using only open-source tools. VexIR2Vec is about 3.1-3.5x faster than the closest baselines and orders-of-magnitude faster than other tools."
                 references="[1] S. VenkataKeerthy, Soumya Banerjee, Sayan Dey, Yashas Andaluri, Raghul PS, Subrahmanyam Kalyanasundaram, Fernando Magno Quintão Pereira, and Ramakrishna Upadrasta. 2025. VexIR2Vec: An Architecture-Neutral Embedding Framework for Binary Similarity. ACM Trans. Softw. Eng. Methodol. March 2025. https://doi.org/10.1145/3721481"
+                slidesLink="https://drive.google.com/file/d/1Lq72K6RAsENhajBWUF4Dr71jBwePE40F/view?usp=sharing"
               />
               <Talk
                 time="11:20 - 11:35"
@@ -626,6 +645,7 @@ const Programme = () => {
                 affiliation="University of Waterloo"
                 abstract="Ownership helps high-level languages—and their verifiers—reason about memory correctness without modelling an explicit address map, but this advantage disappears in LLVM IR where ownership information is lost and verification must fall back on one. This talk introduces OSEA-IR, a low-level intermediate representation that restores ownership semantics using well-defined aliasing primitives and a pointer-resident cache, allowing verification conditions to avoid symbolic address maps whenever memory access is provably exclusive. Prophecy variables model the return of mutable borrows without shared-memory reasoning, keeping cache-based verification simple even across non-local aliasing patterns. OSEA-IR is generated from C-like programs that follow an ownership discipline via lightweight macros, and integrates with SEABMC, a bit-precise bounded model checker for LLVM. Across both handcrafted examples and real-world open-source C code, this approach yields 1.3x-5x improvements in SMT solving time, demonstrating that lifting ownership semantics into low-level IR substantially simplifies verification while supporting both safe and unsafe code paths."
                 references="[1] Siddharth Priya, Arie Gurfinkel. Ownership in low-level intermediate representation. In Proc. of Formal Methods in Computer-Aided Design (FMCAD). IEEE, 2024."
+                slidesLink="https://drive.google.com/file/d/1Xkmjk7VVQQsI6jjB85VDTWKm0LMYJAC3/view?usp=sharing"
               />
             </div>
 
@@ -649,6 +669,7 @@ const Programme = () => {
                 references={`[1] Aditya Anand, Vijay Sundaresan, Daryl Maier, and Manas Thakur. “CoSSJIT: Combining Static Analysis and Speculation in JIT Compilers”. In Proceedings of the ACM on Programming Languages (OOPSLA), Singapore, October 12-18, 2025.
                 
                 [2] Aditya Anand, Solai Adithya, Swapnil Rustagi, Priyam Seth, Vijay Sundaresan, Daryl Maier, V. Krishna Nandivada, and Manas Thakur. “Optimistic Stack Allocation and Dynamic Heapification for Managed Runtimes”. In Proceedings of the ACM on Programming Languages (PLDI), Copenhagen, Denmark, June 24-28, 2024.`}
+                slidesLink="https://drive.google.com/file/d/14rzklrdLaM41K0Km9Q0CXFfeg4hRgC9S/view?usp=sharing"
               />
               <Talk
                 time="12:10 - 12:25"
@@ -659,6 +680,7 @@ const Programme = () => {
                 abstract="Static Single Assignment (SSA) is the most commonly used intermediate representation by all modern compilers. The advent of SSA in the late 80′s brought about a major change in how programs were represented, analyzed, and optimized by compilers. Since then, SSA has seen many advances and has become the de facto intermediate representation used by modern compilers such as GCC and LLVM. The main advantage of SSA is that it enables referential transparency for variables by ensuring that there is a single static definition of any variable and this definition is connected to its uses through def-use edges. This provides flow-sensitivity for free thereby enabling sparse analyses.
                 Current SSA (aka classical SSA) works only at the intraprocedural level and is restricted to non-address taken variables. Address-taken variables and global variables are handled soundly but very imprecisely using memory-SSA. However, no def-use edges can be formed when the definitions and their uses are in different procedures. This restricts the scope of SSA-based analyses and optimisations to individual procedures. To overcome these limitations, we propose a precise interprocedural SSA form called CoS-SSA (Context-Sensitive SSA) that generalises the classical SSA to support def-use edges between global variables across procedures even in the presence of pointers and recursion. CoS-SSA provides context-sensitivity for free, apart from flow-sensitivity—a client analysis that uses CoS-SSA does not require to maintain context sensitivity or flow sensitivity. This enables efficient sparse analyses at the interprocedural level."
                 references="[1] Supriya Bhide. CoS-SSA: Context-Sensitive SSA for Interprocedural Program Analyses and Optimisations. Unpublished, 2025"
+                slides="https://drive.google.com/file/d/1_K6Khyi1DSwAELnwNl7UyLJ81uC-RyIo/view?usp=sharing"
               />
               <Talk
                 time="12:25 - 12:40"
@@ -668,6 +690,7 @@ const Programme = () => {
                 affiliation="IIT Gandhinagar"
                 abstract=" With the recent advent of exploits like Spectre and Meltdown, the mitigation of side-channel attacks has become an important concern for security researchers. In this paper, we focus on timing-based side channels introduced through conditional branching on secret information within programs. We introduce a language that allows a programmer to write conditionals branching on secrets within its syntax, but has a semantics that keeps execution time constant with respect to an adversary under an observationally equivalent memory. We differ from other approaches that use program analysis methods, opting instead to modify the operational semantics to enforce the necessary properties. We formalize the semantics for our language with timing leak mitigations in Rocq (previously, Coq) and prove that these semantics satisfy the property of timing-sensitive non-interference. This talk focuses on some of the benefits and limits of choosing to write these proofs mechanically."
                 references={`[1] Mishra, Aniket, and Abhishek Bichhawat. "Fall-Through Semantics for Mitigating Timing-Based Side Channel Leaks." 45th IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science (FSTTCS 2025). Schloss Dagstuhl-Leibniz-Zentrum für Informatik, 2025.`}
+                slidesLink="https://drive.google.com/file/d/1OKgnlqoT_hZRodVv-XiD2JR_wQQZhTvy/view?usp=sharing"
               />
             </div>
 
@@ -747,6 +770,7 @@ const Programme = () => {
                 affiliation="National University of Singapore, Singapore"
                 abstract="We address the problem of proving a loop invariant property within a perpetual loop. We have two goals.  Our first goal is to prove the property holds at over all iterations, ie. to have unbounded verification.  Failing this, our subsequent goal is to determine a loop iteration bound where the property holds, ie. to have the best possible bounded verification. Our framework is set in a harness which is essentially a one loop program whose body comprises a bounded computation, for example, one that does not contain any loops. Our interpreter is based on iterative deepening; it performs bounded reasoning at each iteration, which increases the bound, and has two key features: incrementality, ie. it learns and exploits the result of the previous iteration, and induction, ie. it has a fixpoint-checking mechanism which can detect that the property is invariant throughout all iterations."
                 references={`[1] Arpita Dutta, and Joxan Jaffar. "Incremental and Unbounded Loop Analysis." In Companion Proceedings of the 2025 ACM SIGPLAN International Conference on Systems, Programming, Languages, and Applications: Software for Humanity, pp. 46-47. 2025.`}
+                slidesLink="https://drive.google.com/file/d/1Z0JU6nl3xJfxCtYUZ3I1OvdnW89vZkQm/view?usp=sharing"
               />
               <Talk
                 time="10:45 - 11:00"
@@ -757,6 +781,7 @@ const Programme = () => {
                 abstract="Robustness is a important problem in AI alignment and safety, with models such as neural networks being increasingly used in safety-critical systems. In the last decade, a large body of work has emerged on local robustness, i.e., checking if the decision of a neural network remains unchanged when the input is slightly perturbed. However, many of these approaches require specialized encodings and often ignore the confidence of a neural network on its output. 
                 
                 In this work, our goal is to build a generalised framework to specify and verify variants of robustness in neural network verification. We propose a specification framework using a simple grammar, which is flexible enough to capture most existing variants. This allows us to introduce new variants of robustness that take into account the confidence of the neural network in its outputs. Next, we develop a novel and powerful unified technique to verify all such variants in a homogenous way, viz., by adding a few additional layers to the neural network. This enables us to use any state-of-the-art neural network verification tool, without having to tinker with the encoding within, while incurring an approximation error that we show is bounded."
+                slidesLink="https://drive.google.com/file/d/1KMFTXUI3mkuP0LmtNWjc9yBp3QuNcxNl/view?usp=sharing"
               />
               <Talk
                 time="11:00 - 11:15"
@@ -790,6 +815,7 @@ const Programme = () => {
                 In this work, we extend the DY formal model and analyze all remaining four cases for symmetric two-party cascade protocols. A formal proof of security is presented for all four protocols based on a hybrid choice of symmetric and asymmetric encryption."
                 references="[1] Dolev, D., and Yao, A. C. On the security of public key protocols. Proceedings of the 22nd Annual Symposium on Foundations of Computer Science (FOCS), pp. 350-357, 1983.
                 [2] Book, R. V., and Otto, F. The verifiability of two-party protocols. In Advances in Cryptology - EUROCRYPT '85, pp. 233-242. Springer."
+                slidesLink="https://docs.google.com/presentation/d/1-clR-yPGtJH-nDb7lJh8tEW4_LmxEDvr/edit?usp=sharing&ouid=111151800764297324161&rtpof=true&sd=true"
               />
             </div>
 
@@ -848,6 +874,7 @@ const Programme = () => {
                 affiliation="BITS Pilani"
                 abstract={`We present Emdash, a novel dependently typed logical framework designed to support computational synthetic category theory, drawing inspiration from Kosta Dosen's functorial programming paradigm. Emdash integrates categorical primitives—such as categories, objects, morphisms, and functors—directly into its λΠ-calculus core, facilitating reasoning and computation in a style closer to mathematical practice.The path towards ω-categories is paved by internalizing the (dependent) comma category construction of a (dependent) category, similarly to the “bridge type” construction used in logical relations and parametricity. The system features a bidirectional type checker with unification-based hole solving for interactive proof, definitional equality via βδι-reduction (including user-supplied rewrite rules and unfolding of injective constants), and Higher-Order Abstract Syntax (HOAS) for binders. A key contribution of Emdash is the concept of functorial elaboration, where kernel-level constructors for structures such as functors not only receive their components (for example, object and arrow mappings) but also definitionally verify their coherence laws during elaboration, throwing a \`CoherenceError\` upon failure. Implemented in TypeScript and formally specified in a Lambdapi dialect, Emdash demonstrates a practical pathway from specification to a working kernel. We report on the successful implementation and validation of the system's core features through a comprehensive test suite.`}
                 references="[1] Christopher Mary Kouam. Emdash — A Dependently Typed Logical Framework for Computational Synthetic Category Theory and Functorial Elaboration. Unpublished, 2025. Report available at: https://github.com/hotdocx/emdash"
+                slidesLink="https://drive.google.com/file/d/1ZJI8mkZrZVQ8j2XEJ95BMJHsSk3xcZEg/view?usp=sharing"
               />
             </div>
 
@@ -890,7 +917,7 @@ const Programme = () => {
                 In this talk, we focus on the safety verification of anytime perception-based CPS, wherein we model the anytime sensor in the closed loop. We provide an efficient algorithm for reachable set computation of a closed-loop system with an anytime sensor and a neural network controller using the star set data structure and designing new algorithms for some star set operations. We discuss some experimental results that highlight the scalability of the approach and its effectiveness with diverse dynamics, controllers, and sensing configurations."
                 references={`[1] Gupta, L., and Prabhakar, P. Star-set based efficient reachable set computation of anytime sensing-based neural network-controlled dynamical systems. In Proceedings of the International Conference on Embedded Software (EMSOFT), 2025. Journal version published in ACM Transactions on Embedded Computing Systems.
                 [2] Gupta, L., Choton, J. C., and Prabhakar, P. Safety verification of closed-loop control systems with anytime perception. In Proceedings of the International Conference on Robotics and Automation (ICRA), 2024.`}
-
+                slidesLink="https://drive.google.com/file/d/1fqT90mRB_oQBEDgt94dP-OLrc47M_M0G/view?usp=sharing"
               />
               <Talk
                 time ="16:55 - 17:05"

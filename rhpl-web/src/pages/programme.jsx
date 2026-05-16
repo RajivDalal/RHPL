@@ -1,299 +1,164 @@
 import React, { useState } from "react";
 import Tabs from "../components/tabs.jsx";
-import Modal from "../components/modal.jsx";
 import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/ri";
 
-const ProgrammeRow = ({ time, title, link }) => {
-  return (
-    <div className="w-full flex flex-col sm:flex-row bg-[#c2e0f4] p-3 rounded mb-2">
-      <span className="sm:w-48 flex-shrink-0 text-left font-bold mb-1 sm:mb-0">
-        {time}
-      </span>
+// ─── TYPE STYLES ────────────────────────────────────────────────────────────
 
-      <span className="flex-1 sm:pl-4 font-semibold">
-        {link ? (
-          <a
-            href={link}
-            className="underline text-blue-700 hover:text-blue-900"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {title}
-          </a>
-        ) : (
-          title
-        )}
-      </span>
-    </div>
-  );
+const typeStyles = {
+  plenary: {
+    card: "border-l-4",
+    cardStyle: { background: "#dceefb", borderLeftColor: "#3b82f6" },
+    titleColor: "text-blue-900",
+    metaColor: "text-blue-600",
+    badge: "bg-blue-100 text-blue-700 border border-blue-300",
+    badgeLabel: "Plenary Talk",
+    presenterColor: "text-blue-700",
+    talkTitleColor: "text-blue-900",
+    timeColor: "text-blue-400",
+    expandBg: "bg-blue-50 border border-blue-200",
+  },
+  break: {
+    card: "",
+    cardStyle: { background: "#f3f4f6" },
+    titleColor: "text-gray-400 italic font-normal",
+    metaColor: "text-gray-400",
+    badge: null,
+    badgeLabel: null,
+    presenterColor: "text-gray-500",
+    talkTitleColor: "text-gray-600",
+    timeColor: "text-gray-400",
+    expandBg: "",
+  },
+  session: {
+    card: "border-l-4",
+    cardStyle: { background: "#f3e8ff", borderLeftColor: "#a855f7" },
+    titleColor: "text-purple-900",
+    metaColor: "text-purple-500",
+    badge: "bg-purple-100 text-purple-700 border border-purple-300",
+    badgeLabel: "Session",
+    presenterColor: "text-purple-700",
+    talkTitleColor: "text-purple-900",
+    timeColor: "text-purple-400",
+    expandBg: "bg-purple-50 border border-purple-200",
+  },
+  special: {
+    card: "border-l-4",
+    cardStyle: { background: "#fef3c7", borderLeftColor: "#f59e0b" },
+    titleColor: "text-amber-900",
+    metaColor: "text-amber-600",
+    badge: "bg-amber-100 text-amber-700 border border-amber-300",
+    badgeLabel: "Special Session",
+    presenterColor: "text-amber-700",
+    talkTitleColor: "text-amber-900",
+    timeColor: "text-amber-400",
+    expandBg: "bg-amber-50 border border-amber-200",
+  },
+  invited: {
+    card: "border-l-4",
+    cardStyle: { background: "#dcfce7", borderLeftColor: "#22c55e" },
+    titleColor: "text-green-900",
+    metaColor: "text-green-600",
+    badge: "bg-green-100 text-green-700 border border-green-300",
+    badgeLabel: "Invited Talk",
+    presenterColor: "text-green-700",
+    talkTitleColor: "text-green-900",
+    timeColor: "text-green-400",
+    expandBg: "bg-green-50 border border-green-200",
+  },
 };
 
+// ─── EXPANDABLE TALK ROW ─────────────────────────────────────────────────────
 
-const SessionHeader = ({ time, number, title, chair,chairLink, link, location="DLT-9", locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a" }) => {
-  return (
-    <div className="w-full flex flex-col sm:flex-row items-center bg-[#c2e0f4] p-3 rounded mb-2">
-
-      <span className="sm:w-48 flex-shrink-0 text-left font-bold mb-2 sm:mb-0">{time}</span>
-      <div className="flex-1 sm:pl-4">
-        <span className="font-bold">
-          Session {number}: {link ? (
-          <a
-            href={link}
-            className="underline text-blue-700 hover:text-blue-900"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {title}
-          </a>
-        ) : (
-          title
-        )}
-        </span>
-        {chair && (
-  <div className="mt-1">
-    <span className="font-semibold">Chair:</span>{" "}
-    {chairLink ? (
-      <a
-        href={chairLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline text-blue-700 hover:text-blue-900"
-      >
-        {chair}
-      </a>
-    ) : (
-      chair
-    )}
-  </div>
-)}
-        {location && (
-          <div className="mt-1">
-            <span className="font-semibold">Location:</span> <a href={locationLink} target="_blank" className="underline text-blue-700 hover:text-blue-900">{location} </a>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-const InvitedTalk = ({ time,link, location="LT1", locationLink="https://www.google.com/maps/place/LT1,+Pilani,+Chicalim,+Sancoale,+Goa+403726/@15.3919527,73.8806161,18.84z/data=!4m6!3m5!1s0x3bbfb83658c6df71:0x151d38b27e3a9f08!8m2!3d15.3924175!4d73.8811191!16s%2Fg%2F1hjh1h5hb?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=ffd1fb62-4646-476b-a967-be1e0cc67604" }) => {
-  return (
-    <div className="w-full flex flex-col sm:flex-row items-center bg-[#c2e0f4] p-3 rounded mb-2">
-
-      <span className="sm:w-48 flex-shrink-0 text-left font-bold mb-2 sm:mb-0">{time}</span>
-      <div className="flex-1 sm:pl-4">
-        <span className="font-bold">
-           
-          <a
-            href={link}
-            className="underline text-blue-700 hover:text-blue-900"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          FSTTCS Invited Talk
-          </a>
-        
-        </span>
-      
-        {location && (
-          <div className="mt-1">
-            <span className="font-semibold">Location:</span> <a href={locationLink} target="_blank" className="underline text-blue-700 hover:text-blue-900">{location} </a>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-const PanelDiscussion = ({
-  time,
-  link = "#",
-  name,
-  location,
-  locationLink,
-  chair,
-  chairLink,
-}) => {
-  return (
-    <div className="flex flex-col sm:flex-row py-2 border-b border-gray-200 last:border-b-0">
-      <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">{time}</span>
-      <div className="flex-1 sm:pl-4 space-y-1">
-        {name && (
-          <div className="italic mb-1">
-            <a href={link} target ="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">
-              {name}
-            </a>
-          </div>
-        )}
-        <div><b>Chair:</b> <a href={chairLink} target="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">{chair}</a></div>
-        <div><b>Location:</b> <a href={locationLink} target="_blank" rel="noopener noreferrer" className="underline text-blue-700 hover:text-blue-900">{location}</a></div>
-      </div>
-    </div>
-  );
-};
-
-
-// Expander
-/* const Talk = ({
-  time,
-  presenterLink = "#",
-  presenter,
-  title,
-  abstract = "abstract123",
-  affiliation = "affiliation123",
-  references = "reference123"
-}) => {
+const TalkRow = ({ talk, style }) => {
   const [expanded, setExpanded] = useState(false);
+  const hasDetails = talk.abstract && talk.abstract.trim();
 
   return (
-    <div className="border-b border-gray-200 last:border-b-0">
-      <div className="flex flex-col sm:flex-row py-2">
-        <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">
-          {time}
-        </span>
-
-        <div className="flex-1 sm:pl-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <div>
-            {presenter && (
-              <div className="italic mb-1">
-                <a
-                  href={presenterLink}
-                  className="underline text-blue-700 hover:text-blue-900"
-                >
-                  {presenter}
-                </a>
-              </div>
-            )}
-            <div>{title}</div>
-          </div>
-
-          {abstract.trim() && (
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="inline-block text-sm px-3 py-1 rounded border border-blue-600
-                         text-blue-700 hover:bg-blue-600 hover:text-white transition"
-            >
-              {expanded ? "Hide Details" : "Show Details"}
-            </button>
+    <div
+      className="text-xs border-t pt-2 first:border-t-0 first:pt-0"
+      style={{ borderTopColor: "rgba(0,0,0,0.08)" }}
+    >
+      <div className="flex items-start justify-between gap-1">
+        <div className="flex-1">
+          <div className={`font-mono mb-0.5 ${style.timeColor}`}>{talk.time}</div>
+          {talk.presenter && (
+            <div className={`italic mb-0.5 font-semibold ${style.presenterColor}`}>
+              {typeof talk.presenter === "string" ? (
+                talk.presenterLink && talk.presenterLink !== "#" ? (
+                  <a
+                    href={talk.presenterLink}
+                    className="underline decoration-dotted hover:opacity-75"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {talk.presenter}
+                  </a>
+                ) : (
+                  talk.presenter
+                )
+              ) : (
+                talk.presenter
+              )}
+            </div>
           )}
-        </div>
-      </div>
-
-      <div
-        className={`
-          ml-0 sm:ml-48 mb-3 overflow-hidden transition-all duration-150 ease-in-out
-          ${expanded ? "max-h-[1000px] opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-1"}
-        `}
-      >
-        <div className="bg-blue-200 rounded-md p-3">
-
-          <p className="text-gray-800 whitespace-pre-line space-y-3">
-            <p><b>Affiliation</b>: {affiliation}</p>
-            <p><b>Abstract</b>: {abstract}</p>
-            <p className="space-y-2"><b>References</b>:<p>{references}</p></p>
-          </p>
-        </div>
-      </div>
-
-    </div>
-  );
-}; */
-
-// Expander
-const Talk = ({
-  time,
-  presenterLink = "#",
-  presenter,
-  title,
-  abstract = "",
-  affiliation = "",
-  references = "",
-  slidesLink="",
-}) => {
-  const [expanded, setExpanded] = useState(false);
-
-  return (
-    <div className="border-b border-gray-200 last:border-b-0">
-      <div className="flex flex-col sm:flex-row py-2">
-        <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">
-          {time}
-        </span>
-
-        <div className="flex-1 sm:pl-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <div>
-            {presenter && (
-              <div className="italic mb-1">
-                
-                  <a href={presenterLink}
-                  className="underline text-blue-700 hover:text-blue-900"
+          {talk.title && (
+            <div className={style.talkTitleColor}>
+              {talk.title}
+              {talk.slidesLink && (
+                <a
+                  href={talk.slidesLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="ml-1 underline opacity-50 hover:opacity-100 transition-opacity"
                 >
-                  {presenter}
+                  [Slides]
                 </a>
-              </div>
-            )}
-            <div className="flex flex-wrap items-center gap-2">
-              <span>{title}</span>
-              {slidesLink && (
-                <a 
-                href={slidesLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-700 underline hover:text-blue-900">
-                [Slides]
-              </a>)}
-             
-            </div>
-          </div>
-
-          {abstract?.trim() && (
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="inline-block text-sm px-3 py-1 text-blue-700 hover:text-dark-blue transition"
-            >
-              {expanded ? (
-                <RiArrowUpSLine className="text-2xl" />
-              ) : (
-                <RiArrowDownSLine className="text-2xl" />
               )}
-            </button>
+            </div>
           )}
         </div>
+        {hasDetails && (
+          <button
+            onClick={() => setExpanded((v) => !v)}
+            className="shrink-0 mt-0.5 opacity-40 hover:opacity-80 transition-opacity"
+          >
+            {expanded ? (
+              <RiArrowUpSLine className="text-base" />
+            ) : (
+              <RiArrowDownSLine className="text-base" />
+            )}
+          </button>
+        )}
       </div>
 
       <div
-        className={`
-          ml-0 sm:ml-48 mb-3 overflow-hidden transition-all duration-300 ease-in-out
-          ${expanded ? "max-h-[70vh] opacity-100" : "max-h-0 opacity-0"}
-        `}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          expanded ? "max-h-[60vh] opacity-100 mt-2" : "max-h-0 opacity-0"
+        }`}
       >
-        <div className="bg-[#cce5f6] rounded-md p-4 space-y-4 text-gray-800 overflow-y-auto max-h-[70vh]">
-          {affiliation && (
+        <div
+          className={`rounded p-3 space-y-2 text-xs overflow-y-auto max-h-[60vh] ${style.expandBg}`}
+        >
+          {talk.affiliation && (
             <div>
-              <span className="font-semibold">Affiliation:</span>{" "}
-              {affiliation}
+              <span className="font-semibold">Affiliation:</span> {talk.affiliation}
             </div>
           )}
-
-          {abstract && (
+          {talk.abstract && (
             <div>
               <div className="font-semibold mb-1">Abstract:</div>
-              {abstract.split(/\n+/).map((para, i) => (
-                <p
-                  key={i}
-                  className="text-justify leading-relaxed mb-3"
-                >
+              {talk.abstract.split(/\n+/).map((para, i) => (
+                <p key={i} className="text-justify leading-relaxed mb-1">
                   {para}
                 </p>
               ))}
             </div>
           )}
-
-          {references && (
+          {talk.references && (
             <div>
               <div className="font-semibold mb-1">References:</div>
-              <div className="whitespace-pre-line leading-relaxed">
-                {references}
+              <div className="whitespace-pre-line leading-relaxed opacity-70">
+                {talk.references}
               </div>
             </div>
           )}
@@ -303,68 +168,479 @@ const Talk = ({
   );
 };
 
+// ─── EVENT CARD ──────────────────────────────────────────────────────────────
 
-// Dialog box
-// const Talk = ({
-//   time,
-//   presenterLink = "#",
-//   presenter,
-//   title,
-//   abstract = "abstract",
-//   affiliation = "",
-// }) => {
-//   const [open, setOpen] = useState(false);
+const EventCard = ({ event }) => {
+  const style = typeStyles[event.type] || typeStyles.session;
 
-//   return (
-//     <>
-//       <div className="flex flex-col sm:flex-row py-2 border-b border-gray-200 last:border-b-0">
-//         <span className="sm:w-48 flex-shrink-0 text-left text-sm sm:text-base mb-1 sm:mb-0">
-//           {time}
-//         </span>
+  return (
+    <div
+      className={`rounded-lg p-3 shadow-sm flex flex-col ${style.card}`}
+      style={style.cardStyle}
+    >
+      {/* Title */}
+      <div className={`font-bold text-sm leading-snug mb-1 ${style.titleColor}`}>
+        {event.link ? (
+          <a
+            href={event.link}
+            className="underline decoration-dotted hover:opacity-80"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {event.title}
+          </a>
+        ) : (
+          event.title
+        )}
+      </div>
 
-//         <div className="flex-1 sm:pl-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-//           <div>
-//             {presenter && (
-//               <div className="italic mb-1">
-//                 <a
-//                   href={presenterLink}
-//                   className="underline text-blue-700 hover:text-blue-900"
-//                 >
-//                   {presenter}
-//                 </a>
-//               </div>
-//             )}
-//             <div>{title}</div>
-//           </div>
+      {/* Chair */}
+      {event.chair && (
+        <div className={`text-xs mb-0.5 ${style.metaColor}`}>
+          <span className="font-semibold">Chair:</span>{" "}
+          {event.chairLink ? (
+            <a
+              href={event.chairLink}
+              className="underline decoration-dotted hover:opacity-75"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {event.chair}
+            </a>
+          ) : (
+            event.chair
+          )}
+        </div>
+      )}
 
-//           {abstract.trim() && (
-//             <button
-//               onClick={() => setOpen(true)}
-//               className="inline-block text-sm px-3 py-1 rounded border border-blue-600
-//                          text-blue-700 hover:bg-blue-600 hover:text-white transition"
-//             >
-//               View Abstract
-//             </button>
-//           )}
-//         </div>
-//       </div>
+      {/* Location */}
+      {event.location && (
+        <div className={`text-xs mb-1 ${style.metaColor}`}>
+          <span className="font-semibold">Location:</span>{" "}
+          {event.locationLink ? (
+            <a
+              href={event.locationLink}
+              className="underline decoration-dotted hover:opacity-75"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {event.location}
+            </a>
+          ) : (
+            event.location
+          )}
+        </div>
+      )}
 
-//       {/* MODAL */}
-//       <Modal
-//         isOpen={open}
-//         onClose={() => setOpen(false)}
-//         title={title}
-//       >
-//         <div className="text-sm text-gray-600 italic">
-//           {presenter}
-//           {affiliation && ` — ${affiliation}`}
-//         </div>
+      {/* Talks */}
+      {event.talks && event.talks.length > 0 && (
+        <div className="mt-2 space-y-2 flex-1">
+          {event.talks.map((talk, i) => (
+            <TalkRow key={i} talk={talk} style={style} />
+          ))}
+        </div>
+      )}
 
-//         <p className="whitespace-pre-line">{abstract}</p>
-//       </Modal>
-//     </>
-//   );
-// };
+      {/* Badge — bottom right */}
+      {style.badge && (
+        <div className="flex justify-end mt-2">
+          <span
+            className={`text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-wide ${style.badge}`}
+          >
+            {style.badgeLabel}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ─── SCHEDULE DATA ────────────────────────────────────────────────────────────
+
+const scheduleData = {
+  wednesday: {
+    label: "Wednesday, 17th December",
+    timeSlots: [
+      {
+        time: "09:10",
+        event: {
+          type: "invited", title: "FSTTCS Invited Talk",
+          link: "https://www.fsttcs.org.in/2025/program.php",
+          location: "LT1",
+          locationLink: "https://www.google.com/maps/place/LT1,+Pilani,+Chicalim,+Sancoale,+Goa+403726",
+        },
+      },
+      { time: "10:10", event: { type: "break", title: "Coffee Break" } },
+      { time: "10:30", event: { type: "break", title: "RHPL Opening Remarks" } },
+      {
+        time: "10:35",
+        event: {
+          type: "session", title: "Session 1: Concurrency",
+          chair: "Bernd Finkbeiner", chairLink: "https://cispa.de/en/people/finkbeiner",
+          location: "DLT-9", locationLink: "https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)",
+          talks: [
+            {
+              time: "10:35–11:00", presenter: "Nobuko Yoshida", presenterLink: "https://mrg.cs.ox.ac.uk/",
+              title: "Specification-Guided Programming for Asynchronous Message-Passing Optimisation",
+              affiliation: "University of Oxford",
+              abstract: `Rust is a modern systems language focused on performance and reliability. Complementing Rust's promise to provide "fearless concurrency", developers frequently exploit asynchronous message passing. To guarantee deadlock-freedom by construction, we present Rumpsteak: a new Rust framework based on multiparty session types.\n\nRumpsteak incorporates two recent advanced session type theories: (1) k-multiparty compatibility (k-MC), which globally verifies the safety of a set of participants, and (2) asynchronous multiparty session subtyping, which locally verifies optimisations in the context of a single participant. We propose a novel algorithm for asynchronous subtyping that is both sound and decidable.`,
+              references: "[1] Martin Vassor and Nobuko Yoshida. Refinements for Multiparty Message-Passing Protocols. ECOOP 2024. https://doi.org/10.4230/LIPIcs.ECOOP.2024.41",
+            },
+            {
+              time: "11:00–11:25", presenter: "Omkar Tuppe", presenterLink: "https://homepages.iitb.ac.in/~194050003/",
+              title: "GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency",
+              affiliation: "IIT Bombay",
+              abstract: "Modern GPUs adopt weak memory concurrency for performance, but their added complexity makes writing correct concurrent code significantly more complicated than on CPUs.\n\nWe developed GPUMC, a stateless model checker for verifying GPU programs under the scoped-RC11 memory model. GPUMC systematically explores all possible executions to detect data races, heterogeneous races, barrier divergence, and assertion violations.",
+              references: "[1] Chakraborty, S., Krishna, S., Pavlogiannis, A., Tuppe, O. GPUMC. CAV 2025. https://doi.org/10.1007/978-3-031-98682-6_17",
+            },
+            {
+              time: "11:25–11:40", presenter: "Soumodev Mal", presenterLink: "https://www.linkedin.com/in/soumodev-mal-10329b185/",
+              title: "Bridging Nets-within-Nets and Data Nets",
+              affiliation: "IIT Dharwad",
+              abstract: "Elementary Object Systems (EOSs) are a model in the nets-within-nets (NWNs) paradigm, where tokens in turn can host standard Petri nets. We precisely characterize cEOS coverability into the framework of data nets, whose tokens carry data from an infinite domain.\n\nThis insight bridges two apparently orthogonal approaches to PN extensions, namely data nets and NWNs, and enables us to analyze cEOS coverability taking advantage of known results on data nets.",
+              references: "[1] Di Cosmo, F., Mal, S., Prince, T. Nets-Within-Nets Through the Lens of Data Nets. RP 2025. https://doi.org/10.1007/978-3-032-09524-4_11",
+            },
+          ],
+        },
+      },
+      {
+        time: "11:50",
+        event: {
+          type: "session", title: "Session 2: Learning and Verification with Partial Information",
+          chair: "Govind R", chairLink: "https://rdnivog.github.io/",
+          location: "DLT-9",
+          talks: [
+            {
+              time: "11:50–12:15", presenter: "Sreejith A V", presenterLink: "https://sreejithavtvm.github.io/",
+              title: "Learning Deterministic One-Counter Automata in Polynomial Time",
+              affiliation: "IIT Goa",
+              abstract: "We present OL*, a polynomial-time algorithm for active learning of deterministic one-counter automata (DOCA). Unlike previous exponential-time syntactic approaches, OL* is semantic — it learns the language of the target automaton without any knowledge of the DOCA structure.",
+              references: "[1] Prince Mathew, Vincent Penelle, A. V. Sreejith. Learning Deterministic One-Counter Automata in Polynomial Time. LICS 2025, pp. 444-457.",
+            },
+            {
+              time: "12:15–12:40", presenter: "Gourav Takhar", presenterLink: "https://tgourav.github.io/",
+              title: "Verification of Open Programs via LLM-Mined Behavioral Idioms",
+              affiliation: "IIT Kanpur",
+              slidesLink: "https://docs.google.com/presentation/d/1UB_j4SBuNlk0MuI6tG_0zztDUW9erMxQ/edit",
+              abstract: "We present a technique that significantly improves the precision of memory-safety verification for incomplete programs by leveraging LLMs. Our approach mines idiomatic buffer-manipulation patterns from real code bases using an LLM, and then employs a property-directed synthesis strategy to select and adapt these patterns into angelic assumptions.\n\nWe implement this technique in Seeker. Across benchmarks from widely used open-source projects, Seeker identifies 79% of false positives with zero false negatives.",
+              references: "[1] Gourav Takhar et al. Memory-Safety Verification of Open Programs with Angelic Assumptions. OOPSLA2 2025. https://doi.org/10.1145/3763090",
+            },
+          ],
+        },
+      },
+      { time: "12:40", event: { type: "break", title: "Lunch" } },
+      {
+        time: "14:00",
+        event: {
+          type: "invited", title: "FSTTCS Invited Talk",
+          link: "https://www.fsttcs.org.in/2025/program.php", location: "LT1",
+        },
+      },
+      { time: "15:00", event: { type: "break", title: "Coffee Break" } },
+      {
+        time: "15:30",
+        event: {
+          type: "session", title: "Session 3: Markov Decision Processes",
+          chair: "Djordje Zikelic", chairLink: "https://djordjezikelic.github.io/",
+          location: "DLT-9",
+          talks: [
+            {
+              time: "15:30–15:55", presenter: "Shibashis Guha", presenterLink: "https://www.tifr.res.in/~shibashis.guha/",
+              title: "Continuous Time Reward Machines",
+              affiliation: "TIFR Mumbai",
+              slidesLink: "https://drive.google.com/file/d/1Q3Ss9XoMnJxoret25tKo8xpssM3ujaki/view",
+              abstract: "We propose continuous-time reward machines (CTRMs), a novel framework that embeds reward functions and real-time state-action dynamics into a unified structure. CTRMs enable RL agents to effectively navigate dense-time environments while leveraging reward shaping and counterfactual experiences for accelerated learning.",
+              references: "[1] Amin Falah, Shibashis Guha, Ashutosh Trivedi. Continuous-Time Reward Machines. IJCAI 2025, pp. 5056-5064.",
+            },
+            {
+              time: "15:55–16:20", presenter: "Ramneet Singh", presenterLink: "https://ramneet-singh.netlify.app/",
+              title: "INTERLEAVE: A Faster Symbolic Algorithm for Maximal End Component Decomposition",
+              affiliation: "Microsoft Research",
+              slidesLink: "https://drive.google.com/file/d/1L7Q4zJfudVkMEdAhoqrr0ax9gHkmjYtI/view",
+              abstract: "The key idea behind our algorithm INTERLEAVE is to interleave the computation of SCCs with eager elimination of redundant state-action pairs. An empirical evaluation demonstrates that it solves 19 more benchmarks than the closest previous algorithm, with a 3.81x average speedup in runtime.",
+              references: `[1] Bansal, Suguman, and Ramneet Singh. "INTERLEAVE." CAV 2025.`,
+            },
+          ],
+        },
+      },
+      {
+        time: "16:30",
+        event: {
+          type: "session", title: "Session 4: Cyber-Physical Systems",
+          chair: "Kumar Madhukar", chairLink: "https://kumarmadhukar.github.io/",
+          location: "DLT-9",
+          talks: [
+            {
+              time: "16:30–16:45", presenter: "Anand Yeolekar", presenterLink: "https://ieeexplore.ieee.org/author/38232933600",
+              title: "Repairing Control Safety Violations by Patching the Real-time OS Scheduler",
+              affiliation: "TCS Research",
+              abstract: "We present a technique to detect and repair control safety violations by synthesizing a scheduler patch — a pre-computed list of jobs to be not scheduled at runtime — that eliminates violations without the need of modifications at the control or task layer.",
+              references: "[1] Anand Yeolekar et al. Repairing Control Safety Violations via Scheduler Patch Synthesis. ICCPS 2025. https://doi.org/10.1145/3716550.3722035",
+            },
+            {
+              time: "16:45–17:00", presenter: "Santonu Sarkar", presenterLink: "https://www.bits-pilani.ac.in/goa/santonu-sarkar/",
+              title: "LLM-Assisted Formal Verification Framework for Process Control Software Evolution",
+              affiliation: "BITS Goa",
+              abstract: "This proposal presents a hybrid approach that combines the adaptability of LLMs with the rigor of formal verification for automated software upgrades for Sequential Function Chart (SFC) code. Our framework includes: (1) an integrated approach combining formal verification with LLM-guided upgrades; (2) counterexample-driven prompt refinement; and (3) automated repair functions.",
+              references: "[1] Soumyadip Bandyopadhyay, Santonu Sarkar. Antarbhukti. ATVA 2025, pp. 447-471.",
+            },
+            {
+              time: "17:00–17:15", presenter: "Atanu Kundu", presenterLink: "https://atanucs.github.io/",
+              title: "Data-Driven Falsification of Cyber-Physical Systems",
+              affiliation: "Indian Association for the Cultivation of Science",
+              slidesLink: "https://drive.google.com/file/d/10yvtsWOtD60BSR-lAZSA6H9c-FMbpxUT/view",
+              abstract: "The algorithm leverages the inherent interpretability of Decision Trees for faster falsification of CPS. This is achieved by: (1) building a Decision Tree as a surrogate model of the CPS under test, and (2) a novel falsification algorithm guided by the explanations of safety violations extracted from its Decision Tree surrogate.",
+              references: "[1] Atanu Kundu, Sauvik Gon, and Rajarshi Ray. Data-Driven Falsification of CPS. ISEC 2024. https://doi.org/10.1145/3641399.3641401",
+            },
+            {
+              time: "17:15–17:30", presenter: "Alvin A. George", presenterLink: "https://ieeexplore.ieee.org/author/37088487403",
+              title: "CEGAR for Temporal Properties based on Recurrent Sets",
+              affiliation: "Indian Institute of Science, Bangalore",
+              abstract: "We present a CEGAR-based technique for verifying linear-time temporal properties of discrete-time systems with infinite states. We provide novel validation and refinement algorithms to handle lasso-shaped abstract counterexamples based on the notion of recurrent sets.",
+              references: "[1] Alvin A. George, Deepak D'Souza, Pavithra Prabhakar. CEGAR-based Verification of Temporal Properties of Robotic Systems. Unpublished, 2025.",
+            },
+          ],
+        },
+      },
+    ],
+  },
+
+  thursday: {
+    label: "Thursday, 18th December",
+    timeSlots: [
+      {
+        time: "09:00",
+        event: {
+          type: "invited", title: "FSTTCS Invited Talk",
+          link: "https://www.fsttcs.org.in/2025/program.php", location: "LT1",
+        },
+      },
+      { time: "10:00", event: { type: "break", title: "Coffee Break" } },
+      {
+        time: "10:30",
+        event: {
+          type: "session", title: "Session 1: Program Equivalence and Ownership Semantics",
+          chair: "Madhavan Mukund", chairLink: "https://www.cmi.ac.in/~madhavan/",
+          location: "DLT-9",
+          talks: [
+            {
+              time: "10:30–10:55", presenter: "Umang Mathur", presenterLink: "https://www.comp.nus.edu.sg/~umathur/",
+              title: "Equivalences for Causal Concurrency",
+              affiliation: "National University of Singapore",
+              slidesLink: "https://drive.google.com/file/d/1YfK5trIXqPtHWVsqtf-xOAgSVWDL6YYa/view",
+              abstract: "This talk will begin with a gentle introduction to trace theory, a principled mathematical framework for defining equivalence relations among concurrent program executions. I will then compare trace theory with reads-from equivalence, and discuss our recent efforts to generalize trace theory to reconcile it with reads-from equivalence.",
+              references: "[1] Farzan, Azadeh, and Umang Mathur. Coarser equivalences for causal concurrency. POPL 2024.\n[2] Ang, Zhendong, and Umang Mathur. Predictive monitoring against pattern regular languages. POPL 2024.",
+            },
+            {
+              time: "10:55–11:20", presenter: "S. VenkataKeerthy", presenterLink: "https://svkeerthy.github.io/",
+              title: "VEXIR2Vec: An Architecture-Neutral Embedding Framework for Binary Similarity",
+              affiliation: "IIT Hyderabad",
+              slidesLink: "https://drive.google.com/file/d/1Lq72K6RAsENhajBWUF4Dr71jBwePE40F/view",
+              abstract: "We propose VexIR2Vec, a robust, architecture-neutral approach based on VEX-IR to solve binary similarity tasks. VexIR2Vec consists of three key components: a peephole extractor, a normalization engine (VexINE), and an embedding model (VexNet). In diffing experiments, VexIR2Vec outperforms the nearest baseline across four adversarial settings by 40%, 18%, 21%, and 60%, respectively.",
+              references: "[1] S. VenkataKeerthy et al. VexIR2Vec. ACM TOSEM, March 2025. https://doi.org/10.1145/3721481",
+            },
+            {
+              time: "11:20–11:35", presenter: "Siddharth Priya", presenterLink: "https://priyasiddharth.github.io/",
+              title: "Ownership in Low-Level Intermediate Representation",
+              affiliation: "University of Waterloo",
+              slidesLink: "https://drive.google.com/file/d/1Xkmjk7VVQQsI6jjB85VDTWKm0LMYJAC3/view",
+              abstract: "This talk introduces OSEA-IR, a low-level intermediate representation that restores ownership semantics using well-defined aliasing primitives and a pointer-resident cache, allowing verification conditions to avoid symbolic address maps whenever memory access is provably exclusive. This approach yields 1.3x–5x improvements in SMT solving time.",
+              references: "[1] Siddharth Priya, Arie Gurfinkel. Ownership in low-level intermediate representation. FMCAD 2024.",
+            },
+          ],
+        },
+      },
+      {
+        time: "11:45",
+        event: {
+          type: "session", title: "Session 2: Compilers",
+          chair: "Uday Khedker", chairLink: "https://www.cse.iitb.ac.in/~uday/",
+          location: "DLT-9",
+          talks: [
+            {
+              time: "11:45–12:10", presenter: "Aditya Anand", presenterLink: "https://adityaanand7.github.io",
+              title: "CoSSJIT: Combining Static Analysis and Speculation in JIT Compilers",
+              affiliation: "IIT Bombay",
+              slidesLink: "https://drive.google.com/file/d/14rzklrdLaM41K0Km9Q0CXFfeg4hRgC9S/view",
+              abstract: "In this work (published at OOPSLA-25), we propose the first-of-its-kind approach to enrich static analysis with the possibility of speculative optimization during JIT compilation, as well as its usage to perform aggressive stack allocation on a production Java Virtual Machine (JVM).",
+              references: `[1] Aditya Anand et al. "CoSSJIT: Combining Static Analysis and Speculation in JIT Compilers". OOPSLA 2025.`,
+            },
+            {
+              time: "12:10–12:25", presenter: "Supriya Bhide", presenterLink: "https://supriya-bhide.github.io/",
+              title: "CoS-SSA: Context-Sensitive SSA for Interprocedural Program Analyses and Optimisations",
+              affiliation: "IIT Bombay",
+              abstract: "We propose CoS-SSA, a precise interprocedural SSA form that generalises the classical SSA to support def-use edges between global variables across procedures even in the presence of pointers and recursion. CoS-SSA provides context-sensitivity for free, apart from flow-sensitivity.",
+            },
+            {
+              time: "12:25–12:40", presenter: "Aniket Mishra", presenterLink: "https://satiscugcat.github.io/",
+              title: "Mechanical Specification and Verification for Mitigating Timing-based Side Channel Leaks",
+              affiliation: "IIT Gandhinagar",
+              slidesLink: "https://drive.google.com/file/d/1OKgnlqoT_hZRodVv-XiD2JR_wQQZhTvy/view",
+              abstract: "We introduce a language with a semantics that keeps execution time constant with respect to an adversary under an observationally equivalent memory. We formalize the semantics in Rocq and prove that these semantics satisfy the property of timing-sensitive non-interference.",
+              references: `[1] Mishra, Aniket, and Abhishek Bichhawat. "Fall-Through Semantics for Mitigating Timing-Based Side Channel Leaks." FSTTCS 2025.`,
+            },
+          ],
+        },
+      },
+      { time: "12:40", event: { type: "break", title: "Lunch & RHPL Poster Session" } },
+      {
+        time: "14:00",
+        event: {
+          type: "invited", title: "FSTTCS Invited Talk",
+          link: "https://www.fsttcs.org.in/2025/program.php", location: "LT1",
+        },
+      },
+      { time: "15:00", event: { type: "break", title: "Coffee Break" } },
+      {
+        time: "15:30",
+        event: {
+          type: "session", title: "Session 3: Blended Session of FSTTCS Track B and RHPL",
+          talks: [
+            {
+              time: "15:30–16:30",
+              presenter: "FSTTCS Track B Talks",
+              presenterLink: "https://www.fsttcs.org.in/2025/program.php",
+              title: "Chair: Deepak D'Souza · Location: DLT-10",
+            },
+            {
+              time: "16:30–17:30",
+              presenter: "RHPL Panel Discussion",
+              presenterLink: "/rhpl2025/panel_discussion",
+              title: "Chair: Umang Mathur · Location: DLT-9",
+            },
+          ],
+        },
+      },
+    ],
+  },
+
+  friday: {
+    label: "Friday, 19th December",
+    timeSlots: [
+      {
+        time: "09:00",
+        event: {
+          type: "invited", title: "FSTTCS Invited Talk",
+          link: "https://www.fsttcs.org.in/2025/program.php", location: "LT1",
+        },
+      },
+      { time: "10:00", event: { type: "break", title: "Coffee Break" } },
+      {
+        time: "10:30",
+        event: {
+          type: "session", title: "Session 1: Verification",
+          chair: "Dietmar Berwanger", chairLink: "https://home.lmf.cnrs.fr/DietmarBerwanger/",
+          location: "DLT-9",
+          talks: [
+            {
+              time: "10:30–10:45", presenter: "Arpita Dutta", presenterLink: "https://arpitad10j.wixsite.com/arpitad10j",
+              title: "Incremental and Unbounded Loop Analysis",
+              affiliation: "National University of Singapore",
+              slidesLink: "https://drive.google.com/file/d/1Z0JU6nl3xJfxCtYUZ3I1OvdnW89vZkQm/view",
+              abstract: "We address the problem of proving a loop invariant property within a perpetual loop. Our first goal is to prove the property holds at over all iterations (unbounded verification). Failing this, our subsequent goal is to determine a loop iteration bound where the property holds.\n\nOur framework is based on iterative deepening with two key features: incrementality (it learns and exploits the result of the previous iteration) and induction (a fixpoint-checking mechanism which can detect that the property is invariant throughout all iterations).",
+            },
+            {
+              time: "10:45–11:00", presenter: "Mohammad Afzal", presenterLink: "https://www.linkedin.com/in/mohammad-afzal-b1a832125/",
+              title: "Confidence-aware local robustness verification of neural networks",
+              affiliation: "TCS Pune & IIT Bombay",
+              slidesLink: "https://drive.google.com/file/d/1KMFTXUI3mkuP0LmtNWjc9yBp3QuNcxNl/view",
+              abstract: "In this work, our goal is to build a generalised framework to specify and verify variants of robustness in neural network verification. We introduce new variants of robustness that take into account the confidence of the neural network in its outputs. We enable any state-of-the-art neural network verification tool to verify these variants, while incurring a bounded approximation error.",
+            },
+            {
+              time: "11:00–11:15",
+              presenter: (
+                <>
+                  <a href="https://www.linkedin.com/in/dr-varsha-jarali-086826238/" className="underline decoration-dotted hover:opacity-75" target="_blank" rel="noopener noreferrer">Dr Varsha Jarali</a>
+                  {" / "}
+                  <a href="https://sites.google.com/site/priyeshashikant/" className="underline decoration-dotted hover:opacity-75" target="_blank" rel="noopener noreferrer">Dr Shashi Kant Pandey</a>
+                </>
+              ),
+              title: "On The Dolev-Yao Model of Symmetric Cascade Protocol",
+              affiliation: "Society For Electronic Transactions and Security Chennai",
+              slidesLink: "https://docs.google.com/presentation/d/1-clR-yPGtJH-nDb7lJh8tEW4_LmxEDvr/edit",
+              abstract: "We extend the DY formal model and analyze all remaining four cases for symmetric two-party cascade protocols. A formal proof of security is presented for all four protocols based on a hybrid choice of symmetric and asymmetric encryption.",
+            },
+          ],
+        },
+      },
+      {
+        time: "11:30",
+        event: {
+          type: "special", title: "Session 2: Special session in honour of R. Venkatesh",
+          link: "special_session",
+          chair: "Neeldhara Misra", chairLink: "https://www.neeldhara.com/",
+          location: "DLT-9", locationLink: "https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)",
+        },
+      },
+      { time: "12:40", event: { type: "break", title: "Lunch" } },
+      {
+        time: "14:00",
+        event: {
+          type: "invited", title: "FSTTCS Invited Talk",
+          link: "https://www.fsttcs.org.in/2025/program.php", location: "LT1",
+        },
+      },
+      { time: "15:00", event: { type: "break", title: "Coffee Break" } },
+      {
+        time: "15:30",
+        event: {
+          type: "session", title: "Session 3: Category Theory",
+          chair: "Nobuko Yoshida", chairLink: "https://mrg.cs.ox.ac.uk/",
+          location: "DLT-9",
+          talks: [
+            {
+              time: "15:30–15:55", presenter: "Udit Mavinkurve", presenterLink: "https://scholar.google.com/citations?user=2aoSFx8AAAAJ",
+              title: "An Invitation To Discrete Homotopy Theory",
+              affiliation: "University of Western Ontario",
+              abstract: "There is growing interest in extending mathematical tools originally developed for studying continuous objects to the study of discrete objects like graphs. Doing this gives rise to discrete homotopy theory — an approach introduced around 20 years ago. This theory has found applications in matroid theory, subspace arrangements, topological data analysis, and time series analysis.",
+              references: "[1] Krzysztof Kapulkin, Udit Mavinkurve. The Fundamental Group in Discrete Homotopy Theory. Advances in Applied Mathematics, 2025.",
+            },
+            {
+              time: "15:55–16:10", presenter: "Cristopher Mary Kouam", presenterLink: "https://github.com/hotdocx/emdash",
+              title: "Emdash — A Dependently Typed Logical Framework for Computational Synthetic ω-Category Theory and Functorial Elaboration",
+              affiliation: "BITS Pilani",
+              slidesLink: "https://drive.google.com/file/d/1ZJI8mkZrZVQ8j2XEJ95BMJHsSk3xcZEg/view",
+              abstract: "We present Emdash, a novel dependently typed logical framework designed to support computational synthetic category theory. A key contribution is the concept of functorial elaboration, where kernel-level constructors verify coherence laws during elaboration, throwing a CoherenceError upon failure.",
+              references: "[1] Christopher Mary Kouam. Emdash. Unpublished, 2025. https://github.com/hotdocx/emdash",
+            },
+          ],
+        },
+      },
+      {
+        time: "16:15",
+        event: {
+          type: "session", title: "Session 4: Online Talks",
+          chair: "Abhisekh Sankaran", chairLink: "https://abhisekhs.github.io/",
+          location: "DLT-9", locationLink: "https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)",
+          talks: [
+            {
+              time: "16:15–16:35", presenter: "Pankaj Kumar Kalita", presenterLink: "https://pkalita595.github.io/",
+              title: "Program Synthesis Meets Visual What-Comes-Next Puzzles",
+              affiliation: "IBM",
+              abstract: "We propose to automatically synthesize What-Comes-Next (WCN) puzzles by posing puzzle generation as a program synthesis problem. We design PuzzlerLang, a small yet expressive language. PuzzleGen is fast, averaging 3.4 seconds per puzzle, and user studies show PuzzleGen-generated puzzles are indistinguishable from human-created ones.",
+              references: "[1] Sumit Lahiri et al. Program Synthesis Meets Visual What-Comes-Next Puzzles. ASE 2024. https://doi.org/10.1145/3691620.3695015",
+            },
+            {
+              time: "16:35–16:55", presenter: "Lipsy Gupta", presenterLink: "https://www.linkedin.com/in/lipsy-gupta-9b1929259",
+              title: "Safety Verification of Anytime Perception based Cyber-Physical Systems",
+              affiliation: "Kansas State University",
+              slidesLink: "https://drive.google.com/file/d/1fqT90mRB_oQBEDgt94dP-OLrc47M_M0G/view",
+              abstract: "We focus on the safety verification of anytime perception-based CPS, wherein we model the anytime sensor in the closed loop. We provide an efficient algorithm for reachable set computation of a closed-loop system with an anytime sensor and a neural network controller using the star set data structure.",
+            },
+            {
+              time: "16:55–17:05", presenter: "Abhishek De", presenterLink: "https://sites.google.com/view/abhishekde",
+              title: "A proofs vs programs correspondence for the epsilon calculus",
+              affiliation: "Krea University",
+              abstract: "In this talk, we explore the proofs vs programs correspondence for the epsilon calculus. It turns out that epsilon calculus has some mild classical features, which give rise to computational effects at the level of programs. This is a work in progress with Bruno da Rocha Paiva.",
+            },
+          ],
+        },
+      },
+    ],
+  },
+};
+
+// ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 
 const Programme = () => {
   const [activeDay, setActiveDay] = useState("wednesday");
@@ -375,606 +651,33 @@ const Programme = () => {
     { id: "friday", label: "Friday, 19th December" },
   ];
 
+  const dayData = scheduleData[activeDay];
 
   return (
-    <div className="content">
-      <p className="contain py-10 space-y-2">
-        <h1 className="text-[27px] font-bold">Programme</h1>
-        <hr className="border-black pb-4" />
+    <div className="content font-sans">
+      <div className="contain py-10">
+        <h1 className="text-[27px] font-bold mb-2">Programme</h1>
+        <hr className="border-black mb-6" />
 
         <Tabs tabs={dayTabs} activeTab={activeDay} setActiveTab={setActiveDay} />
 
-        <div className="pt-5">
-        {/* WEDNESDAY PROGRAMME */}
-        {activeDay === "wednesday" && (
-          <div>
-            <InvitedTalk
-              time="09:10 - 10:10"
-              title="FSTTCS Invited Talk"
-              link = "https://www.fsttcs.org.in/2025/program.php"
-            />
-           
+        <p className="text-gray-400 text-sm mt-4 mb-4">{dayData.label}</p>
 
-            <ProgrammeRow
-              time="10:10 - 10:30"
-              title="Coffee Break"
-            />
-            <ProgrammeRow
-              time="10:30 - 10:35"
-              title="RHPL Opening Remarks"
-            />
-            <SessionHeader
-              time="10:35 - 11:40"
-              number={1}
-              title="Concurrency"
-              chair="Bernd Finkbeiner"
-              chairLink="https://cispa.de/en/people/finkbeiner"
-            />
-
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time="10:35 - 11:00"
-                presenter="Nobuko Yoshida"
-                title="Specification-Guided Programming for Asynchronous Message-Passing Optimisation"
-                presenterLink="https://mrg.cs.ox.ac.uk/"
-                affiliation="University of Oxford"
-                abstract={`Rust is a modern systems language focused on performance and reliability. Complementing Rust's promise to provide "fearless concurrency", developers frequently exploit asynchronous message passing. Unfortunately, sending and receiving messages in an arbitrary order to maximise computation-communication overlap (a popular optimisation in message-passing applications) opens up a Pandora's box of subtle concurrency bugs. To guarantee deadlock-freedom by construction, we present Rumpsteak: a new Rust framework based on multiparty session types. Previous session type implementations in Rust are either built upon synchronous and blocking communication and/or are limited to two-party interactions. 
-                Crucially, none support the arbitrary ordering of messages for efficiency. Rumpsteak instead targets asynchronous async/await code. Its unique ability is allowing developers to arbitrarily order send/receive messages while preserving deadlock-freedom. For this, Rumpsteak incorporates two recent advanced session type theories: (1) k-multiparty compatibility (k-MC), which globally verifies the safety of a set of participants, and (2) asynchronous multiparty session subtyping, which locally verifies optimisations in the context of a single participant. Specifically, we propose a novel algorithm for asynchronous subtyping that is both sound and decidable. We first talk about Rumsteak and show the new algorithm. We then talk about evaluations against other Rust implementations and asynchronous verification tools.`}
-                references="[1] Martin Vassor and Nobuko Yoshida. Refinements for Multiparty Message-Passing Protocols: Specification-Agnostic Theory and Implementation. In 38th European Conference on Object-Oriented Programming (ECOOP 2024). Leibniz International Proceedings in Informatics (LIPIcs), Volume 313, pp. 41:1-41:29, Schloss Dagstuhl - Leibniz-Zentrum für Informatik (2024) https://doi.org/10.4230/LIPIcs.ECOOP.2024.41"
-              />
-              <Talk
-                time="11:00 - 11:25"
-                presenter="Omkar Tuppe"
-                title="GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency"
-                presenterLink="https://homepages.iitb.ac.in/~194050003/"
-                affiliation="Indian Institute of Technology Bombay"
-                abstract="Modern GPUs adopt weak memory concurrency for performance, but their added complexity, including memory orders, memory scopes, and divergence, makes writing correct concurrent code significantly more complicated than on CPUs.
-                To address this, we developed GPUMC, a stateless model checker for verifying GPU programs under the scoped-RC11 memory model. GPUMC systematically explores all possible executions to detect data races, heterogeneous races, barrier divergence, and assertion violations.
-                We evaluated GPUMC on both micro-benchmarks and GPU kernels. It is efficient in time and memory, verifying large programs where existing tools fail or time out."
-                references="[1] Chakraborty, S., Krishna, S., Pavlogiannis, A., Tuppe, O. GPUMC: A Stateless Model Checker for GPU Weak Memory Concurrency. In: Piskac, R., Rakamari, Z. (eds) Computer Aided Verification. CAV 2025. Lecture Notes in Computer Science, vol 15933. Springer, Cham. https://doi.org/10.1007/978-3-031-98682-6_17"
-              />
-              <Talk
-                time="11:25 - 11:40"
-                presenter="Soumodev Mal"
-                title="Bridging Nets-within-Nets and Data Nets"
-                presenterLink="https://www.linkedin.com/in/soumodev-mal-10329b185/"
-                affiliation="Indian Institute of Technology Dharwad, India"
-                abstract={`Elementary Object Systems (EOSs) are a model in the nets-within-nets (NWNs) paradigm, where tokens in turn can host standard Petri nets. We study the complexity of the reachability problem of EOSs when subjected to non-deterministic token losses.
-                   It is known that this problem is equivalent to the coverability problem with no lossiness of conservative EOSs (cEOSs).
-                   We precisely characterize cEOS coverability into the framework of data nets, whose tokens carry data from an infinite domain. Specifically, we show that cEOS coverability is equivalent to the coverability of an interesting fragment of data nets that extends beyond nu-PN (featuring globally fresh name creation), yet remains less expressive than Unordered Data Nets (featuring lossy name creation as well as powerful forms of whole-place operations and broadcasts).
-                   This insight bridges two apparently orthogonal approaches to PN extensions, namely data nets and NWNs. At the same time, it enables us to analyze cEOS coverability taking advantage of known results on data nets.
-                   As a byproduct, we immediately get that the complexity of cEOS coverability lies between F_{ω²} and F_{ω^ω},  two classes beyond Primitive Recursive"
-                references="[1] Di Cosmo, F., Mal, S., Prince, T. (2026). Nets-Within-Nets Through the Lens of Data Nets. In: Ganty, P., Mansutti, A. (eds) Reachability Problems. RP 2025. Lecture Notes in Computer Science, vol 16230. Springer, Cham. https://doi.org/10.1007/978-3-032-09524-4_11`}
-              />
+        <div className="space-y-0">
+          {dayData.timeSlots.map((slot, idx) => (
+            <div key={idx} className="flex gap-3 border-b border-gray-100 py-3 last:border-b-0 align-top">
+              {/* Time */}
+              <div className="w-14 flex-shrink-0 text-xs font-mono text-gray-400 pt-3">
+                {slot.time}
+              </div>
+              {/* Card */}
+              <div className="flex-1">
+                <EventCard event={slot.event} />
+              </div>
             </div>
-
-            <SessionHeader
-              time="11:50 - 12:40"
-              number={2}
-              title="Learning and Verification with Partial Information"
-              chair="Govind R"
-              chairLink="https://rdnivog.github.io/"
-            />
-
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time="11:50 - 12:15"
-                presenter="Sreejith A V"
-                title="Learning Deterministic One-Counter Automata in Polynomial Time"
-                presenterLink="https://sreejithavtvm.github.io/"
-                affiliation="IIT Goa"
-                abstract="We present OL*, a polynomial-time algorithm for active learning of deterministic one-counter automata (DOCA). Unlike previous exponential-time syntactic approaches, OL* is semantic - it learns the language of the target automaton without any knowledge of the DOCA structure. It can also be used to approximate DOCA minimisation, a problem whose exact version is NP-hard even for certain subclasses of DOCA."
-                references={`[1] Prince Mathew, Vincent Penelle, A. V. Sreejith. Learning Deterministic One-Counter Automata in Polynomial Time. In Proc. of the 40th Annual ACM/IEEE Symposium on Logic in Computer Science (LICS) 2025, pp. 444-457, 2025`}
-              />
-              <Talk
-                time="12:15 - 12:40"
-                presenter="Gourav Takhar"
-                title="Verification of Open Programs via LLM-Mined Behavioral Idioms"
-                presenterLink="https://tgourav.github.io/"
-                affiliation="IIT Kanpur"
-                abstract="Incomplete or open programs—where portions of the source code are unavailable—are common in real-world software verification. Conventional verification tools assume the worst-case behavior for missing components, often producing a large number of spurious warnings. Engineers must therefore manually construct models or mocks for unavailable code, which is both time-consuming and error-prone, and inaccuracies in these mocks can compromise verification soundness. 
-                We present a technique that significantly improves the precision of memory-safety verification for incomplete programs by leveraging large language models (LLMs). Our approach mines idiomatic buffer-manipulation patterns from real code bases using an LLM, and then employs a property-directed synthesis strategy to select and adapt these patterns into angelic assumptions—assumptions that reflect the most favourable outcomes consistent with safe program behaviour. These assumptions enable the verifier to differentiate genuine bugs from false positives with high accuracy.
-                We implement this technique in Seeker, a verification framework that declares a program correct only when it can be proven safe under a well-defined set of trusted idioms. Across benchmarks from widely used open-source projects, Seeker identifies 79% of false positives with zero false negatives, greatly reducing manual effort in verifying incomplete programs."
-                references="[1] Gourav Takhar, Baldip Bijlani, Prantik Chatterjee, Akash Lal, and Subhajit Roy. 2025. Memory-Safety Verification of Open Programs with Angelic Assumptions. Proc. ACM Program. Lang. 9, OOPSLA2, Article 312 (October 2025), 29 pages. https://doi.org/10.1145/3763090"
-                slidesLink=
-                "https://docs.google.com/presentation/d/1UB_j4SBuNlk0MuI6tG_0zztDUW9erMxQ/edit?usp=sharing&ouid=111151800764297324161&rtpof=true&sd=true"
-              />
-            </div>
-
-            <ProgrammeRow
-              time="12:40 - 14:00"
-              title="Lunch"
-            />
-
-            <InvitedTalk
-              time="14:00 - 15:00"
-              title="FSTTCS Invited Talk"
-              link = "https://www.fsttcs.org.in/2025/program.php"
-            />
-
-            <ProgrammeRow
-              time="15:00 - 15:30"
-              title="Coffee Break"
-            />
-
-            <SessionHeader
-              time="15:30 - 16:20"
-              number={3}
-              title="Markov Decision Processes"
-              chair="Djordje Zikelic"
-              chairLink="https://djordjezikelic.github.io/"
-            />
-
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time="15:30 - 15:55"
-                presenter=" Shibashis Guha"
-                title="Continuous Time Reward Machines"
-                presenterLink="https://www.tifr.res.in/~shibashis.guha/"
-                affiliation="Tata Institute of Fundamental Research Mumbai"
-                abstract="Reinforcement Learning (RL) is a sampling-based method for sequential decision-making, in which a learning agent iteratively converges toward an optimal policy by leveraging feedback from the environment in the form of scalar reward signals. While timing information is often abstracted in discrete-time domains, time-critical learning applications—such as queuing systems, population processes, and manufacturing systems—are naturally modeled as Continuous-Time Markov Decision Processes (CTMDPs). Since the seminal work of Bradtke and Duff, model-free RL for CTMDPs has become well-understood. However, in many practical applications, practitioners possess high-quality information about system rates derived from traditional queuing theory, which learning agents could potentially exploit to accelerate convergence. Despite this, classical RL algorithms for CTMDPs typically re-learn these parameters through sampling. In this work, we propose continuous-time reward machines (CTRMs), a novel framework that embeds reward functions and real-time state-action dynamics into a unified structure. CTRMs enable RL agents to effectively navigate dense-time environments while leveraging reward shaping and counterfactual experiences for accelerated learning. Our empirical results demonstrate CTRMs' ability to improve learning efficiency in time-critical environments."
-                references="[1] Amin Falah, Shibashis Guha, Ashutosh Trivedi. Continuous-Time Reward Machines. In Proc. of the International Joint Conference on Artificial Intelligence (IJCAI) 2025, pp. 5056-5064, 2025"
-                slidesLink="https://drive.google.com/file/d/1Q3Ss9XoMnJxoret25tKo8xpssM3ujaki/view?usp=sharing"
-              />
-              <Talk
-                time="15:55 - 16:20"
-                presenter="Ramneet Singh"
-                title="INTERLEAVE: A Faster Symbolic Algorithm for Maximal End Component Decomposition"
-                presenterLink="https://ramneet-singh.netlify.app/"
-                affiliation="Microsoft Research"
-                abstract="The talk presents a novel symbolic algorithm for the Maximal End Component (MEC) decomposition of a Markov Decision Process (MDP). The key idea behind our algorithm INTERLEAVE is to interleave the computation of Strongly Connected Components (SCCs) with eager elimination of redundant state-action pairs, rather than performing these computations sequentially as done by existing state-of-the-art algorithms. Even though our approach has the same complexity as prior works, an empirical evaluation of INTERLEAVE on the standardized Quantitative Verification Benchmark Set demonstrates that it solves 19 more benchmarks (out of 379) than the closest previous algorithm. On the 149 benchmarks that prior approaches can solve, we demonstrate a 3.81x average speedup in runtime."
-                references={`[1] Bansal, Suguman, and Ramneet Singh. "INTERLEAVE: A Faster Symbolic Algorithm for Maximal End Component Decomposition." International Conference on Computer Aided Verification (CAV) 2025. Cham: Springer Nature Switzerland, 2025.`}
-                slidesLink="https://drive.google.com/file/d/1L7Q4zJfudVkMEdAhoqrr0ax9gHkmjYtI/view?usp=sharing"
-              />
-            </div>
-
-            <SessionHeader
-              time="16:30 - 17:30"
-              number={4}
-              title="Cyber-Physical Systems"
-              chair="Kumar Madhukar"
-              chairLink="https://kumarmadhukar.github.io/"
-            />
-
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time="16:30 - 16:45"
-                presenter="Anand Yeolekar"
-                title="Repairing Control Safety Violations by Patching the Real-time OS Scheduler"
-                presenterLink="https://ieeexplore.ieee.org/author/38232933600"
-                affiliation="TCS Research"
-                abstract="Cyber-physical systems are typically implemented in software as a set of real-time control tasks. Timing uncertainty at the low-level scheduling layer can lead to deadline misses of control tasks, that affects control performance and may violate safety properties associated with the high-level control applications. We present a technique to detect and repair control safety violations by synthesizing a scheduler patch - a pre-computed list of jobs to be not scheduled at runtime - that eliminates these violations without the need of modifications at the control or task layer. The technique utilizes a guess-check-repair loop on top of an exact SMT encoding of control and scheduling behaviours, enabling efficient packing of multiple control applications on the execution platform while guaranteeing control safety. 
-                
-                
-                The talk will cover SMT modeling of control applications, real-time tasks, and low-level timing uncertainties. Based  on exact modeling of the CPS layers, we present a way to repair the guessed scheduler patch, by refining the initial abstraction with constraints derived from counterexamples, that help distinguish critical task instances from the non-critical ones. 
-                
-                
-                If time permits, we will present (published) work on repairing task specifications by automatically tuning selected task parameters like offset and period. These works broadly come under the field of Timing Debugging."
-                references="[1] Anand Yeolekar, Supratik Chakraborty, R. Venkatesh, and Samarjit Chakraborty. 2025. Repairing Control Safety Violations via Scheduler Patch Synthesis. In Proceedings of the ACM/IEEE 16th International Conference on Cyber-Physical Systems (with CPS-IoT Week 2025) (ICCPS '25). Association for Computing Machinery, New York, NY, USA, Article 11, 1-12. https://doi.org/10.1145/3716550.3722035"
-              />
-              <Talk
-                time="16:45 - 17:00"
-                presenter="Santonu Sarkar"
-                title="LLM-Assisted Formal Verification Framework for Process Control Software Evolution"
-                presenterLink="https://www.bits-pilani.ac.in/goa/santonu-sarkar/"
-                affiliation="BITS Goa"
-                abstract="This proposal  presents a hybrid approach that combines the adaptability of Large Language Models (LLMs) with the rigor of formal verification for automated software upgrades for Sequential Function Chart (SFC) code. Our framework LLMA combines an LLM component to generate an upgraded version of an existing SFC code, while maintaining strict formal verification to ensure correctness during the upgrade process. Our framework includes: (1) an integrated approach combining formal verification with LLM-guided upgrades; (2) counterexample-driven prompt refinement for learning from verification failures; and (3) automated repair functions that rectify behavioral divergences identified during verification. Evaluations on industrial benchmarks reveal our approach achieves high success rates while substantially reducing manual effort compared to conventional methods"
-                references="[1] Soumyadip Bandyopadhyay, Santonu Sarkar. Antarbhukti: Verifying Correctness of PLC Software During System Evolution. In Proc. of the International Symposium on Automated Technology for Verification and Analysis (ATVA) 2025, pp. 447 - 471, 2025."
-              />
-              <Talk
-                time="17:00 - 17:15"
-                presenter="Atanu Kundu"
-                title="Data-Driven Falsification of Cyber-Physical Systems"
-                presenterLink="https://atanucs.github.io/"
-                affiliation="Indian Association for the Cultivation of Science"
-                abstract="Cyber-Physical Systems (CPS) are abundant in safety-critical domains, including healthcare, avionics, and autonomous vehicles. Formal verification of their operational safety is, therefore, of utmost importance. In this talk, we discuss the falsification problem, where the focus is on searching for an unsafe execution in the system, rather than proving its absence. The algorithm leverages the inherent interpretability of Decision Trees for faster falsification of CPS. This is achieved by: (1) building a Decision Tree as a surrogate model of the CPS under test, and (2) a novel falsification algorithm guided by the explanations of safety violations of the CPS model extracted from its Decision Tree surrogate. Although the presented methodology is applicable to systems that can be executed/simulated in general, we demonstrate its effectiveness, particularly in CPS.  We demonstrate that our framework, implemented as the tool FlexiFal, can detect hard-to-find counterexamples in CPS that exhibit both linear and non-linear dynamics. Decision tree-guided falsification shows promising results in efficiently finding multiple counterexamples in the ARCH-COMP 2024 falsification benchmarks."
-                references="[1] Atanu Kundu, Sauvik Gon, and Rajarshi Ray. 2024. Data-Driven Falsification of Cyber-Physical Systems. In Proceedings of the 17th Innovations in Software Engineering Conference (ISEC '24). Association for Computing Machinery, New York, NY, USA, Article 10, 1-5. https://doi.org/10.1145/3641399.3641401"
-                slidesLink="https://drive.google.com/file/d/10yvtsWOtD60BSR-lAZSA6H9c-FMbpxUT/view?usp=sharing"
-              />
-              <Talk
-                time="17:15 - 17:30"
-                presenter="Alvin A. George"
-                title="CEGAR for Temporal Properties based on Recurrent Sets"
-                presenterLink="https://ieeexplore.ieee.org/author/37088487403"
-                affiliation="Indian Institute of Science, Bangalore"
-                abstract="We consider the problem of verifying linear-time temporal properties, specifically, liveness properties, of discrete-time systems with (uncountable) infinite states   often arising in robotic applications, And present a counter-example guided abstraction refinement (CEGAR) based technique tailored to this setting. 
-                We provide novel validation and refinement algorithms to handle the lasso shaped abstract counterexamples that witness the violation of the liveness properties and give a characterization of a feasible lasso-shaped abstract counter-examples based on the notion of recurrent sets.
-                Using this, we propose an algorithm for validating counter-examples by iteratively computing pre-sets around the loop, and use these computed pre-sets to refine the   abstraction to eliminate spurious counter-examples. 
-                Preliminary results show the technique to be effective in terms of both proving that the system satisfies the given property, as well as in finding valid counter-examples (falsification)."
-                references="[1] Alvin A. George, Deepak D'Souza, Pavithra Prabhakar. CEGAR-based Verification of Temporal Properties of Robotic Systems. Unpublished, 2025"
-              />
-              
-            </div>
-
-            
-          </div>
-        )}
-
-        {/* THURSDAY PROGRAMME */}
-        {activeDay === "thursday" && (
-          <div>
-            <InvitedTalk
-              time="09:00 - 10:00"
-              title="FSTTCS Invited Talk"
-              link = "https://www.fsttcs.org.in/2025/program.php"
-            />
-            <ProgrammeRow
-              time="10:00 - 10:30"
-              title="Coffee Break"
-            />
-
-            <SessionHeader
-              time="10:30 - 11:35"
-              number={1}
-              title="Program Equivalence and Ownership Semantics"
-              chair="Madhavan Mukund"
-              chairLink="https://www.cmi.ac.in/~madhavan/"
-            />
-
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time="10:30 - 10:55"
-                presenter="Umang Mathur"
-                title="Equivalences for Causal Concurrency"
-                presenterLink="https://www.comp.nus.edu.sg/~umathur/"
-                affiliation="National University of Singapore"
-                abstract="This talk will begin with a gentle introduction to trace theory, a principled mathematical framework for defining equivalence relations among concurrent program executions based on a commutativity relation over the atomic steps of individual program threads. Its simplicity, elegance, and algorithmic efficiency make it a powerful tool in various domains, including program verification and testing. 
-                I will then compare trace theory with the modern, widely adopted notion of equivalence for concurrent program executions, known as reads-from equivalence. This more natural and relaxed notion captures a broader range of behaviors but introduces significant computational challenges. Specifically, I will present results demonstrating the computational hardness associated with reads-from equivalence. 
-                Finally, I will discuss our recent efforts to generalize trace theory to reconcile it with reads-from equivalence. This generalized framework aims to retain the algorithmic advantages of trace theory while addressing its limitations in representing modern equivalence notions."
-                references={`[1] Farzan, Azadeh, and Umang Mathur. "Coarser equivalences for causal concurrency." Proceedings of the ACM on Programming Languages 8.POPL (2024): 911-941. 
-                [2] Ang, Zhendong, and Umang Mathur. "Predictive monitoring against pattern regular languages." Proceedings of the ACM on Programming Languages 8.POPL (2024): 2191-2225.
-                [3] Ang, Zhendong, and Umang Mathur. "Predictive Monitoring with Strong Trace Prefixes." International Conference on Computer Aided Verification. Cham: Springer Nature Switzerland, 2024.`}
-                slidesLink="https://drive.google.com/file/d/1YfK5trIXqPtHWVsqtf-xOAgSVWDL6YYa/view?usp=sharing"
-              />
-              <Talk
-                time="10:55 - 11:20"
-                presenter="S. VenkataKeerthy"
-                title="VEXIR2Vec: An Architecture-Neutral Embedding Framework for Binary Similarity"
-                presenterLink="https://svkeerthy.github.io/"
-                affiliation="IIT Hyderabad"
-                abstract="Binary similarity involves determining whether two binary programs exhibit similar functionality with applications in vulnerability detection, malware analysis, and copyright detection. However, variations in compiler settings, target architectures, and deliberate code obfuscations significantly complicate the similarity measurement by effectively altering the syntax, semantics, and structure of the underlying binary. To address these challenges, we propose VexIR2Vec, a robust, architecture-neutral approach based on VEX-IR to solve binary similarity tasks. VexIR2Vec consists of three key components: a peephole extractor, a normalization engine (VexINE), and an embedding model (VexNet). The process to build program embeddings starts with the extraction of sequences of basic blocks, or peepholes, from control-flow graphs via random walks, capturing structural information. These generated peepholes are then normalized using VexINE, which applies compiler-inspired transformations to reduce architectural and compiler-induced variations. Embeddings of peepholes are generated using representation learning techniques, avoiding Out-Of-Vocabulary (OOV) issues. These embeddings are then fine-tuned with VexNet, a feed-forward Siamese network that maps functions into a high dimensional space for diffing and searching tasks in an application-independent manner.
-                We evaluate VexIR2Vec against five baselines BinDiff, DeepBinDiff, SAFE, BinFinder, and histograms of opcodes on a dataset comprising 2.7M functions and 15.5K binaries from 7 projects compiled across 12 compilers targeting x86 and ARM architectures. The experiments span four adversarial settings cross-optimization, cross-compilation, cross-architecture, and obfuscations that are typically exploited by malware and vulnerabilities. In diffing experiments, VexIR2Vec outperforms the nearest baseline in these four scenarios by 40%, 18%, 21%, and 60%, respectively. In the searching experiment, VexIR2Vec achieves a mean average precision of 0.76, the nearest baseline, by 46%. Our framework is highly scalable and is built as a lightweight, multi-threaded, parallel library using only open-source tools. VexIR2Vec is about 3.1-3.5x faster than the closest baselines and orders-of-magnitude faster than other tools."
-                references="[1] S. VenkataKeerthy, Soumya Banerjee, Sayan Dey, Yashas Andaluri, Raghul PS, Subrahmanyam Kalyanasundaram, Fernando Magno Quintão Pereira, and Ramakrishna Upadrasta. 2025. VexIR2Vec: An Architecture-Neutral Embedding Framework for Binary Similarity. ACM Trans. Softw. Eng. Methodol. March 2025. https://doi.org/10.1145/3721481"
-                slidesLink="https://drive.google.com/file/d/1Lq72K6RAsENhajBWUF4Dr71jBwePE40F/view?usp=sharing"
-              />
-              <Talk
-                time="11:20 - 11:35"
-                presenter="Siddharth Priya"
-                title="Ownership in Low-Level Intermediate Representation"
-                presenterLink="https://priyasiddharth.github.io/"
-                affiliation="University of Waterloo"
-                abstract="Ownership helps high-level languages—and their verifiers—reason about memory correctness without modelling an explicit address map, but this advantage disappears in LLVM IR where ownership information is lost and verification must fall back on one. This talk introduces OSEA-IR, a low-level intermediate representation that restores ownership semantics using well-defined aliasing primitives and a pointer-resident cache, allowing verification conditions to avoid symbolic address maps whenever memory access is provably exclusive. Prophecy variables model the return of mutable borrows without shared-memory reasoning, keeping cache-based verification simple even across non-local aliasing patterns. OSEA-IR is generated from C-like programs that follow an ownership discipline via lightweight macros, and integrates with SEABMC, a bit-precise bounded model checker for LLVM. Across both handcrafted examples and real-world open-source C code, this approach yields 1.3x-5x improvements in SMT solving time, demonstrating that lifting ownership semantics into low-level IR substantially simplifies verification while supporting both safe and unsafe code paths."
-                references="[1] Siddharth Priya, Arie Gurfinkel. Ownership in low-level intermediate representation. In Proc. of Formal Methods in Computer-Aided Design (FMCAD). IEEE, 2024."
-                slidesLink="https://drive.google.com/file/d/1Xkmjk7VVQQsI6jjB85VDTWKm0LMYJAC3/view?usp=sharing"
-              />
-            </div>
-
-            <SessionHeader
-              time="11:45 - 12:40"
-              number={2}
-              title="Compilers"
-              chair="Uday Khedker"
-              chairLink="https://www.cse.iitb.ac.in/~uday/"
-            />
-
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time="11:45 - 12:10"
-                presenter="Aditya Anand"
-                title="CoSSJIT: Combining Static Analysis and Speculation in JIT Compilers"
-                presenterLink="https://adityaanand7.github.io"
-                affiliation="Indian Institute of Technology Bombay"
-                abstract="Just-in-time (JIT) compilers typically sacrifice the precision of program analysis for efficiency, but are capable of performing sophisticated speculative optimizations based on run-time profiles to generate code that is specialized to a given execution. On the contrary, ahead-of-time static compilers can often afford precise flow-sensitive interprocedural analysis, but produce conservative results in scenarios where higher precision could be derived from run-time specialization. 
-                In this work (published at OOPSLA-25), we propose the first-of-its-kind approach to enrich static analysis with the possibility of speculative optimization during JIT compilation, as well as its usage to perform aggressive stack allocation on a production Java Virtual Machine (JVM)."
-                references={`[1] Aditya Anand, Vijay Sundaresan, Daryl Maier, and Manas Thakur. “CoSSJIT: Combining Static Analysis and Speculation in JIT Compilers”. In Proceedings of the ACM on Programming Languages (OOPSLA), Singapore, October 12-18, 2025.
-                
-                [2] Aditya Anand, Solai Adithya, Swapnil Rustagi, Priyam Seth, Vijay Sundaresan, Daryl Maier, V. Krishna Nandivada, and Manas Thakur. “Optimistic Stack Allocation and Dynamic Heapification for Managed Runtimes”. In Proceedings of the ACM on Programming Languages (PLDI), Copenhagen, Denmark, June 24-28, 2024.`}
-                slidesLink="https://drive.google.com/file/d/14rzklrdLaM41K0Km9Q0CXFfeg4hRgC9S/view?usp=sharing"
-              />
-              <Talk
-                time="12:10 - 12:25"
-                presenter="Supriya Bhide"
-                title="CoS-SSA: Context-Sensitive SSA for Interprocedural Program Analyses and Optimisations"
-                presenterLink="https://supriya-bhide.github.io/"
-                affiliation="Indian Institute of Technology Bombay"
-                abstract="Static Single Assignment (SSA) is the most commonly used intermediate representation by all modern compilers. The advent of SSA in the late 80′s brought about a major change in how programs were represented, analyzed, and optimized by compilers. Since then, SSA has seen many advances and has become the de facto intermediate representation used by modern compilers such as GCC and LLVM. The main advantage of SSA is that it enables referential transparency for variables by ensuring that there is a single static definition of any variable and this definition is connected to its uses through def-use edges. This provides flow-sensitivity for free thereby enabling sparse analyses.
-                Current SSA (aka classical SSA) works only at the intraprocedural level and is restricted to non-address taken variables. Address-taken variables and global variables are handled soundly but very imprecisely using memory-SSA. However, no def-use edges can be formed when the definitions and their uses are in different procedures. This restricts the scope of SSA-based analyses and optimisations to individual procedures. To overcome these limitations, we propose a precise interprocedural SSA form called CoS-SSA (Context-Sensitive SSA) that generalises the classical SSA to support def-use edges between global variables across procedures even in the presence of pointers and recursion. CoS-SSA provides context-sensitivity for free, apart from flow-sensitivity—a client analysis that uses CoS-SSA does not require to maintain context sensitivity or flow sensitivity. This enables efficient sparse analyses at the interprocedural level."
-                references="[1] Supriya Bhide. CoS-SSA: Context-Sensitive SSA for Interprocedural Program Analyses and Optimisations. Unpublished, 2025"
-                slides="https://drive.google.com/file/d/1_K6Khyi1DSwAELnwNl7UyLJ81uC-RyIo/view?usp=sharing"
-              />
-              <Talk
-                time="12:25 - 12:40"
-                presenter="Aniket Mishra"
-                title="Mechanical Specification and Verification for Mitigating Timing-based Side Channel Leaks"
-                presenterLink="https://satiscugcat.github.io/"
-                affiliation="IIT Gandhinagar"
-                abstract=" With the recent advent of exploits like Spectre and Meltdown, the mitigation of side-channel attacks has become an important concern for security researchers. In this paper, we focus on timing-based side channels introduced through conditional branching on secret information within programs. We introduce a language that allows a programmer to write conditionals branching on secrets within its syntax, but has a semantics that keeps execution time constant with respect to an adversary under an observationally equivalent memory. We differ from other approaches that use program analysis methods, opting instead to modify the operational semantics to enforce the necessary properties. We formalize the semantics for our language with timing leak mitigations in Rocq (previously, Coq) and prove that these semantics satisfy the property of timing-sensitive non-interference. This talk focuses on some of the benefits and limits of choosing to write these proofs mechanically."
-                references={`[1] Mishra, Aniket, and Abhishek Bichhawat. "Fall-Through Semantics for Mitigating Timing-Based Side Channel Leaks." 45th IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science (FSTTCS 2025). Schloss Dagstuhl-Leibniz-Zentrum für Informatik, 2025.`}
-                slidesLink="https://drive.google.com/file/d/1OKgnlqoT_hZRodVv-XiD2JR_wQQZhTvy/view?usp=sharing"
-              />
-            </div>
-
-            <ProgrammeRow
-              time="12:40 - 14:00"
-              title="Lunch and RHPL Poster Session"
-            />
-
-            <InvitedTalk
-              time="14:00 - 15:00"
-              title="FSTTCS Invited Talk"
-              link = "https://www.fsttcs.org.in/2025/program.php"
-            />
-  
-            <ProgrammeRow
-              time="15:00 - 15:30"
-              title="Coffee Break"
-            />
-            <SessionHeader
-              time="15:30 - 17:30"
-              number={3}
-              title="Blended Session of FSTTCS Track B and RHPL"
-              chair=""
-              location=""
-            />
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <PanelDiscussion
-                time="15:30 - 16:30"
-                name="FSTTCS Track B Talks"
-                location="DLT-10"
-                locationLink="https://www.google.com/maps/place/DLT-10/@15.392303,73.8816632,20.27z/data=!4m6!3m5!1s0x3bbfb9007a38dddd:0x1598fec5ff977c25!8m2!3d15.3921589!4d73.8818369!16s%2Fg%2F11y7c230lg?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=205e508c-06de-404d-adf4-46828af275a3"
-                link="https://www.fsttcs.org.in/2025/program.php"
-                chair="Deepak D'Souza"
-                chairLink="https://www.csa.iisc.ac.in/~deepakd/"
-              />
-              <PanelDiscussion
-                time="16:30 - 17:30"
-                name="RHPL Panel Discussion"
-                locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
-                location="DLT-9"
-                link="/rhpl2025/panel_discussion"
-                chair="Umang Mathur"
-                chairLink="https://www.comp.nus.edu.sg/~umathur/"
-              />
-            </div>
-          </div>
-        )}
-
-        {/* FRIDAY PROGRAMME */}
-        {activeDay === "friday" && (
-          <div>
-            <InvitedTalk
-              time="09:00 - 10:00"
-              title="FSTTCS Invited Talk"
-              link = "https://www.fsttcs.org.in/2025/program.php"
-            />
-        
-            <ProgrammeRow
-              time="10:00 - 10:30"
-              title="Coffee Break"
-            />
-
-            <SessionHeader
-              time="10:30 - 11:15"
-              number={1}
-              title="Verification"
-              chair="Dietmar Berwanger"
-              chairLink="https://home.lmf.cnrs.fr/DietmarBerwanger/"
-            />
-
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time="10:30 - 10:45"
-                presenter="Arpita Dutta"
-                title="Incremental and Unbounded Loop Analysis"
-                presenterLink="https://arpitad10j.wixsite.com/arpitad10j"
-                affiliation="National University of Singapore, Singapore"
-                abstract="We address the problem of proving a loop invariant property within a perpetual loop. We have two goals.  Our first goal is to prove the property holds at over all iterations, ie. to have unbounded verification.  Failing this, our subsequent goal is to determine a loop iteration bound where the property holds, ie. to have the best possible bounded verification. Our framework is set in a harness which is essentially a one loop program whose body comprises a bounded computation, for example, one that does not contain any loops. Our interpreter is based on iterative deepening; it performs bounded reasoning at each iteration, which increases the bound, and has two key features: incrementality, ie. it learns and exploits the result of the previous iteration, and induction, ie. it has a fixpoint-checking mechanism which can detect that the property is invariant throughout all iterations."
-                references={`[1] Arpita Dutta, and Joxan Jaffar. "Incremental and Unbounded Loop Analysis." In Companion Proceedings of the 2025 ACM SIGPLAN International Conference on Systems, Programming, Languages, and Applications: Software for Humanity, pp. 46-47. 2025.`}
-                slidesLink="https://drive.google.com/file/d/1Z0JU6nl3xJfxCtYUZ3I1OvdnW89vZkQm/view?usp=sharing"
-              />
-              <Talk
-                time="10:45 - 11:00"
-                presenter="Mohammad Afzal"
-                title="Confidence-aware local robustness verification of neural networks"
-                presenterLink="https://www.linkedin.com/in/mohammad-afzal-b1a832125/"
-                affiliation="TCS Pune India and IIT Bombay"
-                abstract="Robustness is a important problem in AI alignment and safety, with models such as neural networks being increasingly used in safety-critical systems. In the last decade, a large body of work has emerged on local robustness, i.e., checking if the decision of a neural network remains unchanged when the input is slightly perturbed. However, many of these approaches require specialized encodings and often ignore the confidence of a neural network on its output. 
-                
-                In this work, our goal is to build a generalised framework to specify and verify variants of robustness in neural network verification. We propose a specification framework using a simple grammar, which is flexible enough to capture most existing variants. This allows us to introduce new variants of robustness that take into account the confidence of the neural network in its outputs. Next, we develop a novel and powerful unified technique to verify all such variants in a homogenous way, viz., by adding a few additional layers to the neural network. This enables us to use any state-of-the-art neural network verification tool, without having to tinker with the encoding within, while incurring an approximation error that we show is bounded."
-                slidesLink="https://drive.google.com/file/d/1KMFTXUI3mkuP0LmtNWjc9yBp3QuNcxNl/view?usp=sharing"
-              />
-              <Talk
-                time="11:00 - 11:15"
-                /* presenter="Dr Varsha Jarali / Dr Shashi Kant Pandey" */
-                title="On The Dolev-Yao Model of Symmetric Cascade Protocol"
-                /* presenterLink="https://www.linkedin.com/in/dr-varsha-jarali-086826238/" */
-                presenter={
-                <>
-                  <a
-                    href="https://www.linkedin.com/in/dr-varsha-jarali-086826238/"
-                    className="underline text-blue-700 hover:text-blue-900"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                  Dr Varsha Jarali
-                  </a>
-                  {" / "}
-                  <a
-                    href="https://sites.google.com/site/priyeshashikant/"
-                    className="underline text-blue-700 hover:text-blue-900"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                  Dr Shashi Kant Pandey
-                   </a>
-                </>
-                }
-                affiliation="Society For Electronic Transactions and Security Chennai"
-                abstract="Security protocols enable authentication, key distribution, and secure information exchange, making them essential for network security, yet flaws in their design can lead to attacks. To prevent this, formal verification methods are vital for analyzing protocol correctness.The Dolev-Yao (DY) model introduced formalization of the security proof of name-stamp and cascade protocols, which relies on public-key encryption. Brook and Otto later distinguished between symmetric and non-symmetric cascade protocols, noting that all DY cases were symmetric and that attacker choices were not fully addressed. Full formal security proofs of these protocols based on the capability of an attacker and the choice of encryption remain to be done. 
-                
-                In this work, we extend the DY formal model and analyze all remaining four cases for symmetric two-party cascade protocols. A formal proof of security is presented for all four protocols based on a hybrid choice of symmetric and asymmetric encryption."
-                references="[1] Dolev, D., and Yao, A. C. On the security of public key protocols. Proceedings of the 22nd Annual Symposium on Foundations of Computer Science (FOCS), pp. 350-357, 1983.
-                [2] Book, R. V., and Otto, F. The verifiability of two-party protocols. In Advances in Cryptology - EUROCRYPT '85, pp. 233-242. Springer."
-                slidesLink="https://docs.google.com/presentation/d/1-clR-yPGtJH-nDb7lJh8tEW4_LmxEDvr/edit?usp=sharing&ouid=111151800764297324161&rtpof=true&sd=true"
-              />
-            </div>
-
-            <SessionHeader
-              time="11:30 - 12:40"
-              number={2}
-              title="Special session in honour of R. Venkatesh"
-              chair="Neeldhara Misra"
-              location="DLT-9"
-              locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
-              link="special_session"
-              chairLink="https://www.neeldhara.com/"
-            />
-
-            <ProgrammeRow
-              time="12:40 - 14:00"
-              title="Lunch"
-            />
-
-            <InvitedTalk
-              time="14:00 - 15:00"
-              title="FSTTCS Invited Talk"
-              link = "https://www.fsttcs.org.in/2025/program.php"
-            />
-
-
-            <ProgrammeRow
-              time="15:00 - 15:30"
-              title="Coffee Break"
-            />
-
-            <SessionHeader
-              time="15:30 - 16:10"
-              number={3}
-              title="Category Theory"
-              chair="Nobuko Yoshida"
-              chairLink="https://mrg.cs.ox.ac.uk/"
-            />
-
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time="15:30 - 15:55"
-                presenter="Udit Mavinkurve"
-                title="An Invitation To Discrete Homotopy Theory"
-                presenterLink="https://scholar.google.com/citations?user=2aoSFx8AAAAJ&hl=en"
-                affiliation="University of Western Ontario"
-                abstract="There is growing interest in extending mathematical tools originally developed for studying continuous objects (e.g. topological spaces) to the study of discrete objects like graphs. The naive approach viz. treating graphs as low-dimensional spaces turns out to be uninteresting. To capture the combinatorial richness of graph theory, we must truly discretize our notions of maps, intervals, and products. Doing this gives rise to discrete homotopy theory - an approach introduced around 20 years by Helene Barcelo et al., building on the work of Ronald Atkin from the mid-70's. This theory has found a wide range of applications both within and outside of mathematics, including: matroid theory, subspace arrangements, topological data analysis, time series analysis, and quite concretely in understanding how social interactions between preschoolers impact their academic performance. There are also active ongoing efforts to formalize results in discrete homotopy theory using interactive proof assistants such as Lean. This talk will be an introduction to discrete homotopy theory and will report on joint work with Chris Kapulkin."
-                references={`[1] Krzysztof Kapulkin, Udit Mavinkurve. 2025. The Fundamental Group in Discrete Homotopy Theory. In Advances in Applied Mathematics, 2025.
-[2] Chris Kapulkin, Udit Mavinkurve. 2025. Homotopy n-Types of Cubical Sets and Graphs. Unpublished. Preprint available at https://arxiv.org/abs/2408.05289`}
-              />
-              <Talk
-                time="15:55 - 16:10"
-                presenter="Cristopher Mary Kouam"
-                title="Emdash — A Dependently Typed Logical Framework for Computational Synthetic ω-Category Theory and Functorial Elaboration"
-                presenterLink="https://github.com/hotdocx/emdash"
-                affiliation="BITS Pilani"
-                abstract={`We present Emdash, a novel dependently typed logical framework designed to support computational synthetic category theory, drawing inspiration from Kosta Dosen's functorial programming paradigm. Emdash integrates categorical primitives—such as categories, objects, morphisms, and functors—directly into its λΠ-calculus core, facilitating reasoning and computation in a style closer to mathematical practice.The path towards ω-categories is paved by internalizing the (dependent) comma category construction of a (dependent) category, similarly to the “bridge type” construction used in logical relations and parametricity. The system features a bidirectional type checker with unification-based hole solving for interactive proof, definitional equality via βδι-reduction (including user-supplied rewrite rules and unfolding of injective constants), and Higher-Order Abstract Syntax (HOAS) for binders. A key contribution of Emdash is the concept of functorial elaboration, where kernel-level constructors for structures such as functors not only receive their components (for example, object and arrow mappings) but also definitionally verify their coherence laws during elaboration, throwing a \`CoherenceError\` upon failure. Implemented in TypeScript and formally specified in a Lambdapi dialect, Emdash demonstrates a practical pathway from specification to a working kernel. We report on the successful implementation and validation of the system's core features through a comprehensive test suite.`}
-                references="[1] Christopher Mary Kouam. Emdash — A Dependently Typed Logical Framework for Computational Synthetic Category Theory and Functorial Elaboration. Unpublished, 2025. Report available at: https://github.com/hotdocx/emdash"
-                slidesLink="https://drive.google.com/file/d/1ZJI8mkZrZVQ8j2XEJ95BMJHsSk3xcZEg/view?usp=sharing"
-              />
-            </div>
-
-            <SessionHeader
-              time="16:15 - 17:05"
-              number={4}
-              title="Online Talks"
-              chair="Abhisekh Sankaran"
-              chairLink="https://abhisekhs.github.io/"
-              location="DLT-9"
-              locationLink="https://www.google.com/maps/place/DLT-9+(Mini-Auditorium)/@15.3922723,73.8818891,20.94z/data=!4m6!3m5!1s0x3bbfb904099b4999:0xf541674a5e195fc0!8m2!3d15.3922858!4d73.8819925!16s%2Fg%2F11vltv1g6w?entry=tts&g_ep=EgoyMDI1MTIwOS4wIPu8ASoASAFQAw%3D%3D&skid=318b71d3-a2e2-4a2b-824b-9ca19048049a"
-              
-            />
-            {/* <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time=""
-                presenter=""
-                title="TBA"
-                presenterLink=""
-              />
-            </div> */}
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time="16:15 - 16:35"
-                presenter="Pankaj Kumar Kalita"
-                title="Program Synthesis Meets Visual What-Comes-Next Puzzles"
-                presenterLink="https://pkalita595.github.io/"
-                affiliation="IBM"
-                abstract={`What-Comes-Next (WCN) puzzles challenge us to identify the next figure that "logically follows" a provided sequence of figures. WCN puzzles are a favorite of interviewers and examiners—there is hardly any aptitude test that misses WCN puzzles. In this work, we propose to automatically synthesize WCN puzzles. The key insight of our methodology is that the generation of WCN problems can be posed as a program synthesis problem. We design a small yet expressive language, PuzzlerLang, to capture solutions to WCN puzzles. PuzzlerLang is expressive enough to explain almost all human-generated WCN puzzles that we collected, and yet small enough to allow synthesis in a reasonable time. To ensure that the generated puzzles are appealing to humans, we infer a machine learning model to approximate the appeal factor of a given WCN puzzle. We use this model within our puzzle synthesizer as an optimization function to generate highly appealing and correct-by-construction WCN puzzles. We implemented our ideas in a tool, PuzzleGen. We found that PuzzleGen is fast, clocking an average time of about 3.4 seconds per puzzle. Further, statistical tests over responses from a user study show that PuzzleGen-generated puzzles are indistinguishable from puzzles created by humans.`}
-                references="[1] Sumit Lahiri, Pankaj Kumar Kalita, Akshay Kumar Chittora, Varun Vankudre, and Subhajit Roy. 2024. Program Synthesis Meets Visual What-Comes-Next Puzzles. In Proceedings of the 39th IEEE/ACM International Conference on Automated Software Engineering (ASE '24). Association for Computing Machinery, New York, NY, USA, 418-429. https://doi.org/10.1145/3691620.3695015"
-
-              />
-              <Talk
-                time="16:35 - 16:55"
-                presenter="Lipsy Gupta"
-                title="Safety Verification of Anytime Perception based Cyber-Physical Systems"
-                presenterLink="https://www.linkedin.com/in/lipsy-gupta-9b1929259?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BEZg55kBoT7SEiWxSkILBow%3D%3D"
-                affiliation="Kansas State University"
-                abstract="AI-based components are increasingly integrated into autonomous and cyber-physical systems (CPS) by replacing traditional modules such as control, perception, and decision-making. These integrations have led to significant advancements in safety-critical domains, including aerospace, automotive, and robotics. The paradigm of anytime perception has been recently introduced to offer flexibility in latency and accuracy, unlike traditional sensors that return outputs with fixed performance. This adaptability enables autonomous systems to perform more complex tasks while ensuring efficient use of computational resources, but it also introduces new safety challenges, as variations in sensing performance can lead to mission-critical failures. To address these challenges, formal verification is emerging as a powerful framework for providing guarantees on the correctness and safety of such systems.
-                In this talk, we focus on the safety verification of anytime perception-based CPS, wherein we model the anytime sensor in the closed loop. We provide an efficient algorithm for reachable set computation of a closed-loop system with an anytime sensor and a neural network controller using the star set data structure and designing new algorithms for some star set operations. We discuss some experimental results that highlight the scalability of the approach and its effectiveness with diverse dynamics, controllers, and sensing configurations."
-                references={`[1] Gupta, L., and Prabhakar, P. Star-set based efficient reachable set computation of anytime sensing-based neural network-controlled dynamical systems. In Proceedings of the International Conference on Embedded Software (EMSOFT), 2025. Journal version published in ACM Transactions on Embedded Computing Systems.
-                [2] Gupta, L., Choton, J. C., and Prabhakar, P. Safety verification of closed-loop control systems with anytime perception. In Proceedings of the International Conference on Robotics and Automation (ICRA), 2024.`}
-                slidesLink="https://drive.google.com/file/d/1fqT90mRB_oQBEDgt94dP-OLrc47M_M0G/view?usp=sharing"
-              />
-              <Talk
-                time ="16:55 - 17:05"
-                presenter="Abhishek De"
-                title="A proofs vs programs correspondence for the epsilon calculus"
-                presenterLink="https://sites.google.com/view/abhishekde"
-                affiliation="Krea University"
-                abstract={`The proofs vs programs (also known as the Curry-Howard correspondence) is a deep connection between logic and programming languages, where formulas correspond to types, proofs to programs, and normalization to evaluation. 
-                In the early 20th century, in order to solve the foundational crisis, Hilbert and Bernays invented the "epsilon-calculus", a logic obtained by adding a choice operator to predicate logic. Epsilon-calculus was largely forgotten in favour of first-order logic; however, there has been renewed interest in its proof theory in the last few decades. 
-                In this talk, we explore the proofs vs programs correspondence for the epsilon calculus. It turns out that epsilon calculus has some mild classical features, which give rise to computational effects at the level of programs. 
-                This is a work in progress with Bruno da Rocha Paiva.`}
-              />
-              {/* <Talk
-                time="16:55 - 17:15"
-                presenter="Soumik Kumar Basu"
-                title="GSOHC: Global Synchronization Optimization in Heterogeneous Computing"
-                presenterLink="https://soumikiith.github.io/"
-                affiliation=""
-                abstract=""
-              />
-            </div>
-             <SessionHeader
-              time="17:30 - 18:20"
-              number={4}
-              title="Short Talks II"
-              chair="TBA"
-            />
-            <div className="w-full pl-2 sm:pl-12 mb-4 space-y-1">
-              <Talk
-                time="17:30 - 17:50"
-                presenter="Darshana Das K"
-                title="From Theory to Practice: Blackbox Testing in an Industrial Telecom Environment"
-                presenterLink="https://www.linkedin.com/in/darshana-das-k-070134247?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B5WbFT%2FphR%2BCJUNqOnJzA5w%3D%3D"
-                affiliation=""
-                abstract=""
-              />
-              <Talk
-                time ="18:00 - 18:20"
-                presenter="Sumit Lahiri"
-                title="Almost correct invariants: synthesizing inductive invariants by fuzzing proofs"
-                presenterLink="https://www.cse.iitk.ac.in/users/sumitl/"
-                affiliation=""
-                abstract=""
-              />
-              <Talk
-                time="18:20 - 18:30"
-                presenter="Mir Md Sajid Sarwar"
-                title="Exploring Inevitable Waypoints for Unsolvability Explanation in Hybrid Planning Problems"
-                presenterLink="https://www.linkedin.com/in/sajid-sarwar-30873820?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BPCs%2BzHxOSeKUIkItFVb4Mw%3D%3D"
-                affiliation=""
-                abstract=""
-              />*/}
-            </div> 
-          </div>
-        )}
+          ))}
         </div>
-      </p>
+      </div>
     </div>
   );
 };

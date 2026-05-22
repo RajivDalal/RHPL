@@ -11,7 +11,8 @@ export default {
       },
        fontFamily: {
         'share': ['Share Tech', 'sans-serif'],
-        'share-mono': ["Share Tech Mono", 'monospace']
+        'share-mono': ["Share Tech Mono", 'monospace'],
+        'calson':['Libre Calson Text','serif']
       },
     },
   },

@@ -1,6 +1,6 @@
 const Footer =() =>{
     return (
-        <div className="sm:flex justify-between bg-[#0b2545] text-[#e5e5e5] py-5 text-sm">
+        <div className="sm:flex justify-between bg-[#1e293b] text-[#e5e5e5] py-5 text-sm">
             <div className="flex items-center px-4 w-max">&copy; IARCS, 2025</div>
             {/* Abhishek sir, Rajiv, Nidhi */}
             <br />

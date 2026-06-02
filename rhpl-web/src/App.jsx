@@ -14,6 +14,7 @@ import Registration from './pages/registration.jsx';
 //import Programme from './pages/programme.jsx';
 import Organizers from './pages/organizers.jsx';
 import Important_dates from './pages/imp_dates.jsx';
+import Gallery from './pages/gallery.jsx';
 import ContactButton from './components/contactButton.jsx';
 import Footer from './components/footer.jsx';
 //import Panel from './pages/panel_discussion';
@@ -62,6 +63,7 @@ function App() {
         {/* <Route path="/programme" element={<Programme />}/> */}
         <Route path="/registration" element={<Registration />}/>
         <Route path="/important_dates" element={<Important_dates />}/>
+        <Route path="/gallery" element={<Gallery />}/>
         {/* <Route path="/panel_discussion" element={<Panel/>}/> */}
         {/* <Route path="/special_session" element={<Special_session/>}></Route> */}
       </Routes>

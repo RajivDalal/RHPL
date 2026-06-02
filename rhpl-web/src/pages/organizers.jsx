@@ -2,7 +2,7 @@
 // const Organizers = () => {
 //   return (
 //     <div className="content">
-      
+
 //       <p className="contain py-10 listLink">
 //         <h1 className="text-[27px] font-bold">Organizers</h1>
 //       <hr className="border-black pb-6"/>
@@ -42,62 +42,62 @@
 
 // export default Organizers;
 const organizers = [
-  { name: "Abhisekh Sankaran",   affiliation: "TCS Research",                     href: "https://abhisekhs.github.io/"},
-  { name: "Divyesh Unadkat",     affiliation: "Synopsys",                          href: "https://divyeshunadkat.github.io/"},
-  { name: "Deepak D'Souza",      affiliation: "IISc Bangalore",                    href: "https://www.csa.iisc.ac.in/~deepakd/" },
-  { name: "Uday Khedker",        affiliation: "IIT Bombay",                        href: "https://www.cse.iitb.ac.in/~uday/" },
-  { name: "Kumar Madhukar",      affiliation: "IIT Delhi",                         href: "https://kumarmadhukar.github.io/" },
-  { name: "Kartik Nagar",        affiliation: "IIT Madras",                        href: "https://kartiknagar.github.io/" },
-  { name: "Sumanth Prabhu",      affiliation: "TCS Research",                      href: "https://sumanthsprabhu.github.io/" },
-  { name: "Ganesan Ramalingam",  affiliation: "Microsoft Research",                href: "https://www.microsoft.com/en-us/research/people/grama/" },
-  { name: "Abhik Roychoudhury", affiliation: "National University of Singapore",  href: "https://abhikrc.com/" },
+  { name: "Abhisekh Sankaran", affiliation: "TCS Research", href: "https://abhisekhs.github.io/" },
+  { name: "Divyesh Unadkat", affiliation: "Synopsys", href: "https://divyeshunadkat.github.io/" },
+  { name: "Deepak D'Souza", affiliation: "IISc Bangalore", href: "https://www.csa.iisc.ac.in/~deepakd/" },
+  { name: "Uday Khedker", affiliation: "IIT Bombay", href: "https://www.cse.iitb.ac.in/~uday/" },
+  { name: "Kumar Madhukar", affiliation: "IIT Delhi", href: "https://kumarmadhukar.github.io/" },
+  { name: "Kartik Nagar", affiliation: "IIT Madras", href: "https://kartiknagar.github.io/" },
+  { name: "Sumanth Prabhu", affiliation: "TCS Research", href: "https://sumanthsprabhu.github.io/" },
+  { name: "Ganesan Ramalingam", affiliation: "Microsoft Research", href: "https://www.microsoft.com/en-us/research/people/grama/" },
+  { name: "Abhik Roychoudhury", affiliation: "National University of Singapore", href: "https://abhikrc.com/" },
 ];
 
 const Organizers = () => {
   return (
-  <div className="
+    <div className="
   bg-gradient-to-b
   from-[#f4f7fb]
   to-[#e9eef5]
 ">
-  <div className="max-w-[1120px] mx-auto px-6"></div>
-    <div className="max-w-[1120px] mx-auto px-6 py-16">
-      <div className="max-w-[820px] mx-auto bg-white border border-[#c6c6cd] rounded-xl p-10
+      <div className="max-w-[1120px] mx-auto px-6"></div>
+      <div className="max-w-[1120px] mx-auto px-6 py-16">
+        <div className="max-w-[820px] mx-auto bg-white border border-[#c6c6cd] rounded-xl p-10
         shadow-[0_4px_20px_rgba(15,23,42,.05)]">
-        <h2 className="font-['Libre_Caslon_Text'] text-[26px] font-bold text-black mb-5 pb-4
+          <h2 className="font-['Libre_Caslon_Text'] text-[32px] font-bold text-black mb-5 pb-4
           border-b border-[#c6c6cd]">
-          Organizers
-        </h2>
+            Organizers
+          </h2>
 
-        <div className="flex flex-col">
-          {organizers.map(({ name, affiliation, href, role }, i) => (
-            <>
-              
-              <div key={name}
-                className="flex items-center gap-2.5 px-4 py-3.5 rounded-lg
+          <div className="flex flex-col">
+            {organizers.map(({ name, affiliation, href, role }, i) => (
+              <>
+
+                <div key={name}
+                  className="flex items-center gap-3 px-4 py-3.5 rounded-lg
                   hover:bg-[#f2f4f6] transition-colors group">
-                <span className="text-[#fd8a42] text-[9px] shrink-0">■</span>
-                <a href={href} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 no-underline flex-wrap">
-                  <span className="text-[15px] font-medium text-black underline
-                    decoration-[#fd8a42] decoration-2 underline-offset-[3px]
-                    group-hover:text-[#9b4500] transition-colors">
-                    {name}
-                  </span>
-                  <span className="text-[13px] text-[#45464d]">({affiliation})</span>
-                  {role && (
-                    <span className="text-[11px] font-semibold bg-[#fd8a42] text-[#331200]
-                      px-2 py-0.5 rounded">
-                      {role}
+                  <span className="text-[#ea580c] text-[11px] shrink-0">■</span>
+                  <a href={href} target="_blank" rel="noopener noreferrer"
+                    className="flex items-center gap-3 no-underline flex-wrap">
+                    <span className="text-[18px] font-medium text-black underline
+                    decoration-[#ea580c] decoration-2 underline-offset-[3px]
+                    group-hover:text-[#b43d00] transition-colors">
+                      {name}
                     </span>
-                  )}
-                </a>
-              </div>
-            </>
-          ))}
+                    <span className="text-[15px] text-[#45464d]">({affiliation})</span>
+                    {role && (
+                      <span className="text-[13px] font-semibold bg-[#ea580c] text-[#331200]
+                      px-2 py-0.5 rounded">
+                        {role}
+                      </span>
+                    )}
+                  </a>
+                </div>
+              </>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

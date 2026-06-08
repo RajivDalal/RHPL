@@ -7,6 +7,9 @@ const Previous_editions = () => {
         <hr className="border-black pb-6" />
         <ul className="list-disc space-y-1 ml-8">
           <li>
+            <a href="https://fmindia.cmi.ac.in/rhpl2025/" className="underline">RHPL 2025</a> (Fourth edition)
+          </li>
+          <li>
             <a href="https://fmindia.cmi.ac.in/rhpl2024/" className="underline">RHPL 2024</a> (Third edition)
           </li>
           <li>

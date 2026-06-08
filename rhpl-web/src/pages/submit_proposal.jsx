@@ -5,7 +5,7 @@ const Submit_proposal = () => {
     <div className="content">
       <p className="contain py-10 space-y-2">
         
-       <h1 className="text-[27px] font-bold">Submit a proposal</h1>
+       <h1 className="text-[27px] font-bold">Submit a Proposal</h1>
         
        <hr className="border-black pb-4"/>
         

@@ -88,7 +88,7 @@ p.contain {
   font-weight: 500;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
@@ -121,7 +121,7 @@ p.contain {
 .nav-link-rhpl {
   position: relative;
   padding-bottom: 4px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -169,7 +169,7 @@ body, html {
 
 /* 2. White Card Content Panels (replicating Organizers box) */
 .content {
-  font-size: 21px !important;
+  font-size: 17px !important;
   background-color: #ffffff !important;
   border: 1px solid #c6c6cd !important;
   border-radius: 12px !important;
@@ -219,13 +219,13 @@ body, html {
 /* Big round bullet style replacing the default orange squares */
 .max-w-\[820px\] .group>span.shrink-0 {
   display: inline-block !important;
-  width: 12px !important;
-  height: 12px !important;
-  background-color: #ff8c00 !important;
+  width: 9px !important;
+  height: 9px !important;
+  background-color: #06152c !important;
   border-radius: 50% !important;
   color: transparent !important;
   overflow: hidden !important;
-  margin-right: 8px !important;
+  margin-right: 6px !important;
   margin-top: 13px !important;
 }
 
@@ -239,15 +239,15 @@ body, html {
 
 /* Person's name (slightly bigger: 22px) */
 .max-w-\[820px\] .group a>span:first-child {
-  color: #cc5500 !important;
-  font-size: 22px !important;
+  color: #06152c !important;
+  font-size: 20px !important;
   font-weight: 500 !important;
-  text-decoration-color: #cc5500 !important;
+  text-decoration-color: #cc550088 !important;
 }
 
 /* Institution name (title beneath name, slightly bigger: 15px) */
 .max-w-\[820px\] .group a>span:nth-child(2) {
-  font-size: 15px !important;
+  font-size: 17px !important;
   color: #666 !important;
   text-decoration: none !important;
 }

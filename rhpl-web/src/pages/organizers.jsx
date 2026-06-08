@@ -48,7 +48,6 @@ const organizers = [
   { name: "Uday Khedker", affiliation: "IIT Bombay", href: "https://www.cse.iitb.ac.in/~uday/" },
   { name: "Kumar Madhukar", affiliation: "IIT Delhi", href: "https://kumarmadhukar.github.io/" },
   { name: "Kartik Nagar", affiliation: "IIT Madras", href: "https://kartiknagar.github.io/" },
-  { name: "Sumanth Prabhu", affiliation: "TCS Research", href: "https://sumanthsprabhu.github.io/" },
   { name: "Ganesan Ramalingam", affiliation: "Microsoft Research", href: "https://www.microsoft.com/en-us/research/people/grama/" },
   { name: "Abhik Roychoudhury", affiliation: "National University of Singapore", href: "https://abhikrc.com/" },
 ];
@@ -79,14 +78,14 @@ const Organizers = () => {
                   <span className="text-[#ea580c] text-[11px] shrink-0">■</span>
                   <a href={href} target="_blank" rel="noopener noreferrer"
                     className="flex items-center gap-3 no-underline flex-wrap">
-                    <span className="text-[18px] font-medium text-black underline
+                    <span className="text-[16px] font-medium text-black underline
                     decoration-[#ea580c] decoration-2 underline-offset-[3px]
                     group-hover:text-[#b43d00] transition-colors">
                       {name}
                     </span>
-                    <span className="text-[15px] text-[#45464d]">({affiliation})</span>
+                    <span className="text-[16px] text-[#45464d]">{affiliation}</span>
                     {role && (
-                      <span className="text-[13px] font-semibold bg-[#ea580c] text-[#331200]
+                      <span className="text-[15px] font-semibold bg-[#ea580c] text-[#331200]
                       px-2 py-0.5 rounded">
                         {role}
                       </span>

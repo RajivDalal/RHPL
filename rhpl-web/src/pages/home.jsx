@@ -11,7 +11,7 @@ const Home = () => {
       
       <hr className="border-black pb-4"/>
 
-        <div className="paraLink">The <a className="underline" href="https://www.iarcs.org.in/">Indian Association for Research in Computing Science (IARCS)</a> is pleased to announce the fourth edition of the Workshop on Research Highlights in Programming Languages (RHPL). The workshop will be co-located with <a href="https://www.fsttcs.org.in/2025/"><span className="underline">FSTTCS 2025</span>.</a></div>
+        <div className="paraLink">The <a className="underline" href="https://www.iarcs.org.in/">Indian Association for Research in Computing Science (IARCS)</a> is pleased to announce the fifth edition of the Workshop on Research Highlights in Programming Languages (RHPL). The workshop will be co-located with <a href="https://www.fsttcs.org.in/2026/"><span className="underline">FSTTCS 2026</span>.</a></div>
  
         <div>The focus of the workshop will be on all areas of Programming Languages (PL), including but not limited to:
         </div>
@@ -47,6 +47,9 @@ const Home = () => {
           <li>
             Programming language education
           </li>          
+          <li>
+            Auto-active verification, quantum programming languages and verification, LLM assisted verification, Correctness of LLM generated code, LLMs for formal specification generation, invariants and annotation
+          </li>          
            <li>
             Probabilistic reasoning<br/>
           </li> */}
@@ -55,11 +58,11 @@ const Home = () => {
         <div>Further, in view of the increasing role of Artificial Intelligence (AI) and Machine Learning (ML) in PL theory and practice, the workshop also includes in its scope themes pertaining to the influences of AI/ML concepts and tools on the mentioned PL topics, and vice-versa; for instance, probabilistic programming languages. </div>
 
 
-      <div className="paraLink">We invite you to participate in the workshop. The <Link to="/registration" className="underline hover:text-[#14248a]">registration</Link> for the workshop is open.</div>
+      {/* <div className="paraLink">We invite you to participate in the workshop. The <Link to="/registration" className="underline hover:text-[#14248a]">registration</Link> for the workshop is open.</div> */}
 
-        {/* <div className="paraLink">We invite talk and poster proposals to the workshop. Please see <a href="/submit_proposal" className="underline">here</a> for more details on submitting proposals.</div> */}
+        <div className="paraLink">We invite talk and poster proposals to the workshop. Please see <Link to="/submit_proposal" className="underline hover:#14248a">here</Link> for more details on submitting proposals.</div>
 
-        <div>The objective of RHPL is to foster interactions between the attendees of the workshop, and more broadly between researchers working on Programming Languages and the traditional FSTTCS community of researchers working on Theoretical Computer Science and Formal Methods. In the long term, we hope that RHPL will evolve into a regular conference or a track integrated with the FSTTCS conference.</div>
+        <div>The objective of RHPL is to foster interactions between the attendees of the workshop, and more broadly researchers working on Programming Languages, and the traditional FSTTCS community of researchers working on Theoretical Computer Science and Formal Methods. In the long term, we hope that RHPL will evolve into a regular conference or a track integrated with the FSTTCS conference.</div>
       </p>
     </div>
   )

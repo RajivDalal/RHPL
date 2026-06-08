@@ -7,7 +7,7 @@ const Venue = () => {
         <h1 className="text-[27px] font-bold">Venue</h1>
         <hr className="border-black pb-4"/>
           
-        The workshop will be held at <a className="underline" href="https://www.bits-pilani.ac.in/goa/" >BITS Pilani, K K Birla Goa Campus</a>.
+        The workshop will be held at <a className="underline" href="https://home.iitd.ac.in/" >IIT Delhi, New Delhi Campus</a>.
       </p>
     </div>
   )

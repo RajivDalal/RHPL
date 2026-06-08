@@ -57,7 +57,7 @@ md:text-xl
 text-lg
                 font-medium tracking-wide text-[#d6d6d6]
             ">
-                    December 17 – 19, 2025
+                    December 2026
                 </p>
 
                 {/* Venue */}
@@ -68,9 +68,9 @@ text-lg
                 text-xl
                 text-[#e2e8f0] navmenu
             ">
-                    <a href="https://www.bits-pilani.ac.in/goa/"
+                    <a href="https://home.iitd.ac.in/"
                         className="hover:text-white transition-colors duration-200">
-                        BITS Pilani, K K Birla Goa Campus
+                        IIT Delhi, New Delhi Campus
                     </a>
                 </p>
 
@@ -83,9 +83,9 @@ text-lg
                 text-[#b8c1cc] italic navmenu
             ">
                     co-located with{" "}
-                    <a href="https://www.fsttcs.org.in/2025/"
+                    <a href="https://www.fsttcs.org.in/2026/"
                         className="hover:text-white transition-colors duration-200">
-                        FSTTCS 2025
+                        FSTTCS 2026
                     </a>
                 </p>
             </div>

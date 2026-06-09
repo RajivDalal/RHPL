@@ -24,9 +24,11 @@ const Submit_proposal = () => {
 
         <div>Proposals to the workshop may be submitted using the Google form below:</div>
 
-        <div className="paraLink"><a className="underline" href="https://forms.gle/RufuAs54zxsadp1n7">Proposal submission to RHPL 2025</a></div>
+        <div className="paraLink"><a className="underline" href="https://forms.fillout.com/t/7ePHh773f2us">Proposal submission to RHPL 2026</a></div>
 
         <div>Please see <Link to="/" className="underline hover:#14248a">here</Link> for the submission topics, and <Link to="/important_dates" className="underline hover:#14248a">here</Link> for the submission deadline and other important dates.</div>
+      
+
       </p>
     </div>
   );

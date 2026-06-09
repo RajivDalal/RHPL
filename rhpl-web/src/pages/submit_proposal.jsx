@@ -1,14 +1,15 @@
-import {NavLink, Link} from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { FilloutStandardEmbed } from "@fillout/react";
 
 const Submit_proposal = () => {
   return (
     <div className="content">
       <p className="contain py-10 space-y-2">
-        
-       <h1 className="text-[27px] font-bold">Submit a Proposal</h1>
-        
-       <hr className="border-black pb-4"/>
-        
+
+        <h1 className="text-[27px] font-bold">Submit a Proposal</h1>
+
+        <hr className="border-black pb-4" />
+
         <div>We invite proposals for:</div>
 
         <ul className="space-y-1 list-disc ml-7">
@@ -24,10 +25,12 @@ const Submit_proposal = () => {
 
         <div>Proposals to the workshop may be submitted using the Google form below:</div>
 
+        <div className="w-[800px] h-[600px] mx-auto bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden my-6"> <FilloutStandardEmbed filloutId="7ePHh773f2us" /> </div>
+
         <div className="paraLink"><a className="underline" href="https://forms.fillout.com/t/7ePHh773f2us">Proposal submission to RHPL 2026</a></div>
 
         <div>Please see <Link to="/" className="underline hover:#14248a">here</Link> for the submission topics, and <Link to="/important_dates" className="underline hover:#14248a">here</Link> for the submission deadline and other important dates.</div>
-      
+
 
       </p>
     </div>

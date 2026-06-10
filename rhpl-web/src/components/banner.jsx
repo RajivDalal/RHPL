@@ -9,11 +9,13 @@ const Banner = () => {
         overflow-hidden
         text-[#f5f5f5]
         min-h-[calc(50vh-72px)]
+        lg:min-h-[calc(35vh-72px)]
         flex
         items-center
         justify-center
         px-6
         py-16
+        lg:py-8
     "
         >
             {/* Ambient background glows */}

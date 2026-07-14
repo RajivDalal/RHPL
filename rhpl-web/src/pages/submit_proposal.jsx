@@ -22,7 +22,7 @@ const Submit_proposal = () => {
 
         <div>Each proposal can be based on one or more works, published or unpublished.</div>
 
-        <div>Proposals to the workshop may be submitted using the Google form below:</div>
+        <div>Proposals to the workshop may be submitted using the form below.</div>
 
         <div className="paraLink"><a className="underline" href="https://forms.fillout.com/t/7ePHh773f2us">Proposal submission to RHPL 2026</a></div>
 

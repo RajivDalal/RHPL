@@ -59,7 +59,7 @@ md:text-xl
 text-lg
                 font-medium tracking-wide text-[#d6d6d6]
             ">
-                    December 2026
+                    December 16 - 18, 2026
                 </p>
 
                 {/* Venue */}

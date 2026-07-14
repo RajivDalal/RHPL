@@ -8,7 +8,7 @@ const Important_dates = () => {
         <div className="paraLink">All dates below are in <a classname="underline" href="https://en.wikipedia.org/wiki/Indian_Standard_Time">Indian Standard Time (IST)</a>.</div> 
         <ul className="list-disc space-y-1 ml-8">
           <li>
-            Submission portal opens: Sometime in June, 2026
+            Submission portal opens: Tentatively July end, 2026
           </li>
           <li>
             Submission deadline: TBA
@@ -20,7 +20,7 @@ const Important_dates = () => {
             Early registration deadline: November 30, 2025
           </li> */}
           <li>
-            RHPL@FSTTCS: December 2026
+            RHPL@FSTTCS: December 16 - 18, 2026
           </li>
         </ul>
 

@@ -42,8 +42,8 @@
 
 // export default Organizers;
 const organizers = [
-  { name: "Pankaj Kumar Kalita (co-Chair)", affiliation: "IBM Research", href: "https://pkalita595.github.io/" },
-  { name: "Abhisekh Sankaran (co-Chair)", affiliation: "TCS Research", href: "https://abhisekhs.github.io/" }, 
+  { name: "Pankaj Kumar Kalita", affiliation: "IBM Research", href: "https://pkalita595.github.io/" },
+  { name: "Abhisekh Sankaran", affiliation: "TCS Research", href: "https://abhisekhs.github.io/" }, 
   { name: "Divyesh Unadkat", affiliation: "Synopsys", href: "https://divyeshunadkat.github.io/" },
   { name: "Deepak D'Souza", affiliation: "IISc Bangalore", href: "https://www.csa.iisc.ac.in/~deepakd/" },
   { name: "Uday Khedker", affiliation: "IIT Bombay", href: "https://www.cse.iitb.ac.in/~uday/" },

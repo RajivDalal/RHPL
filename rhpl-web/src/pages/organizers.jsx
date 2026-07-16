@@ -49,7 +49,7 @@ const organizers = [
   { name: "Uday Khedker", affiliation: "IIT Bombay", href: "https://www.cse.iitb.ac.in/~uday/" },
   { name: "Kumar Madhukar", affiliation: "IIT Delhi", href: "https://kumarmadhukar.github.io/" },
   { name: "Kartik Nagar", affiliation: "IIT Madras", href: "https://kartiknagar.github.io/" },
-  { name: "Ganesan Ramalingam", affiliation: "Microsoft Research", href: "https://www.microsoft.com/en-us/research/people/grama/" },
+  { name: "Ganesan Ramalingam", affiliation: "Microsoft", href: "https://www.microsoft.com/en-us/research/people/grama/" },
   { name: "Abhik Roychoudhury", affiliation: "National University of Singapore", href: "https://abhikrc.com/" },
 ];
 
